@@ -1,13 +1,13 @@
-import { Node } from "./types";
+import { Node } from './types';
 
-const SEPARATOR = ",";
-const OPEN_PARENS = "(";
-const CLOSE_PARENS = ")";
+const SEPARATOR = ',';
+const OPEN_PARENS = '(';
+const CLOSE_PARENS = ')';
 
-export const serialize = (node: Node, character: string = ""): string => {
+export const serialize = (node: Node, character: string = ''): string => {
   const letters = Object.keys(node).filter((key) => key.length === 1);
   const hasMore = letters.length > 0;
-  let serialized = "";
+  let serialized = '';
   if (node.wordEnd) {
     serialized += character;
   }
@@ -17,9 +17,7 @@ export const serialize = (node: Node, character: string = ""): string => {
   if (hasMore) {
     serialized += character;
     serialized += OPEN_PARENS;
-    serialized += letters
-      .map((letter) => serialize(node[letter], letter))
-      .join(SEPARATOR);
+    serialized += letters.map((letter) => serialize(node[letter], letter)).join(SEPARATOR);
     serialized += CLOSE_PARENS;
   }
   return serialized;
