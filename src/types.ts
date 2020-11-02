@@ -1,3 +1,3 @@
-export interface Node extends Record<string, Node> {
-  wordEnd?: boolean;
-}
+export type Node = {
+  [key: string]: Node | true;
+};

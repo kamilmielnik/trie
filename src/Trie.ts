@@ -10,7 +10,7 @@ class Trie {
 
   static fromArray(array: string[]): Trie {
     const root = array.reduce<Node>((trie, word) => {
-      let node = trie;
+      let node: Node = trie;
 
       for (let index = 0; index < word.length; ++index) {
         const character = word[index];
@@ -57,9 +57,11 @@ class Trie {
 
     for (let index = 0; index < word.length; ++index) {
       const character = word[index];
+
       if (!node[character]) {
         return false;
       }
+
       node = node[character];
     }
 

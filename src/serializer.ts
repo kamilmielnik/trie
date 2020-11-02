@@ -4,6 +4,10 @@ const SEPARATOR = ',';
 const OPEN_PARENS = '(';
 const CLOSE_PARENS = ')';
 
+const isNode = (node: any): node is Node => {
+  return typeof node === 'object' && node !== null;
+};
+
 export const serialize = (node: Node, character: string = ''): string => {
   const letters = Object.keys(node).filter((key) => key.length === 1);
   const hasMore = letters.length > 0;
@@ -25,7 +29,7 @@ export const serialize = (node: Node, character: string = ''): string => {
 
 export const deserialize = (serialized: string): Node => {
   const stack = [];
-  let node = {};
+  let node: Node = {};
   let i = 1;
 
   while (i < serialized.length - 1) {
@@ -33,13 +37,26 @@ export const deserialize = (serialized: string): Node => {
     const nextCharacter = serialized[++i];
 
     if (character === CLOSE_PARENS) {
-      node = stack.pop();
+      const nextNode = stack.pop();
+
+      if (!isNode(nextNode)) {
+        throw new Error(`"${nextNode}" does not match Node interface`);
+      }
+
+      node = nextNode;
     } else if (nextCharacter === SEPARATOR) {
       node[character] = { wordEnd: true };
       ++i;
     } else if (nextCharacter === CLOSE_PARENS) {
       node[character] = { wordEnd: true };
-      node = stack.pop();
+
+      const nextNode = stack.pop();
+
+      if (!isNode(nextNode)) {
+        throw new Error(`"${nextNode}" does not match Node interface`);
+      }
+
+      node = nextNode;
       ++i;
     } else if (nextCharacter === OPEN_PARENS) {
       stack.push(node);
