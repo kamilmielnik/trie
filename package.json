@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/kamilmielnik/re-trie#readme",
   "scripts": {
+    "prettier": "prettier --list-different './src/**/*.{js,jsx,ts,tsx}'",
+    "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "jest": "^26.6.2"
+    "jest": "^26.6.2",
+    "prettier": "^2.1.2"
   }
 }
