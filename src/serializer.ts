@@ -2,7 +2,7 @@ const SEPARATOR = ",";
 const OPEN_PARENS = "(";
 const CLOSE_PARENS = ")";
 
-const serialize = (node, character = "") => {
+export const serialize = (node, character = "") => {
   const letters = Object.keys(node).filter((key) => key.length === 1);
   const hasMore = letters.length > 0;
   let serialized = "";
@@ -23,7 +23,7 @@ const serialize = (node, character = "") => {
   return serialized;
 };
 
-const deserialize = (serialized) => {
+export const deserialize = (serialized) => {
   const stack = [];
   let node = {};
   let i = 1;
@@ -51,9 +51,4 @@ const deserialize = (serialized) => {
   }
 
   return node;
-};
-
-module.exports = {
-  serialize,
-  deserialize,
 };

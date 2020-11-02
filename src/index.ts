@@ -1,4 +1,4 @@
-const { serialize, deserialize } = require("./serializer");
+import { serialize, deserialize } from "./serializer";
 
 class Trie {
   static deserialize(serialized) {

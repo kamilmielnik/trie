@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kamilmielnik/re-trie#readme",
   "scripts": {
+    "build": "tsc --project .",
     "prettier": "prettier --list-different './src/**/*.{js,jsx,ts,tsx}'",
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "test": "jest",
@@ -25,6 +26,8 @@
   },
   "devDependencies": {
     "jest": "^26.6.2",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
   }
 }
