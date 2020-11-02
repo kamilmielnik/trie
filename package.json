@@ -1,0 +1,27 @@
+{
+  "name": "re-trie",
+  "version": "0.0.1",
+  "description": "Trie implementation",
+  "main": "src/index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Kamil Mielnik",
+    "email": "kamil.adam.mielnik@gmail.com",
+    "url": "https://kamilmielnik.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamilmielnik/re-trie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kamilmielnik/re-trie/issues"
+  },
+  "homepage": "https://github.com/kamilmielnik/re-trie#readme",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^26.6.2"
+  }
+}
