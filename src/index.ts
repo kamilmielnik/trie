@@ -1,14 +1,15 @@
 import { serialize, deserialize } from './serializer';
+import { Node } from './types';
 
 class Trie {
-  static deserialize(serialized) {
+  static deserialize(serialized: string): Trie {
     const trie = new Trie();
     trie.root = deserialize(serialized);
     return trie;
   }
 
-  static fromArray(array) {
-    const root = array.reduce((trie, word) => {
+  static fromArray(array: string[]): Trie {
+    const root = array.reduce<Node>((trie, word) => {
       let node = trie;
 
       for (let index = 0; index < word.length; ++index) {
@@ -29,11 +30,13 @@ class Trie {
     return new Trie(root);
   }
 
+  private root: Node;
+
   constructor(root = {}) {
     this.root = root;
   }
 
-  has(word) {
+  has(word: string) {
     let node = this.root;
 
     for (let index = 0; index < word.length; ++index) {
@@ -49,7 +52,7 @@ class Trie {
     return node.wordEnd;
   }
 
-  hasMore(word) {
+  hasMore(word: string): boolean {
     let node = this.root;
 
     for (let index = 0; index < word.length; ++index) {
@@ -63,11 +66,11 @@ class Trie {
     return Object.keys(node).length > 0;
   }
 
-  serialize() {
+  serialize(): string {
     return serialize(this.root);
   }
 
-  toJson() {
+  toJson(): Record<string, unknown> {
     return this.root;
   }
 }
