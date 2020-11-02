@@ -1,8 +1,10 @@
+import { Node } from "./types";
+
 const SEPARATOR = ",";
 const OPEN_PARENS = "(";
 const CLOSE_PARENS = ")";
 
-export const serialize = (node, character = "") => {
+export const serialize = (node: Node, character: string = ""): string => {
   const letters = Object.keys(node).filter((key) => key.length === 1);
   const hasMore = letters.length > 0;
   let serialized = "";
@@ -23,7 +25,7 @@ export const serialize = (node, character = "") => {
   return serialized;
 };
 
-export const deserialize = (serialized) => {
+export const deserialize = (serialized: string): Node => {
   const stack = [];
   let node = {};
   let i = 1;

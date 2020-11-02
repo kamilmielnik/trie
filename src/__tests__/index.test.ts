@@ -1,4 +1,4 @@
-const Trie = require("../index");
+import Trie from "../index";
 
 describe("Trie", () => {
   const words = ["ab", "abcd", "abce", "ace"];
