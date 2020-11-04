@@ -8,8 +8,8 @@ class Trie {
     return trie;
   }
 
-  static fromArray(array: string[]): Trie {
-    const root = array.reduce<Node>((trie, word) => {
+  static fromArray(words: string[]): Trie {
+    const root = words.reduce<Node>((trie, word) => {
       let node: Node = trie;
 
       for (let index = 0; index < word.length; ++index) {
@@ -19,7 +19,7 @@ class Trie {
           node[character] = {};
         }
 
-        node = node[character];
+        node = node[character] as Node;
       }
 
       node.wordEnd = true;
@@ -32,7 +32,7 @@ class Trie {
 
   private root: Node;
 
-  constructor(root = {}) {
+  constructor(root: Node = {}) {
     this.root = root;
   }
 
@@ -46,7 +46,7 @@ class Trie {
         return false;
       }
 
-      node = node[character];
+      node = node[character] as Node;
     }
 
     return node.wordEnd;
@@ -62,7 +62,7 @@ class Trie {
         return false;
       }
 
-      node = node[character];
+      node = node[character] as Node;
     }
 
     return Object.keys(node).length > 0;
@@ -72,7 +72,7 @@ class Trie {
     return serialize(this.root);
   }
 
-  toJson(): Record<string, unknown> {
+  toJson(): Node {
     return this.root;
   }
 }

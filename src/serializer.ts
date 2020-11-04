@@ -4,10 +4,6 @@ const SEPARATOR = ',';
 const OPEN_PARENS = '(';
 const CLOSE_PARENS = ')';
 
-const isNode = (node: any): node is Node => {
-  return typeof node === 'object' && node !== null;
-};
-
 export const serialize = (node: Node, character: string = ''): string => {
   const letters = Object.keys(node).filter((key) => key.length === 1);
   const hasMore = letters.length > 0;
@@ -21,14 +17,14 @@ export const serialize = (node: Node, character: string = ''): string => {
   if (hasMore) {
     serialized += character;
     serialized += OPEN_PARENS;
-    serialized += letters.map((letter) => serialize(node[letter], letter)).join(SEPARATOR);
+    serialized += letters.map((letter) => serialize(node[letter] as Node, letter)).join(SEPARATOR);
     serialized += CLOSE_PARENS;
   }
   return serialized;
 };
 
 export const deserialize = (serialized: string): Node => {
-  const stack = [];
+  const stack: Node[] = [];
   let node: Node = {};
   let i = 1;
 
@@ -39,8 +35,8 @@ export const deserialize = (serialized: string): Node => {
     if (character === CLOSE_PARENS) {
       const nextNode = stack.pop();
 
-      if (!isNode(nextNode)) {
-        throw new Error(`"${nextNode}" does not match Node interface`);
+      if (!nextNode) {
+        throw new Error(`Syntax error: misplaced "${CLOSE_PARENS}"`);
       }
 
       node = nextNode;
@@ -52,8 +48,8 @@ export const deserialize = (serialized: string): Node => {
 
       const nextNode = stack.pop();
 
-      if (!isNode(nextNode)) {
-        throw new Error(`"${nextNode}" does not match Node interface`);
+      if (!nextNode) {
+        throw new Error(`Syntax error: misplaced "${CLOSE_PARENS}"`);
       }
 
       node = nextNode;
@@ -62,9 +58,13 @@ export const deserialize = (serialized: string): Node => {
       stack.push(node);
       const newNode = node[character] || {};
       node[character] = newNode;
-      node = newNode;
+      node = newNode as Node;
       ++i;
     }
+  }
+
+  if (stack.length > 0) {
+    throw new Error(`Syntax error: missing ${stack.length} "${CLOSE_PARENS}"`);
   }
 
   return node;

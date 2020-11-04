@@ -1,5 +1,7 @@
 import Trie from '../index';
 
+import { Node } from '../types';
+
 describe('Trie', () => {
   const words = ['ab', 'abcd', 'abce', 'ace'];
   const prefixes = ['a', 'ab', 'abc', 'ac', ...words];
@@ -7,7 +9,7 @@ describe('Trie', () => {
   const otherPrefixes = ['b', 'bc', 'ce', 'bcd', 'bce'];
   const trie = Trie.fromArray(words);
   const serializedTrie = '(a(b,b(c(d,e)),c(e)))';
-  const trieJson = {
+  const trieJson: Node = {
     a: {
       b: {
         wordEnd: true,
