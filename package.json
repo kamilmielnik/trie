@@ -51,7 +51,7 @@
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "prebuild": "npm run clean",
     "prerelease": "npm run build",
-    "release": "np",
+    "release": "np --no-2fa",
     "test": "jest --no-cache",
     "test:watch": "jest --no-cache --watch"
   },
