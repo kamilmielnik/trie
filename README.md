@@ -1,12 +1,22 @@
 # @kamilmielnik/trie
 
-## Installation
+
+![Version](https://img.shields.io/github/package-json/v/kamilmielnik/trie)
+![Dependencies](https://img.shields.io/david/kamilmielnik/trie)
+![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/kamilmielnik/trie)
+![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)
+
+[Trie](https://en.wikipedia.org/wiki/Trie) data structure implementation (in TypeScript).
+Highly performant.
+Built for a [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver).
+
+# Installation
 
 ```Shell
 npm install --save @kamilmielnik/trie
 ```
 
-## Usage
+# Usage
 
 ```ts
 import Trie from '@kamilmielnik/trie';
@@ -21,11 +31,11 @@ console.log(trie.has('master')); // true
 console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
 ```
 
-### API
+## API
 
-#### Node
+### Node
 
-##### Properties
+#### Properties
 
 - `[key: string]: Node`
 
@@ -35,9 +45,9 @@ console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
 
   Indicates that keys of all parent nodes make a valid word when joined together.
 
-#### Trie
+### Trie
 
-##### Static functions
+#### Static functions
 
 - `Trie.deserialize(serialized: string): Trie`
 
@@ -47,7 +57,7 @@ console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
 
   Builds a `Trie` instance based on array of words.
 
-##### Instance methods
+#### Instance methods
 
 - `Trie.prototype.add(word: string): void`
 
