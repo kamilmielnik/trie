@@ -1,29 +1,8 @@
-import { Node } from './types';
+import { Node } from '../types';
 
-const SEPARATOR = ',';
-const OPEN_PARENS = '(';
-const CLOSE_PARENS = ')';
+import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from './constants';
 
-export const serialize = (node: Node, character: string = ''): string => {
-  const letters = Object.keys(node).filter((key) => key.length === 1);
-  const hasPrefix = letters.length > 0;
-  let serialized = '';
-  if (node.wordEnd) {
-    serialized += character;
-  }
-  if (node.wordEnd && hasPrefix) {
-    serialized += SEPARATOR;
-  }
-  if (hasPrefix) {
-    serialized += character;
-    serialized += OPEN_PARENS;
-    serialized += letters.map((letter) => serialize(node[letter] as Node, letter)).join(SEPARATOR);
-    serialized += CLOSE_PARENS;
-  }
-  return serialized;
-};
-
-export const deserialize = (serialized: string): Node => {
+const deserialize = (serialized: string): Node => {
   const stack: Node[] = [];
   let node: Node = {};
   let i = 1;
@@ -69,3 +48,5 @@ export const deserialize = (serialized: string): Node => {
 
   return node;
 };
+
+export default deserialize;
