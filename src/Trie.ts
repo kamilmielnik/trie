@@ -7,25 +7,9 @@ class Trie {
   }
 
   static fromArray(words: string[]): Trie {
-    const root = words.reduce<Node>((trie, word) => {
-      let node: Node = trie;
-
-      for (let index = 0; index < word.length; ++index) {
-        const character = word[index];
-
-        if (!node[character]) {
-          node[character] = {};
-        }
-
-        node = node[character] as Node;
-      }
-
-      node.wordEnd = true;
-
-      return trie;
-    }, {});
-
-    return new Trie(root);
+    const trie = new Trie();
+    words.forEach((word) => trie.add(word));
+    return trie;
   }
 
   private root: Node;
@@ -34,7 +18,23 @@ class Trie {
     this.root = root;
   }
 
-  has(word: string) {
+  add(word: string): void {
+    let node: Node = this.root;
+
+    for (let index = 0; index < word.length; ++index) {
+      const character = word[index];
+
+      if (!node[character]) {
+        node[character] = {};
+      }
+
+      node = node[character] as Node;
+    }
+
+    node.wordEnd = true;
+  }
+
+  has(word: string): boolean {
     let node = this.root;
 
     for (let index = 0; index < word.length; ++index) {
@@ -47,7 +47,7 @@ class Trie {
       node = node[character] as Node;
     }
 
-    return node.wordEnd;
+    return Boolean(node.wordEnd);
   }
 
   hasPrefix(word: string): boolean {
