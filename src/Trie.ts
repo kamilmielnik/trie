@@ -52,7 +52,7 @@ class Trie {
     return node.wordEnd;
   }
 
-  hasMore(word: string): boolean {
+  hasPrefix(word: string): boolean {
     let node = this.root;
 
     for (let index = 0; index < word.length; ++index) {

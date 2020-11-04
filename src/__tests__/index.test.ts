@@ -35,7 +35,7 @@ describe('Trie', () => {
   });
 
   it('has all the prefixes', () => {
-    prefixes.forEach((prefix) => expect(trie.hasMore(prefix)).toBe(true));
+    prefixes.forEach((prefix) => expect(trie.hasPrefix(prefix)).toBe(true));
   });
 
   it('does not have other words', () => {
@@ -43,7 +43,7 @@ describe('Trie', () => {
   });
 
   it('does not have other prefixes', () => {
-    otherPrefixes.forEach((word) => expect(trie.hasMore(word)).toBe(false));
+    otherPrefixes.forEach((word) => expect(trie.hasPrefix(word)).toBe(false));
   });
 
   it('properly converts to json', () => {
