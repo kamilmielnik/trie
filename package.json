@@ -21,6 +21,9 @@
     "dist/**"
   ],
   "types": "./dist/index.d.ts",
+  "np": {
+    "yarn": false
+  },
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -44,12 +47,15 @@
     "prettier": "prettier --list-different './src/**/*.{js,ts}'",
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "prebuild": "npm run clean",
+    "prerelease": "npm run build",
+    "release": "np",
     "test": "jest --no-cache",
     "test:watch": "jest --no-cache --watch"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
     "jest": "^26.6.3",
+    "np": "^7.0.0",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.4.3",
