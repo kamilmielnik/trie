@@ -2,7 +2,6 @@
   "name": "re-trie",
   "version": "0.0.1",
   "description": "Trie data structure implementation (in TypeScript)",
-  "main": "src/index.js",
   "license": "MIT",
   "author": {
     "name": "Kamil Mielnik",
@@ -17,10 +16,19 @@
     "url": "https://github.com/kamilmielnik/re-trie/issues"
   },
   "homepage": "https://github.com/kamilmielnik/re-trie#readme",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/**"
+  ],
+  "types": "./dist/index.d.ts",
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,ts}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "node_modules/",
+      "src/index.ts"
     ],
     "globals": {
       "ts-jest": {
