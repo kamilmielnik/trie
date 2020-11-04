@@ -30,35 +30,35 @@ describe('Trie', () => {
     }
   };
 
-  it('has all the words', () => {
+  it('Has all the words', () => {
     words.forEach((word) => expect(trie.has(word)).toBe(true));
   });
 
-  it('has all the prefixes', () => {
+  it('Has all the prefixes', () => {
     prefixes.forEach((prefix) => expect(trie.hasPrefix(prefix)).toBe(true));
   });
 
-  it('does not have other words', () => {
+  it('Does not have other words', () => {
     otherWords.forEach((word) => expect(trie.has(word)).toBe(false));
   });
 
-  it('does not have other prefixes', () => {
+  it('Does not have other prefixes', () => {
     otherPrefixes.forEach((word) => expect(trie.hasPrefix(word)).toBe(false));
   });
 
-  it('properly converts to json', () => {
+  it('Properly converts to JSON', () => {
     expect(trie.toJson()).toEqual(trieJson);
   });
 
-  it('properly serializes', () => {
+  it('Properly serializes', () => {
     expect(trie.serialize()).toEqual(serializedTrie);
   });
 
-  it('properly deserializes', () => {
+  it('Properly deserializes', () => {
     expect(Trie.deserialize(serializedTrie).toJson()).toEqual(trieJson);
   });
 
-  it('properly initializes from JSON', () => {
+  it('Properly initializes from JSON', () => {
     expect(new Trie(trieJson).toJson()).toEqual(trieJson);
   });
 });
