@@ -50,11 +50,11 @@ class Trie {
     return Boolean(node.wordEnd);
   }
 
-  hasPrefix(word: string): boolean {
+  hasPrefix(prefix: string): boolean {
     let node = this.root;
 
-    for (let index = 0; index < word.length; ++index) {
-      const character = word[index];
+    for (let index = 0; index < prefix.length; ++index) {
+      const character = prefix[index];
 
       if (!node[character]) {
         return false;
