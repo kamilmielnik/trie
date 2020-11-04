@@ -1,6 +1,5 @@
 # @kamilmielnik/trie
 
-
 ![Version](https://img.shields.io/github/package-json/v/kamilmielnik/trie)
 ![Dependencies](https://img.shields.io/david/kamilmielnik/trie)
 ![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/kamilmielnik/trie)
@@ -40,7 +39,7 @@ console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
 
 - `[key: string]: Node`
 
-  `key` is a single character (string of length 1)
+  `key` is a single character (string of length 1).
 
 - `wordEnd?: true`
 
@@ -66,7 +65,7 @@ console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
 
 - `Trie.prototype.has(word: string): boolean`
 
-  Returns `true` if there is a
+  Returns `true` if given `word` is in the `Trie` instance.
 
 - `Trie.prototype.hasPrefix(prefix: string): boolean`
 
