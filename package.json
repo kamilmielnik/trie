@@ -17,14 +17,25 @@
     "url": "https://github.com/kamilmielnik/re-trie/issues"
   },
   "homepage": "https://github.com/kamilmielnik/re-trie#readme",
+  "jest": {
+    "collectCoverage": true,
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.json"
+      }
+    },
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
   "scripts": {
     "build": "tsc --project .",
     "prettier": "prettier --list-different './src/**/*.{js,jsx,ts,tsx}'",
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --no-cache",
+    "test:watch": "jest --no-cache --watch"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.15",
     "jest": "^26.6.3",
     "prettier": "^2.1.2",
     "ts-jest": "^26.4.3",
