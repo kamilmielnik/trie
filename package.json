@@ -1,5 +1,5 @@
 {
-  "name": "re-trie",
+  "name": "@kamilmielnik/trie",
   "version": "0.0.1",
   "description": "Trie data structure implementation (in TypeScript)",
   "license": "MIT",
@@ -23,6 +23,9 @@
   "types": "./dist/index.d.ts",
   "np": {
     "yarn": false
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "jest": {
     "collectCoverage": true,
