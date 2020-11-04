@@ -19,6 +19,9 @@
   "homepage": "https://github.com/kamilmielnik/re-trie#readme",
   "jest": {
     "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts}"
+    ],
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.json"
@@ -29,7 +32,7 @@
   },
   "scripts": {
     "build": "tsc --project .",
-    "prettier": "prettier --list-different './src/**/*.{js,jsx,ts,tsx}'",
+    "prettier": "prettier --list-different './src/**/*.{js,ts}'",
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "test": "jest --no-cache",
     "test:watch": "jest --no-cache --watch"

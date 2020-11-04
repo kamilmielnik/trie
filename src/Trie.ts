@@ -1,11 +1,9 @@
-import { serialize, deserialize } from './serializer';
+import { deserialize, serialize } from './serializer';
 import { Node } from './types';
 
 class Trie {
   static deserialize(serialized: string): Trie {
-    const trie = new Trie();
-    trie.root = deserialize(serialized);
-    return trie;
+    return new Trie(deserialize(serialized));
   }
 
   static fromArray(words: string[]): Trie {

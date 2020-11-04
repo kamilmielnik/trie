@@ -50,12 +50,24 @@ describe('Trie', () => {
     expect(trie.toJson()).toEqual(trieJson);
   });
 
-  it('Properly serializes', () => {
+  it('Serializes', () => {
     expect(trie.serialize()).toEqual(serializedTrie);
   });
 
-  it('Properly deserializes', () => {
+  it('Deserializes', () => {
     expect(Trie.deserialize(serializedTrie).toJson()).toEqual(trieJson);
+  });
+
+  it('Catches deserialization errors', () => {
+    expect(() => Trie.deserialize('())')).toThrow();
+    expect(() => Trie.deserialize('(()')).toThrow();
+  });
+
+  it('Serializes and deserializes empty tree', () => {
+    const emptyTrie = new Trie();
+    const serialized = emptyTrie.serialize();
+    const deserialized = Trie.deserialize(serialized);
+    expect(deserialized).toEqual(emptyTrie);
   });
 
   it('Properly initializes from JSON', () => {

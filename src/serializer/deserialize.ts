@@ -9,7 +9,9 @@ const deserialize = (serialized: string): Node => {
 
   while (i < serialized.length - 1) {
     const character = serialized[i];
-    const nextCharacter = serialized[++i];
+    const nextCharacter = serialized[i + 1];
+
+    ++i;
 
     if (character === CLOSE_PARENS) {
       const nextNode = stack.pop();
@@ -40,10 +42,6 @@ const deserialize = (serialized: string): Node => {
       node = newNode as Node;
       ++i;
     }
-  }
-
-  if (stack.length > 0) {
-    throw new Error(`Syntax error: missing ${stack.length} "${CLOSE_PARENS}"`);
   }
 
   return node;
