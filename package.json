@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kamilmielnik/re-trie.git"
+    "url": "git+https://github.com/kamilmielnik/trie.git"
   },
   "bugs": {
-    "url": "https://github.com/kamilmielnik/re-trie/issues"
+    "url": "https://github.com/kamilmielnik/trie/issues"
   },
-  "homepage": "https://github.com/kamilmielnik/re-trie#readme",
+  "homepage": "https://github.com/kamilmielnik/trie#readme",
   "main": "./dist/index.js",
   "files": [
     "dist/**"
