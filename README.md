@@ -35,6 +35,12 @@ console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
 
 ### Node
 
+It's a type (TypeScript-only).
+
+```ts
+import { Node } from '@kamilmielnik/trie';
+````
+
 #### Properties
 
 - `[key: string]: Node`
@@ -46,6 +52,14 @@ console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
   Indicates that keys of all parent nodes make a valid word when joined together.
 
 ### Trie
+
+A `class` representing the [Trie](https://en.wikipedia.org/wiki/Trie) data structure.
+
+#### Import
+
+```ts
+import Trie from '@kamilmielnik/trie';
+````
 
 #### Static functions
 
