@@ -18,7 +18,7 @@ class Trie {
     this.root = root;
   }
 
-  add(word: string): void {
+  public add(word: string): void {
     let node: Node = this.root;
 
     for (let index = 0; index < word.length; ++index) {
@@ -34,44 +34,38 @@ class Trie {
     node.wordEnd = true;
   }
 
-  has(word: string): boolean {
+  public has(word: string): boolean {
+    const node = this.find(word);
+    return Boolean(node && node.wordEnd);
+  }
+
+  public hasPrefix(prefix: string): boolean {
+    const node = this.find(prefix);
+    return node ? Object.keys(node).length > 0 : false;
+  }
+
+  public serialize(): string {
+    return serialize(this.root);
+  }
+
+  public toJson(): Node {
+    return this.root;
+  }
+
+  private find(word: string): Node | null {
     let node = this.root;
 
     for (let index = 0; index < word.length; ++index) {
       const character = word[index];
 
       if (!node[character]) {
-        return false;
+        return null;
       }
 
       node = node[character] as Node;
     }
 
-    return Boolean(node.wordEnd);
-  }
-
-  hasPrefix(prefix: string): boolean {
-    let node = this.root;
-
-    for (let index = 0; index < prefix.length; ++index) {
-      const character = prefix[index];
-
-      if (!node[character]) {
-        return false;
-      }
-
-      node = node[character] as Node;
-    }
-
-    return Object.keys(node).length > 0;
-  }
-
-  serialize(): string {
-    return serialize(this.root);
-  }
-
-  toJson(): Node {
-    return this.root;
+    return node;
   }
 }
 
