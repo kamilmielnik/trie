@@ -44,7 +44,9 @@ class Trie {
     return node ? Object.keys(node).length > 0 : false;
   }
 
-  public remove(word: string): void {}
+  public remove(word: string): boolean {
+    return this.removeWord(word, this.root);
+  }
 
   public serialize(): string {
     return serialize(this.root);
@@ -52,6 +54,45 @@ class Trie {
 
   public toJson(): Node {
     return this.root;
+  }
+
+  private removeWord(word: string, startNode: Node): boolean {
+    if (word.length === 0) {
+      return false;
+    }
+
+    const letter = word[0];
+    const node = startNode[letter] as Node | undefined;
+
+    if (!node) {
+      return false;
+    }
+
+    if (word.length === 1) {
+      if (!node.wordEnd) {
+        return false;
+      }
+
+      if (Object.keys(node).length === 1) {
+        delete startNode[letter];
+      } else {
+        delete node.wordEnd;
+      }
+
+      return true;
+    }
+
+    const removed = this.removeWord(word.substring(1), node);
+
+    if (!removed) {
+      return false;
+    }
+
+    if (Object.keys(node).length === 0) {
+      delete startNode[letter];
+    }
+
+    return true;
   }
 
   private find(word: string): Node | null {

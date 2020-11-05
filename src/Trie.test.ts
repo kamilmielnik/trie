@@ -59,12 +59,12 @@ describe('Trie', () => {
       trie.remove(word);
       expect(trie.has(word)).toBe(false);
 
-      words.slice(i).forEach((remainingWord) => {
+      words.slice(i + 1).forEach((remainingWord) => {
         expect(trie.has(remainingWord)).toBe(true);
       });
     }
 
-    expect(Object.keys(trie.toJson())).toBe(0);
+    expect(Object.keys(trie.toJson()).length).toBe(0);
   });
 
   it('Properly converts to JSON', () => {
