@@ -1,6 +1,6 @@
 {
   "name": "@kamilmielnik/trie",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Trie data structure implementation (in TypeScript)",
   "license": "MIT",
   "author": {
