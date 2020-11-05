@@ -33,24 +33,6 @@ console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
 
 ## API
 
-### Node
-
-It's a type (TypeScript-only).
-
-```ts
-import { Node } from '@kamilmielnik/trie';
-````
-
-#### Properties
-
-- `[key: string]: Node`
-
-  `key` is a single character (string of length 1).
-
-- `wordEnd?: true`
-
-  Indicates that keys of all parent nodes make a valid word when joined together.
-
 ### Trie
 
 A `class` representing the [Trie](https://en.wikipedia.org/wiki/Trie) data structure.
@@ -98,3 +80,21 @@ import Trie from '@kamilmielnik/trie';
 - `Trie.prototype.toJson(): Node`
 
   Returns the root `Node` of the `Trie`. It's not a copy, it's not safe to mutate (due to performance optimization).
+
+### Node
+
+It's a type (TypeScript-only).
+
+```ts
+import { Node } from '@kamilmielnik/trie';
+````
+
+#### Properties
+
+- `[key: string]: Node`
+
+  `key` is a single character (string of length 1).
+
+- `wordEnd?: true`
+
+  Indicates that keys of all parent nodes make a valid word when joined together.
