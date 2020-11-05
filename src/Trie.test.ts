@@ -7,7 +7,6 @@ describe('Trie', () => {
   const prefixes = ['a', 'ab', 'abc', 'ac', ...words];
   const otherWords = ['b', 'bc', 'ce', 'bcd', 'bce'];
   const otherPrefixes = ['b', 'bc', 'ce', 'bcd', 'bce'];
-  const trie = Trie.fromArray(words);
   const serializedTrie = '(a(b,b(c(d,e)),c(e)))';
   const trieJson: Node = {
     a: {
@@ -31,27 +30,49 @@ describe('Trie', () => {
   };
 
   it('Has all the words', () => {
+    const trie = Trie.fromArray(words);
     words.forEach((word) => expect(trie.has(word)).toBe(true));
   });
 
   it('Has all the prefixes', () => {
+    const trie = Trie.fromArray(words);
     prefixes.forEach((prefix) => expect(trie.hasPrefix(prefix)).toBe(true));
   });
 
   it('Does not have other words', () => {
+    const trie = Trie.fromArray(words);
     otherWords.forEach((word) => expect(trie.has(word)).toBe(false));
   });
 
   it('Does not have other prefixes', () => {
+    const trie = Trie.fromArray(words);
     otherPrefixes.forEach((word) => expect(trie.hasPrefix(word)).toBe(false));
   });
 
+  it('Removes words', () => {
+    const trie = Trie.fromArray(words);
+
+    for (let i = 0; i < words.length; ++i) {
+      const word = words[i];
+
+      expect(trie.has(word)).toBe(true);
+      trie.remove(word);
+      expect(trie.has(word)).toBe(false);
+
+      words.slice(i).forEach((remainingWord) => {
+        expect(trie.has(remainingWord)).toBe(true);
+      });
+    }
+
+    expect(Object.keys(trie.toJson())).toBe(0);
+  });
+
   it('Properly converts to JSON', () => {
-    expect(trie.toJson()).toEqual(trieJson);
+    expect(Trie.fromArray(words).toJson()).toEqual(trieJson);
   });
 
   it('Serializes', () => {
-    expect(trie.serialize()).toEqual(serializedTrie);
+    expect(Trie.fromArray(words).serialize()).toEqual(serializedTrie);
   });
 
   it('Deserializes', () => {
@@ -64,10 +85,8 @@ describe('Trie', () => {
   });
 
   it('Serializes and deserializes empty tree', () => {
-    const emptyTrie = new Trie();
-    const serialized = emptyTrie.serialize();
-    const deserialized = Trie.deserialize(serialized);
-    expect(deserialized).toEqual(emptyTrie);
+    const trie = new Trie();
+    expect(Trie.deserialize(trie.serialize())).toEqual(trie);
   });
 
   it('Properly initializes from JSON', () => {

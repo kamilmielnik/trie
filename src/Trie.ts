@@ -44,6 +44,8 @@ class Trie {
     return node ? Object.keys(node).length > 0 : false;
   }
 
+  public remove(word: string): void {}
+
   public serialize(): string {
     return serialize(this.root);
   }
