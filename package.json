@@ -24,6 +24,7 @@
   "np": {
     "yarn": false
   },
+  "tag-version-prefix": "",
   "publishConfig": {
     "access": "public"
   },
