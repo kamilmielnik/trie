@@ -45,7 +45,7 @@ class Trie {
   }
 
   public remove(word: string): boolean {
-    return this.removeWord(word, this.root);
+    return this.removeSuffix(word, this.root);
   }
 
   public serialize(): string {
@@ -56,19 +56,19 @@ class Trie {
     return this.root;
   }
 
-  private removeWord(word: string, startNode: Node): boolean {
-    if (word.length === 0) {
+  private removeSuffix(suffix: string, startNode: Node): boolean {
+    if (suffix.length === 0) {
       return false;
     }
 
-    const letter = word[0];
+    const letter = suffix[0];
     const node = startNode[letter] as Node | undefined;
 
     if (!node) {
       return false;
     }
 
-    if (word.length === 1) {
+    if (suffix.length === 1) {
       if (!node.wordEnd) {
         return false;
       }
@@ -82,7 +82,7 @@ class Trie {
       return true;
     }
 
-    const removed = this.removeWord(word.substring(1), node);
+    const removed = this.removeSuffix(suffix.substring(1), node);
 
     if (!removed) {
       return false;
