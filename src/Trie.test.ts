@@ -71,6 +71,16 @@ describe('Trie', () => {
     });
   });
 
+  it('Does nothing when trying to remove an inexisting word', () => {
+    const trie = Trie.fromArray(words);
+
+    trie.remove('xyz');
+
+    words.forEach((word) => {
+      expect(trie.has(word)).toBe(true);
+    });
+  });
+
   it('Removes words', () => {
     const trie = Trie.fromArray(words);
 
