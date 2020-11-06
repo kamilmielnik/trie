@@ -27,8 +27,11 @@ trie.add('mask');
 console.log(trie.hasPrefix('man')); // false
 console.log(trie.hasPrefix('mas')); // true
 console.log(trie.has('mas')); // false
+console.log(trie.remove('mas')); // false
 console.log(trie.has('master')); // true
 console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
+console.log(trie.remove('master')); // true
+console.log(trie.serialize()); // "(m(a(s(k))))"
 ```
 
 ## API
@@ -41,7 +44,7 @@ A `class` representing the [Trie](https://en.wikipedia.org/wiki/Trie) data struc
 
 ```ts
 import Trie from '@kamilmielnik/trie';
-````
+```
 
 #### Static functions
 
@@ -67,6 +70,10 @@ import Trie from '@kamilmielnik/trie';
 
   Returns `true` if there are any words with given [`prefix`](https://en.wikipedia.org/wiki/String_operations#Prefixes).
 
+- `Trie.prototype.remove(word: string): boolean`
+
+  Returns `true` if `word` was removed.
+
 - `Trie.prototype.serialize(): string`
 
   The inverse of `Trie.deserialize`.
@@ -87,7 +94,7 @@ It's a type (TypeScript-only).
 
 ```ts
 import { Node } from '@kamilmielnik/trie';
-````
+```
 
 #### Properties
 
