@@ -31,22 +31,44 @@ describe('Trie', () => {
 
   it('Has all the words', () => {
     const trie = Trie.fromArray(words);
-    words.forEach((word) => expect(trie.has(word)).toBe(true));
+
+    words.forEach((word) => {
+      expect(trie.has(word)).toBe(true);
+    });
   });
 
   it('Has all the prefixes', () => {
     const trie = Trie.fromArray(words);
-    prefixes.forEach((prefix) => expect(trie.hasPrefix(prefix)).toBe(true));
+
+    prefixes.forEach((prefix) => {
+      expect(trie.hasPrefix(prefix)).toBe(true);
+    });
   });
 
   it('Does not have other words', () => {
     const trie = Trie.fromArray(words);
-    otherWords.forEach((word) => expect(trie.has(word)).toBe(false));
+
+    otherWords.forEach((word) => {
+      expect(trie.has(word)).toBe(false);
+    });
   });
 
   it('Does not have other prefixes', () => {
     const trie = Trie.fromArray(words);
-    otherPrefixes.forEach((word) => expect(trie.hasPrefix(word)).toBe(false));
+
+    otherPrefixes.forEach((word) => {
+      expect(trie.hasPrefix(word)).toBe(false);
+    });
+  });
+
+  it('Does nothing when trying to remove an empty string', () => {
+    const trie = Trie.fromArray(words);
+
+    trie.remove('');
+
+    words.forEach((word) => {
+      expect(trie.has(word)).toBe(true);
+    });
   });
 
   it('Removes words', () => {
