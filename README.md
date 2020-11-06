@@ -62,6 +62,10 @@ import Trie from '@kamilmielnik/trie';
 
   Inserts `word` into the `Trie` instance.
 
+- `Trie.prototype.find(prefix: string): Node | null`
+
+  Returns `Node` representing a given `prefix`. Returns `null` if there is no such node.
+
 - `Trie.prototype.has(word: string): boolean`
 
   Returns `true` if given `word` is in the `Trie` instance.

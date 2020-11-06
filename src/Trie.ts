@@ -34,6 +34,22 @@ class Trie {
     node.wordEnd = true;
   }
 
+  public find(prefix: string): Node | null {
+    let node = this.root;
+
+    for (let index = 0; index < prefix.length; ++index) {
+      const character = prefix[index];
+
+      if (!node[character]) {
+        return null;
+      }
+
+      node = node[character] as Node;
+    }
+
+    return node;
+  }
+
   public has(word: string): boolean {
     const node = this.find(word);
     return Boolean(node && node.wordEnd);
@@ -54,22 +70,6 @@ class Trie {
 
   public toJson(): Node {
     return this.root;
-  }
-
-  private find(word: string): Node | null {
-    let node = this.root;
-
-    for (let index = 0; index < word.length; ++index) {
-      const character = word[index];
-
-      if (!node[character]) {
-        return null;
-      }
-
-      node = node[character] as Node;
-    }
-
-    return node;
   }
 
   private removeSuffix(suffix: string, startNode: Node): boolean {
