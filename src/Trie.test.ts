@@ -75,6 +75,7 @@ describe('Trie', () => {
     const trie = Trie.fromArray(words);
 
     trie.remove('xyz');
+    trie.remove('abc');
 
     words.forEach((word) => {
       expect(trie.has(word)).toBe(true);
