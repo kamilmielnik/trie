@@ -56,6 +56,22 @@ class Trie {
     return this.root;
   }
 
+  private find(word: string): Node | null {
+    let node = this.root;
+
+    for (let index = 0; index < word.length; ++index) {
+      const character = word[index];
+
+      if (!node[character]) {
+        return null;
+      }
+
+      node = node[character] as Node;
+    }
+
+    return node;
+  }
+
   private removeSuffix(suffix: string, startNode: Node): boolean {
     if (suffix.length === 0) {
       return false;
@@ -93,22 +109,6 @@ class Trie {
     }
 
     return true;
-  }
-
-  private find(word: string): Node | null {
-    let node = this.root;
-
-    for (let index = 0; index < word.length; ++index) {
-      const character = word[index];
-
-      if (!node[character]) {
-        return null;
-      }
-
-      node = node[character] as Node;
-    }
-
-    return node;
   }
 }
 
