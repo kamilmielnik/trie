@@ -5,20 +5,20 @@ import { Node } from '../types';
  * Returns Node representing last character in the suffix.
  * Does not mark the suffix as a wordEnd.
  */
-const add = (startNode: Node, suffix: string): Node => {
-  let node = startNode;
+const add = (node: Node, suffix: string): Node => {
+  let currentNode = node;
 
   for (let index = 0; index < suffix.length; ++index) {
     const character = suffix[index];
 
-    if (!node[character]) {
-      node[character] = {};
+    if (!currentNode[character]) {
+      currentNode[character] = {};
     }
 
-    node = node[character] as Node;
+    currentNode = currentNode[character] as Node;
   }
 
-  return node;
+  return currentNode;
 };
 
 export default add;

@@ -1,19 +1,19 @@
 import { Node } from '../types';
 
-const find = (startNode: Node, prefix: string): Node | null => {
-  let node = startNode;
+const find = (node: Node, prefix: string): Node | null => {
+  let currentNode = node;
 
   for (let index = 0; index < prefix.length; ++index) {
     const character = prefix[index];
 
-    if (!node[character]) {
+    if (!currentNode[character]) {
       return null;
     }
 
-    node = node[character] as Node;
+    currentNode = currentNode[character] as Node;
   }
 
-  return node;
+  return currentNode;
 };
 
 export default find;
