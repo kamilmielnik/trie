@@ -29,7 +29,7 @@ console.log(trie.hasPrefix('mas')); // true
 console.log(trie.has('mas')); // false
 console.log(trie.remove('mas')); // false
 console.log(trie.has('master')); // true
-console.log(trie.serialize()); // "(m(a(s(t(e(r)),k))))"
+console.log(trie.serialize()); // "(m(a(s(t(e(r))k))))"
 console.log(trie.remove('master')); // true
 console.log(trie.serialize()); // "(m(a(s(k))))"
 ```
@@ -93,11 +93,11 @@ import Trie from '@kamilmielnik/trie';
   Converts `Trie` into a string.
   The inverse of `Trie.deserialize`.
 
-  It serializes 41 MB [Polish](https://en.wikipedia.org/wiki/Polish_language) [dictionary](https://sjp.pl/slownik/growy/) down to 15 MB (-63%).
+  It serializes 41 MB [Polish](https://en.wikipedia.org/wiki/Polish_language) [dictionary](https://sjp.pl/slownik/growy/) down to 12 MB (-71%).
 
-  It serializes 1.9 MB [English (US)](https://en.wikipedia.org/wiki/American_English) [dictionary](https://www.wordgamedictionary.com/twl06/download/twl06.txt) down to 1.2 MB (-37%).
+  It serializes 1.9 MB [English (US)](https://en.wikipedia.org/wiki/American_English) [dictionary](https://www.wordgamedictionary.com/twl06/download/twl06.txt) down to 993 KB (-48%).
 
-  It serializes 2.9 MB [English (GB)](https://en.wikipedia.org/wiki/British_English) [dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.8 MB (-38%).
+  It serializes 2.9 MB [English (GB)](https://en.wikipedia.org/wiki/British_English) [dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.5 MB (-49%).
 
 ### Node
 
