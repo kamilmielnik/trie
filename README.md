@@ -13,7 +13,7 @@ Built for a [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver).
 # Installation
 
 ```Shell
-npm install --save @kamilmielnik/trie
+npm install @kamilmielnik/trie --save
 ```
 
 # Usage
