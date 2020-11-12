@@ -1,4 +1,4 @@
-import { find, remove } from './lib';
+import { add, find, remove } from './lib';
 import { deserialize, serialize } from './serializer';
 import { Node } from './types';
 
@@ -20,19 +20,7 @@ class Trie {
   }
 
   public add(word: string): void {
-    let node: Node = this.root;
-
-    for (let index = 0; index < word.length; ++index) {
-      const character = word[index];
-
-      if (!node[character]) {
-        node[character] = {};
-      }
-
-      node = node[character] as Node;
-    }
-
-    node.wordEnd = true;
+    add(this.root, word);
   }
 
   public find(prefix: string): Node | null {
