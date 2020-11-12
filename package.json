@@ -2,6 +2,15 @@
   "name": "@kamilmielnik/trie",
   "version": "0.3.0",
   "description": "Trie data structure implementation (in TypeScript)",
+  "keywords": [
+    "trie",
+    "data",
+    "structure",
+    "algorithm",
+    "scrabble",
+    "solver",
+    "typescript"
+  ],
   "license": "MIT",
   "author": {
     "name": "Kamil Mielnik",
