@@ -1,6 +1,9 @@
 import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from '../constants';
 import { Node } from '../types';
 
+/**
+ * Creates a new Node instance by deserializing given JSON.
+ */
 const deserialize = (serialized: string): Node => {
   const stack: Node[] = [];
   let node: Node = {};
