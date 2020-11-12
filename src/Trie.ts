@@ -44,9 +44,9 @@ class Trie {
 
   /**
    * Returns Node representing a given prefix.
-   * Returns null if there is no such node.
+   * Returns undefined if there is no such node.
    */
-  public find(prefix: string): Node | null {
+  public find(prefix: string): Node | undefined {
     return find(this.root, prefix);
   }
 
