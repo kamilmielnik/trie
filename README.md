@@ -48,7 +48,7 @@ import Trie from '@kamilmielnik/trie';
 
 #### Static functions
 
-- `Trie.deserialize(serialized: string): Trie`
+- `Trie.deserialize(json: string): Trie`
 
   The inverse of `Trie.prototype.serialize`.
 
