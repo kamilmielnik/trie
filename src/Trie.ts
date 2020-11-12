@@ -3,7 +3,7 @@ import { Node } from './types';
 
 class Trie {
   /**
-   * Creates a new Trie instance by deserializing given string.
+   * Creates a new Trie by deserializing given string.
    * The inverse of Trie.prototype.serialize.
    */
   static deserialize(serialized: string): Trie {
@@ -26,7 +26,7 @@ class Trie {
   public readonly root: Node;
 
   /**
-   * Creates a new Trie instance with optionally given root Node.
+   * Creates a new Trie with optionally given root Node.
    */
   constructor(root: Node = {}) {
     this.root = root;
