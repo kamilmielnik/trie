@@ -13,7 +13,7 @@ class Trie {
     return trie;
   }
 
-  private root: Node;
+  public readonly root: Node;
 
   constructor(root: Node = {}) {
     this.root = root;
@@ -43,10 +43,6 @@ class Trie {
 
   public serialize(): string {
     return serialize(this.root);
-  }
-
-  public toJson(): Node {
-    return this.root;
   }
 }
 

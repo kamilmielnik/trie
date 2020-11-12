@@ -56,6 +56,12 @@ import Trie from '@kamilmielnik/trie';
 
   Builds a `Trie` instance based on array of words.
 
+#### Instance properties
+
+- `root: Node`
+
+  Readonly property. Returns the root `Node` of the `Trie`. It's not a copy, it's not safe to mutate (due to performance optimization).
+
 #### Instance methods
 
 - `Trie.prototype.add(word: string): void`
@@ -87,10 +93,6 @@ import Trie from '@kamilmielnik/trie';
   It serializes 1.9 MB [English (US)](https://en.wikipedia.org/wiki/American_English) [dictionary](https://www.wordgamedictionary.com/twl06/download/twl06.txt) down to 1.2 MB (-37%).
 
   It serializes 2.9 MB [English (GB)](https://en.wikipedia.org/wiki/British_English) [dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.8 MB (-38%).
-
-- `Trie.prototype.toJson(): Node`
-
-  Returns the root `Node` of the `Trie`. It's not a copy, it's not safe to mutate (due to performance optimization).
 
 ### Node
 
