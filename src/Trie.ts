@@ -34,13 +34,17 @@ class Trie {
 
   /**
    * Inserts given word into the Trie.
+   * Returns Node representing last character in the suffix.
    */
-  public add(word: string): void {
-    add(this.root, word);
+  public add(word: string): Node {
+    const node = add(this.root, word);
+    node.wordEnd = true;
+    return node;
   }
 
   /**
-   * Returns Node representing a given prefix. Returns null if there is no such node.
+   * Returns Node representing a given prefix.
+   * Returns null if there is no such node.
    */
   public find(prefix: string): Node | null {
     return find(this.root, prefix);

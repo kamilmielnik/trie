@@ -1,6 +1,11 @@
 import { Node } from '../types';
 
-const add = (startNode: Node, suffix: string): void => {
+/**
+ * Inserts given suffix into given Node.
+ * Returns Node representing last character in the suffix.
+ * Does not mark the suffix as a wordEnd.
+ */
+const add = (startNode: Node, suffix: string): Node => {
   let node = startNode;
 
   for (let index = 0; index < suffix.length; ++index) {
@@ -13,7 +18,7 @@ const add = (startNode: Node, suffix: string): void => {
     node = node[character] as Node;
   }
 
-  node.wordEnd = true;
+  return node;
 };
 
 export default add;
