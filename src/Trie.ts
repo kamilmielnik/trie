@@ -1,5 +1,4 @@
-import { add, find, remove } from './lib';
-import { deserialize, serialize } from './serializer';
+import { add, deserialize, find, remove, serialize } from './lib';
 import { Node } from './types';
 
 class Trie {
