@@ -81,16 +81,16 @@ import Trie from '@kamilmielnik/trie';
 
 - `Trie.prototype.hasPrefix(prefix: string): boolean`
 
-  Returns `true` if there are any words with given [`prefix`](https://en.wikipedia.org/wiki/String_operations#Prefixes) in the Trie.
+  Returns `true` if there are any words with given [`prefix`](https://en.wikipedia.org/wiki/String_operations#Prefixes) in the `Trie`.
 
 - `Trie.prototype.remove(word: string): boolean`
 
-  Removes word from the Trie if it exists.
+  Removes word from the `Trie` if it exists.
   Returns `true` if `word` was removed.
 
 - `Trie.prototype.serialize(): string`
 
-  Converts Trie into a string.
+  Converts `Trie` into a string.
   The inverse of `Trie.deserialize`.
 
   It serializes 41 MB [Polish](https://en.wikipedia.org/wiki/Polish_language) [dictionary](https://sjp.pl/slownik/growy/) down to 15 MB (-63%).
