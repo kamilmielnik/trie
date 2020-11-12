@@ -97,11 +97,11 @@ describe('Trie', () => {
       });
     }
 
-    expect(Object.keys(trie.toJson()).length).toBe(0);
+    expect(Object.keys(trie.root).length).toBe(0);
   });
 
   it('Properly converts to JSON', () => {
-    expect(Trie.fromArray(words).toJson()).toEqual(trieJson);
+    expect(Trie.fromArray(words).root).toEqual(trieJson);
   });
 
   it('Serializes', () => {
@@ -109,7 +109,7 @@ describe('Trie', () => {
   });
 
   it('Deserializes', () => {
-    expect(Trie.deserialize(serializedTrie).toJson()).toEqual(trieJson);
+    expect(Trie.deserialize(serializedTrie).root).toEqual(trieJson);
   });
 
   it('Catches deserialization errors', () => {
@@ -123,6 +123,6 @@ describe('Trie', () => {
   });
 
   it('Properly initializes from JSON', () => {
-    expect(new Trie(trieJson).toJson()).toEqual(trieJson);
+    expect(new Trie(trieJson).root).toEqual(trieJson);
   });
 });
