@@ -1,3 +1,4 @@
+import { removeSuffix } from './lib';
 import { deserialize, serialize } from './serializer';
 import { Node } from './types';
 
@@ -61,7 +62,7 @@ class Trie {
   }
 
   public remove(word: string): boolean {
-    return this.removeSuffix(word, this.root);
+    return removeSuffix(this.root, word);
   }
 
   public serialize(): string {
@@ -70,45 +71,6 @@ class Trie {
 
   public toJson(): Node {
     return this.root;
-  }
-
-  private removeSuffix(suffix: string, startNode: Node): boolean {
-    if (suffix.length === 0) {
-      return false;
-    }
-
-    const letter = suffix[0];
-    const node = startNode[letter] as Node | undefined;
-
-    if (!node) {
-      return false;
-    }
-
-    if (suffix.length === 1) {
-      if (!node.wordEnd) {
-        return false;
-      }
-
-      if (Object.keys(node).length === 1) {
-        delete startNode[letter];
-      } else {
-        delete node.wordEnd;
-      }
-
-      return true;
-    }
-
-    const removed = this.removeSuffix(suffix.substring(1), node);
-
-    if (!removed) {
-      return false;
-    }
-
-    if (Object.keys(node).length === 0) {
-      delete startNode[letter];
-    }
-
-    return true;
   }
 }
 
