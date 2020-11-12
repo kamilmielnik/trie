@@ -1,5 +1,9 @@
 import { Node } from '../types';
 
+/**
+ * Removes prefix from the Node if it exists.
+ * Returns true if prefix was removed.
+ */
 const remove = (node: Node, prefix: string): boolean => {
   if (prefix.length === 0) {
     return false;
