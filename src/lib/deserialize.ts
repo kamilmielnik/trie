@@ -1,4 +1,4 @@
-import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from '../constants';
+import { CLOSE_PARENS, OPEN_PARENS } from '../constants';
 import { Node } from '../types';
 
 /**
@@ -23,9 +23,6 @@ const deserialize = (serialized: string): Node => {
       }
 
       node = nextNode;
-    } else if (nextCharacter === SEPARATOR) {
-      node[character] = { wordEnd: true };
-      ++i;
     } else if (nextCharacter === CLOSE_PARENS) {
       node[character] = { wordEnd: true };
 
@@ -43,6 +40,8 @@ const deserialize = (serialized: string): Node => {
       node[character] = newNode;
       node = newNode as Node;
       ++i;
+    } else {
+      node[character] = { wordEnd: true };
     }
   }
 

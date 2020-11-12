@@ -1,4 +1,4 @@
-import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from '../constants';
+import { CLOSE_PARENS, OPEN_PARENS } from '../constants';
 import { Node } from '../types';
 
 /**
@@ -13,14 +13,10 @@ const serialize = (node: Node, character: string = ''): string => {
     serialized += character;
   }
 
-  if (node.wordEnd && hasPrefix) {
-    serialized += SEPARATOR;
-  }
-
   if (hasPrefix) {
     serialized += character;
     serialized += OPEN_PARENS;
-    serialized += letters.map((letter) => serialize(node[letter] as Node, letter)).join(SEPARATOR);
+    serialized += letters.map((letter) => serialize(node[letter] as Node, letter)).join('');
     serialized += CLOSE_PARENS;
   }
 

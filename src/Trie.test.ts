@@ -7,7 +7,7 @@ describe('Trie', () => {
   const prefixes = ['a', 'ab', 'abc', 'ac', ...words];
   const otherWords = ['b', 'bc', 'ce', 'bcd', 'bce'];
   const otherPrefixes = ['b', 'bc', 'ce', 'bcd', 'bce'];
-  const serializedTrie = '(a(b,b(c(d,e)),c(e)))';
+  const serializedTrie = '(a(bb(c(de))c(e)))';
   const trieJson: Node = {
     a: {
       b: {
