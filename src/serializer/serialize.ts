@@ -1,6 +1,5 @@
+import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from '../constants';
 import { Node } from '../types';
-
-import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from './constants';
 
 const serialize = (node: Node, character: string = ''): string => {
   const letters = Object.keys(node).filter((key) => key.length === 1);

@@ -1,6 +1,5 @@
+import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from '../constants';
 import { Node } from '../types';
-
-import { CLOSE_PARENS, OPEN_PARENS, SEPARATOR } from './constants';
 
 const deserialize = (serialized: string): Node => {
   const stack: Node[] = [];
