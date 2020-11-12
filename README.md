@@ -48,44 +48,49 @@ import Trie from '@kamilmielnik/trie';
 
 #### Static functions
 
-- `Trie.deserialize(json: string): Trie`
+- `Trie.deserialize(serialized: string): Trie`
 
+  Creates a new `Trie` by deserializing given `string`.
   The inverse of `Trie.prototype.serialize`.
 
 - `Trie.fromArray(words: string[]): Trie`
 
-  Builds a `Trie` instance based on array of words.
+  Creates a new `Trie` based on array of `words`.
 
 #### Instance properties
 
 - `root: Node`
 
-  Readonly property. Returns the root `Node` of the `Trie`. It's not a copy, it's not safe to mutate (due to performance optimization).
+  Readonly property. Returns the root `Node` of the `Trie`. It's not a copy. Mutate at your own risk.
 
 #### Instance methods
 
-- `Trie.prototype.add(word: string): void`
+- `Trie.prototype.add(word: string): Node`
 
-  Inserts `word` into the `Trie` instance.
+  Inserts `word` into the `Trie`.
+  Returns `Node` representing last character in the word.
 
-- `Trie.prototype.find(prefix: string): Node | null`
+- `Trie.prototype.find(prefix: string): Node | undefined`
 
-  Returns `Node` representing a given `prefix`. Returns `null` if there is no such node.
+  Returns `Node` representing a given `prefix`.
+  Returns `undefined` if there is no such Node.
 
 - `Trie.prototype.has(word: string): boolean`
 
-  Returns `true` if given `word` is in the `Trie` instance.
+  Returns `true` if given `word` is in the `Trie`.
 
 - `Trie.prototype.hasPrefix(prefix: string): boolean`
 
-  Returns `true` if there are any words with given [`prefix`](https://en.wikipedia.org/wiki/String_operations#Prefixes).
+  Returns `true` if there are any words with given [`prefix`](https://en.wikipedia.org/wiki/String_operations#Prefixes) in the Trie.
 
 - `Trie.prototype.remove(word: string): boolean`
 
+  Removes word from the Trie if it exists.
   Returns `true` if `word` was removed.
 
 - `Trie.prototype.serialize(): string`
 
+  Converts Trie into a string.
   The inverse of `Trie.deserialize`.
 
   It serializes 41 MB [Polish](https://en.wikipedia.org/wiki/Polish_language) [dictionary](https://sjp.pl/slownik/growy/) down to 15 MB (-63%).

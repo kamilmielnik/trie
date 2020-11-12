@@ -11,7 +11,7 @@ class Trie {
   }
 
   /**
-   * Creates a new Trie instance based on array of words.
+   * Creates a new Trie based on array of words.
    */
   static fromArray(words: string[]): Trie {
     const trie = new Trie();
@@ -34,7 +34,7 @@ class Trie {
 
   /**
    * Inserts given word into the Trie.
-   * Returns Node representing last character in the suffix.
+   * Returns Node representing last character in the word.
    */
   public add(word: string): Node {
     const node = add(this.root, word);
@@ -44,7 +44,7 @@ class Trie {
 
   /**
    * Returns Node representing a given prefix.
-   * Returns undefined if there is no such node.
+   * Returns undefined if there is no such Node.
    */
   public find(prefix: string): Node | undefined {
     return find(this.root, prefix);
