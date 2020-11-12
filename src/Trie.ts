@@ -1,4 +1,4 @@
-import { find, removeSuffix } from './lib';
+import { find, remove } from './lib';
 import { deserialize, serialize } from './serializer';
 import { Node } from './types';
 
@@ -50,7 +50,7 @@ class Trie {
   }
 
   public remove(word: string): boolean {
-    return removeSuffix(this.root, word);
+    return remove(this.root, word);
   }
 
   public serialize(): string {

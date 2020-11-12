@@ -1,18 +1,18 @@
 import { Node } from '../types';
 
-const removeSuffix = (startNode: Node, suffix: string): boolean => {
-  if (suffix.length === 0) {
+const remove = (startNode: Node, prefix: string): boolean => {
+  if (prefix.length === 0) {
     return false;
   }
 
-  const letter = suffix[0];
+  const letter = prefix[0];
   const node = startNode[letter] as Node | undefined;
 
   if (!node) {
     return false;
   }
 
-  if (suffix.length === 1) {
+  if (prefix.length === 1) {
     if (!node.wordEnd) {
       return false;
     }
@@ -26,7 +26,7 @@ const removeSuffix = (startNode: Node, suffix: string): boolean => {
     return true;
   }
 
-  const removed = removeSuffix(node, suffix.substring(1));
+  const removed = remove(node, prefix.substring(1));
 
   if (!removed) {
     return false;
@@ -39,4 +39,4 @@ const removeSuffix = (startNode: Node, suffix: string): boolean => {
   return true;
 };
 
-export default removeSuffix;
+export default remove;
