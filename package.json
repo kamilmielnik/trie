@@ -1,6 +1,6 @@
 {
   "name": "@kamilmielnik/trie",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Trie data structure implementation (in TypeScript)",
   "keywords": [
     "trie",
