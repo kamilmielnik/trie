@@ -3,11 +3,11 @@ import { Node } from './types';
 
 class Trie {
   /**
+   * Creates a new Trie instance by deserializing given string.
    * The inverse of Trie.prototype.serialize.
-   * Creates a new Trie instance by deserializing given JSON.
    */
-  static deserialize(json: string): Trie {
-    return new Trie(deserialize(json));
+  static deserialize(serialized: string): Trie {
+    return new Trie(deserialize(serialized));
   }
 
   /**
@@ -76,11 +76,8 @@ class Trie {
   }
 
   /**
+   * Converts Trie into a string.
    * The inverse of Trie.deserialize.
-   * Returns JSON.
-   * It serializes 41 MB Polish dictionary down to 15 MB (-63%).
-   * It serializes 1.9 MB English (US) dictionary down to 1.2 MB (-37%).
-   * It serializes 2.9 MB English (GB) dictionary down to 1.8 MB (-38%).
    */
   public serialize(): string {
     return serialize(this.root);
