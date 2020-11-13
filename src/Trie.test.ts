@@ -126,7 +126,7 @@ describe('Trie', () => {
     expect(new Trie(trieJson).root).toEqual(trieJson);
   });
 
-  it('Traverses words in order', () => {
+  it('Traverses words', () => {
     const trie = new Trie(trieJson);
     const foundWords: string[] = [];
 
