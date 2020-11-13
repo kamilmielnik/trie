@@ -1,4 +1,4 @@
-import { add, deserialize, find, remove, serialize } from './lib';
+import { add, deserialize, find, remove, serialize, traverse } from './lib';
 import { Node } from './types';
 
 class Trie {
@@ -81,6 +81,13 @@ class Trie {
    */
   public serialize(): string {
     return serialize(this.root);
+  }
+
+  /**
+   * TODO: update jsdoc
+   */
+  public traverse(callback: (parameters: { node: Node; word: string }) => boolean | void): void {
+    traverse(this.root, callback);
   }
 }
 

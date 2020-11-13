@@ -125,4 +125,31 @@ describe('Trie', () => {
   it('Properly initializes from JSON', () => {
     expect(new Trie(trieJson).root).toEqual(trieJson);
   });
+
+  it('Traverses words in order', () => {
+    const trie = new Trie(trieJson);
+    const foundWords: string[] = [];
+
+    trie.traverse(({ word }) => {
+      foundWords.push(word);
+    });
+
+    expect(foundWords).toEqual(words);
+  });
+
+  it('Breaks traversing when needed', () => {
+    const trie = new Trie(trieJson);
+    const wordIndexToBreak = 2;
+    const foundWords: string[] = [];
+
+    trie.traverse(({ word }) => {
+      foundWords.push(word);
+
+      if (word === words[wordIndexToBreak]) {
+        return true;
+      }
+    });
+
+    expect(foundWords).toEqual(words.slice(0, wordIndexToBreak + 1));
+  });
 });
