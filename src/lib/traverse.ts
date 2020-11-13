@@ -5,7 +5,7 @@ type Callback = (parameters: { node: Node; word: string }) => boolean | void;
 /**
  * TODO: update jsdoc
  */
-const traverseNode = (node: Node, word: string, callback: Callback): boolean => {
+const traverse = (node: Node, word: string, callback: Callback): boolean => {
   if (node.wordEnd) {
     const shouldBreak = callback({ node, word });
 
@@ -18,7 +18,7 @@ const traverseNode = (node: Node, word: string, callback: Callback): boolean => 
 
   for (const [key, value] of sortedEntries) {
     if (key !== 'wordEnd') {
-      const shouldBreak = traverseNode(value as Node, word + key, callback);
+      const shouldBreak = traverse(value as Node, word + key, callback);
 
       if (shouldBreak) {
         return true;
@@ -27,13 +27,6 @@ const traverseNode = (node: Node, word: string, callback: Callback): boolean => 
   }
 
   return false;
-};
-
-/**
- * TODO: update jsdoc
- */
-const traverse = (node: Node, callback: Callback): void => {
-  traverseNode(node, '', callback);
 };
 
 export default traverse;
