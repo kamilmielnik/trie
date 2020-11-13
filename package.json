@@ -48,6 +48,14 @@
     "coverageReporters": [
       "html"
     ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.json"
@@ -62,7 +70,7 @@
     "prettier": "prettier --list-different './src/**/*.{js,ts}'",
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "prebuild": "npm run clean",
-    "prerelease": "npm run build",
+    "prerelease": "npm run test && npm run build",
     "release": "np --no-2fa",
     "test": "jest",
     "test:watch": "jest --watch"
