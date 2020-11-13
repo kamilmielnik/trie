@@ -4,6 +4,7 @@
 ![Dependencies](https://img.shields.io/david/kamilmielnik/trie)
 ![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/kamilmielnik/trie)
 ![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
 ![Prettier](https://github.com/kamilmielnik/fuck-npm/workflows/Prettier/badge.svg)
 
 [Trie](https://en.wikipedia.org/wiki/Trie) data structure implementation (in TypeScript).
