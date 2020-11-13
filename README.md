@@ -7,8 +7,7 @@
 ![Prettier](https://github.com/kamilmielnik/fuck-npm/workflows/Prettier/badge.svg)
 
 [Trie](https://en.wikipedia.org/wiki/Trie) data structure implementation (in TypeScript).
-Highly performant.
-Built for a [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver).
+Highly performant. No dependencies. Built for a [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver).
 
 # Installation
 
