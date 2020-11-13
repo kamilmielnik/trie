@@ -137,7 +137,7 @@ describe('Trie', () => {
     expect(foundWords).toEqual(words);
   });
 
-  it('Breaks traversing when needed', () => {
+  it('Stops traversing when needed', () => {
     const trie = new Trie(trieJson);
     const wordIndexToBreak = 2;
     const foundWords: string[] = [];
