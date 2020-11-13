@@ -2,27 +2,45 @@ import { Node } from '../types';
 
 type Callback = (parameters: { node: Node; word: string }) => boolean | void;
 
-/**
- * TODO: update jsdoc
- */
+interface State {
+  node: Node;
+  keyIndex: number;
+}
+
 const traverse = (node: Node, word: string, callback: Callback): boolean => {
-  if (node.wordEnd) {
-    const shouldBreak = callback({ node, word });
+  const stack: State[] = [];
+  let currentNode: Node | undefined = node;
+  let currentKeyIndex = 0;
+  let currentWord = word;
 
-    if (shouldBreak) {
-      return true;
-    }
-  }
+  while (stack.length > 0 || currentNode) {
+    if (currentNode) {
+      const keys = Object.keys(currentNode);
+      const key = keys[currentKeyIndex];
 
-  const sortedEntries = Object.entries(node).sort(([key1], [key2]) => key1.localeCompare(key2));
+      if (currentKeyIndex >= keys.length) {
+        currentNode = undefined;
+      } else if (key === 'wordEnd') {
+        const shouldStop = callback({ node: currentNode, word: currentWord });
 
-  for (const [key, value] of sortedEntries) {
-    if (key !== 'wordEnd') {
-      const shouldBreak = traverse(value as Node, word + key, callback);
+        if (shouldStop) {
+          return true;
+        }
 
-      if (shouldBreak) {
-        return true;
+        ++currentKeyIndex;
+      } else {
+        stack.push({ node: currentNode, keyIndex: currentKeyIndex });
+
+        currentNode = currentNode[key] as Node | undefined;
+        currentKeyIndex = 0;
+        currentWord += key;
       }
+    } else {
+      const state = stack.pop() as State;
+
+      currentNode = state.node;
+      currentKeyIndex = state.keyIndex + 1;
+      currentWord = currentWord.slice(0, -1);
     }
   }
 
