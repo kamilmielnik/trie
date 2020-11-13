@@ -45,6 +45,9 @@
       "node_modules/",
       "src/index.ts"
     ],
+    "coverageReporters": [
+      "html"
+    ],
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.json"
