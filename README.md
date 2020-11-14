@@ -48,52 +48,76 @@ import Trie from '@kamilmielnik/trie';
 
 #### Static functions
 
-- `Trie.deserialize(serialized: string): Trie`
+- ```ts
+  Trie.deserialize(serialized: string): Trie
+  ```
 
   Creates a new `Trie` by deserializing given `string`.
   The inverse of `Trie.prototype.serialize`.
 
-- `Trie.fromArray(words: string[]): Trie`
+- ```ts
+  Trie.fromArray(words: string[]): Trie
+  ```
 
   Creates a new `Trie` based on array of `words`.
 
 #### Instance properties
 
-- `root: Node`
+- ```ts
+  root: Node;
+  ```
 
   Readonly property. Returns the root `Node` of the `Trie`. It's not a copy. Mutate at your own risk.
 
 #### Instance methods
 
-- `Trie.prototype.add(word: string): Node`
+- ```ts
+  Trie.prototype.add(word: string): Node
+  ```
 
   Inserts `word` into the `Trie`.
   Returns `Node` representing last character in the word.
 
-- `Trie.prototype.find(prefix: string): Node | undefined`
+- ```ts
+  Trie.prototype.find(prefix: string): Node | undefined
+  ```
 
   Returns `Node` representing a given `prefix`.
   Returns `undefined` if there is no such Node.
 
-- `Trie.prototype.has(word: string): boolean`
+- ```ts
+  Trie.prototype.has(word: string): boolean
+  ```
 
   Returns `true` if given `word` is in the `Trie`.
 
-- `Trie.prototype.hasPrefix(prefix: string): boolean`
+- ```ts
+  Trie.prototype.hasPrefix(prefix: string): boolean
+  ```
 
   Returns `true` if there are any words with given [`prefix`](https://en.wikipedia.org/wiki/String_operations#Prefixes) in the `Trie`.
 
-- `Trie.prototype.remove(word: string): boolean`
+- ```ts
+  Trie.prototype.remove(word: string): boolean
+  ```
 
   Removes word from the `Trie` if it exists.
   Returns `true` if `word` was removed.
 
-- `Trie.prototype.traverse(callback: (parameters: { node: Node; prefix: string; }, options: { sort?: boolean } ): void`
+- ```ts
+  Trie.prototype.traverse(
+    callback: (parameters: { node: Node; prefix: string; },
+    options: { sort?: boolean }
+  ): void
+  ```
 
   Visits every descendant `Node` in the `Trie` and calls a `callback` for each one.
   Return `true` from `callback` to stop traversing.
+  Pass `sort: true` as an option to visit nodes in alphabetical order.
 
-- `Trie.prototype.serialize(): string`
+- ```ts
+  Trie.prototype.serialize(): string
+  ```
 
   Converts `Trie` into a string.
   The inverse of `Trie.deserialize`.
@@ -114,10 +138,14 @@ import { Node } from '@kamilmielnik/trie';
 
 #### Properties
 
-- `[key: string]: Node`
+- ```ts
+  [key: string]: Node
+  ```
 
   `key` is a single character (string of length 1).
 
-- `wordEnd?: true`
+- ```ts
+  wordEnd?: true
+  ```
 
   Indicates that keys of all parent nodes make a valid word when joined together.

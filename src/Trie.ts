@@ -86,6 +86,7 @@ class Trie {
   /**
    * Visits every descendant Node in the Trie and calls a callback for each one.
    * Return true from callback to stop traversing.
+   * Pass "sort: true" as an option to visit Nodes in alphabetical order.
    */
   public traverse(
     callback: Parameters<typeof traverse>[2],
