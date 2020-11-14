@@ -130,8 +130,8 @@ describe('Trie', () => {
     const trie = new Trie(trieJson);
     const foundWords: string[] = [];
 
-    trie.traverse(({ word }) => {
-      foundWords.push(word);
+    trie.traverse(({ prefix }) => {
+      foundWords.push(prefix);
     });
 
     expect(foundWords).toEqual(words);
@@ -142,10 +142,10 @@ describe('Trie', () => {
     const wordIndexToBreak = 2;
     const foundWords: string[] = [];
 
-    trie.traverse(({ word }) => {
-      foundWords.push(word);
+    trie.traverse(({ prefix }) => {
+      foundWords.push(prefix);
 
-      if (word === words[wordIndexToBreak]) {
+      if (prefix === words[wordIndexToBreak]) {
         return true;
       }
     });
