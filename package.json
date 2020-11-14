@@ -73,6 +73,7 @@
     "prerelease": "npm run test && npm run build",
     "release": "np --no-2fa",
     "test": "jest",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
