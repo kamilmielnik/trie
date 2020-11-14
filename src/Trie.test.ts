@@ -126,18 +126,21 @@ describe('Trie', () => {
     expect(new Trie(trieJson).root).toEqual(trieJson);
   });
 
-  it('Traverses words', () => {
+  it('Traverses words in order', () => {
     const trie = new Trie(trieJson);
     const foundWords: string[] = [];
     const visitedPrefixes: string[] = [];
 
-    trie.traverse(({ node, prefix }) => {
-      visitedPrefixes.push(prefix);
+    trie.traverse(
+      ({ node, prefix }) => {
+        visitedPrefixes.push(prefix);
 
-      if (node.wordEnd) {
-        foundWords.push(prefix);
-      }
-    });
+        if (node.wordEnd) {
+          foundWords.push(prefix);
+        }
+      },
+      { sort: true }
+    );
 
     expect(foundWords).toEqual(words);
     expect(visitedPrefixes).toEqual(['a', 'ab', 'abc', 'abcd', 'abce', 'ac', 'ace']);
@@ -149,19 +152,22 @@ describe('Trie', () => {
     const foundWords: string[] = [];
     const visitedPrefixes: string[] = [];
 
-    trie.traverse(({ node, prefix }) => {
-      visitedPrefixes.push(prefix);
+    trie.traverse(
+      ({ node, prefix }) => {
+        visitedPrefixes.push(prefix);
 
-      if (node.wordEnd) {
-        foundWords.push(prefix);
+        if (node.wordEnd) {
+          foundWords.push(prefix);
 
-        if (prefix === words[wordIndexToBreak]) {
-          return true;
+          if (prefix === words[wordIndexToBreak]) {
+            return true;
+          }
         }
-      }
 
-      return false;
-    });
+        return false;
+      },
+      { sort: true }
+    );
 
     expect(foundWords).toEqual(words.slice(0, wordIndexToBreak + 1));
     expect(visitedPrefixes).toEqual(['a', 'ab', 'abc', 'abcd', 'abce']);

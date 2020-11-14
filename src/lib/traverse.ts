@@ -7,20 +7,23 @@ interface State {
   node: Node;
 }
 
-const sortKeys = (keys: string[]): string[] =>
-  keys.sort((key1, key2) => {
-    if (key1 === 'wordEnd') {
-      return -1;
-    }
+interface Options {
+  sort?: boolean;
+}
 
-    if (key2 === 'wordEnd') {
-      return 1;
-    }
+const keyComparator = (key1: string, key2: string): number => {
+  if (key1 === 'wordEnd') {
+    return -1;
+  }
 
-    return key1.localeCompare(key2);
-  });
+  if (key2 === 'wordEnd') {
+    return 1;
+  }
 
-const traverse = (node: Node, prefix: string, callback: Callback): void => {
+  return key1.localeCompare(key2);
+};
+
+const traverse = (node: Node, prefix: string, callback: Callback, options: Options = {}): void => {
   const stack: State[] = [];
   let currentKeyIndex = 0;
   let currentNode: Node | undefined = node;
@@ -28,12 +31,13 @@ const traverse = (node: Node, prefix: string, callback: Callback): void => {
 
   while (stack.length > 0 || currentNode) {
     while (currentNode) {
-      const keys = sortKeys(Object.keys(currentNode));
+      const keys = Object.keys(currentNode);
 
       if (currentKeyIndex >= keys.length) {
         currentNode = undefined;
       } else {
-        const key = keys[currentKeyIndex];
+        const sortedKeys = options.sort ? keys.sort(keyComparator) : keys;
+        const key = sortedKeys[currentKeyIndex];
 
         if (key === 'wordEnd') {
           ++currentKeyIndex;
@@ -41,15 +45,13 @@ const traverse = (node: Node, prefix: string, callback: Callback): void => {
           stack.push({ keyIndex: currentKeyIndex, node: currentNode });
 
           currentKeyIndex = 0;
-          currentNode = currentNode[key] as Node | undefined;
+          currentNode = currentNode[key] as Node;
           currentPrefix += key;
 
-          if (currentNode) {
-            const shouldStop = callback({ node: currentNode, prefix: currentPrefix });
+          const shouldStop = callback({ node: currentNode, prefix: currentPrefix });
 
-            if (shouldStop) {
-              return;
-            }
+          if (shouldStop) {
+            return;
           }
         }
       }

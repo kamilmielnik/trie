@@ -86,8 +86,11 @@ class Trie {
   /**
    * TODO: update jsdoc
    */
-  public traverse(callback: (parameters: { node: Node; prefix: string }) => boolean | void): void {
-    traverse(this.root, '', callback);
+  public traverse(
+    callback: Parameters<typeof traverse>[2],
+    options?: Parameters<typeof traverse>[3]
+  ): void {
+    traverse(this.root, '', callback, options);
   }
 }
 
