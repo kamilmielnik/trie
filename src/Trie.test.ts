@@ -126,27 +126,24 @@ describe('Trie', () => {
     expect(new Trie(trieJson).root).toEqual(trieJson);
   });
 
-  it('Traverses words in order', () => {
+  it('Traverses words ', () => {
     const trie = new Trie(trieJson);
     const foundWords: string[] = [];
     const visitedPrefixes: string[] = [];
 
-    trie.traverse(
-      ({ node, prefix }) => {
-        visitedPrefixes.push(prefix);
+    trie.traverse(({ node, prefix }) => {
+      visitedPrefixes.push(prefix);
 
-        if (node.wordEnd) {
-          foundWords.push(prefix);
-        }
-      },
-      { sort: true }
-    );
+      if (node.wordEnd) {
+        foundWords.push(prefix);
+      }
+    });
 
     expect(foundWords).toEqual(words);
     expect(visitedPrefixes).toEqual(['a', 'ab', 'abc', 'abcd', 'abce', 'ac', 'ace']);
   });
 
-  it('Stops traversing when needed', () => {
+  it('Stops traversing in order when needed', () => {
     const trie = new Trie(trieJson);
     const wordIndexToBreak = 2;
     const foundWords: string[] = [];

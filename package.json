@@ -43,7 +43,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "node_modules/",
-      "src/index.ts"
+      "index.ts",
+      "lib/index.ts"
     ],
     "coverageReporters": [
       "html"
