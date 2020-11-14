@@ -36,6 +36,8 @@ console.log(trie.serialize()); // "(m(a(s(k))))"
 
 ## API
 
+[API Docs](interfaces/node.md)
+
 ### Trie
 
 A `class` representing the [Trie](https://en.wikipedia.org/wiki/Trie) data structure.

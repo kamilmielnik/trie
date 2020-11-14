@@ -1,6 +1,6 @@
 **[@kamilmielnik/trie](../README.md)**
 
-> [Globals](../globals.md) / Options
+> [Globals](../README.md) / Options
 
 # Interface: Options
 
@@ -20,6 +20,6 @@
 
 • `Optional` **sort**: undefined \| false \| true
 
-*Defined in [lib/traverse.ts:16](https://github.com/kamilmielnik/trie/blob/4c469aa/src/lib/traverse.ts#L16)*
+*Defined in [lib/traverse.ts:16](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/traverse.ts#L16)*
 
 When set to true, Nodes will be visited in alphabetical order.

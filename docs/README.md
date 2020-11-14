@@ -1,165 +1,301 @@
 **[@kamilmielnik/trie](README.md)**
 
-> [Globals](globals.md)
+> Globals
 
 # @kamilmielnik/trie
 
-![Version](https://img.shields.io/github/package-json/v/kamilmielnik/trie)
-![Dependencies](https://img.shields.io/david/kamilmielnik/trie)
-![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/kamilmielnik/trie)
-![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)
-![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
-![Prettier](https://github.com/kamilmielnik/fuck-npm/workflows/Prettier/badge.svg)
+## Index
 
-[Trie](https://en.wikipedia.org/wiki/Trie) data structure implementation (in TypeScript).
-Highly performant. No dependencies. Built for a [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver).
+### Classes
 
-# Installation
+* [Trie](classes/trie.md)
 
-```Shell
-npm install @kamilmielnik/trie --save
-```
+### Interfaces
 
-# Usage
+* [Node](interfaces/node.md)
+* [Options](interfaces/options.md)
+* [State](interfaces/state.md)
 
-```ts
-import Trie from '@kamilmielnik/trie';
+### Type aliases
 
-const trie = new Trie();
-trie.add('master');
-trie.add('mask');
-console.log(trie.hasPrefix('man')); // false
-console.log(trie.hasPrefix('mas')); // true
-console.log(trie.has('mas')); // false
-console.log(trie.remove('mas')); // false
-console.log(trie.has('master')); // true
-console.log(trie.serialize()); // "(m(a(s(t(e(r))k))))"
-console.log(trie.remove('master')); // true
-console.log(trie.serialize()); // "(m(a(s(k))))"
-```
+* [Callback](README.md#callback)
+* [CallbackData](README.md#callbackdata)
 
-## API
+### Variables
 
-### Trie
+* [CLOSE\_PARENS](README.md#close_parens)
+* [OPEN\_PARENS](README.md#open_parens)
 
-A `class` representing the [Trie](https://en.wikipedia.org/wiki/Trie) data structure.
+### Functions
 
-#### Import
+* [add](README.md#add)
+* [deserialize](README.md#deserialize)
+* [find](README.md#find)
+* [fromArray](README.md#fromarray)
+* [has](README.md#has)
+* [hasPrefix](README.md#hasprefix)
+* [nodeKeyComparator](README.md#nodekeycomparator)
+* [remove](README.md#remove)
+* [serialize](README.md#serialize)
+* [toArray](README.md#toarray)
+* [traverse](README.md#traverse)
 
-```ts
-import Trie from '@kamilmielnik/trie';
-```
+## Type aliases
 
-#### Static functions
+### Callback
 
-- ```ts
-  Trie.deserialize(serialized: string): Trie
-  ```
+Ƭ  **Callback**: (data: [CallbackData](README.md#callbackdata)) => boolean \| void
 
-  Creates a new `Trie` by deserializing given `string`.
-  The inverse of `Trie.prototype.serialize`.
+*Defined in [types.ts:1](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/types.ts#L1)*
 
-- ```ts
-  Trie.fromArray(words: string[]): Trie
-  ```
+*Defined in [lib/traverse.ts:5](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/traverse.ts#L5)*
 
-  Creates a new `Trie` based on array of `words`.
+___
 
-#### Instance properties
+### CallbackData
 
-- ```ts
-  root: Node;
-  ```
+Ƭ  **CallbackData**: { node: [Node](interfaces/node.md) ; prefix: string  }
 
-  Readonly property. Returns the root `Node` of the `Trie`. It's not a copy. Mutate at your own risk.
+*Defined in [types.ts:3](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/types.ts#L3)*
 
-#### Instance methods
+#### Type declaration:
 
-- ```ts
-  Trie.prototype.add(word: string): Node
-  ```
+Name | Type |
+------ | ------ |
+`node` | [Node](interfaces/node.md) |
+`prefix` | string |
 
-  Inserts `word` into the `Trie`.
-  Returns `Node` representing last character in the word.
+## Variables
 
-- ```ts
-  Trie.prototype.find(prefix: string): Node | undefined
-  ```
+### CLOSE\_PARENS
 
-  Returns `Node` representing a given `prefix`.
-  Returns `undefined` if there is no such Node.
+• `Const` **CLOSE\_PARENS**: \")\" = ")"
 
-- ```ts
-  Trie.prototype.has(word: string): boolean
-  ```
+*Defined in [constants.ts:4](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/constants.ts#L4)*
 
-  Returns `true` if given `word` is in the `Trie`.
+Represents end of a node in serialized format.
 
-- ```ts
-  Trie.prototype.hasPrefix(prefix: string): boolean
-  ```
+___
 
-  Returns `true` if there are any words with given [`prefix`](https://en.wikipedia.org/wiki/String_operations#Prefixes) in the `Trie`.
+### OPEN\_PARENS
 
-- ```ts
-  Trie.prototype.remove(word: string): boolean
-  ```
+• `Const` **OPEN\_PARENS**: \"(\" = "("
 
-  Removes word from the `Trie` if it exists.
-  Returns `true` if `word` was removed.
+*Defined in [constants.ts:9](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/constants.ts#L9)*
 
-* ```ts
-  Trie.prototype.serialize(): string
-  ```
+Represents start of a node in serialized format.
 
-  Converts `Trie` into a string.
-  The inverse of `Trie.deserialize`.
+## Functions
 
-  It serializes 41 MB [Polish dictionary](https://sjp.pl/slownik/growy/) down to 12 MB (-71%).
+### add
 
-  It serializes 1.9 MB [English (US) dictionary](https://www.wordgamedictionary.com/twl06/download/twl06.txt) down to 993 KB (-48%).
+▸ `Const`**add**(`node`: [Node](interfaces/node.md), `word`: string): [Node](interfaces/node.md)
 
-  It serializes 2.9 MB [English (GB) dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.5 MB (-49%).
+*Defined in [lib/add.ts:7](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/add.ts#L7)*
 
-* ```ts
-  Trie.prototype.traverse(
-    callback: (parameters: { node: Node; prefix: string; } => boolean | void,
-    options: { sort?: boolean }
-  ): void
-  ```
+Inserts given word into given Node.
+Returns Node representing last character in the word.
 
-  Visits every descendant `Node` in the `Trie` and calls a `callback` for each one.
-  Return `true` from `callback` to stop traversing.
-  Pass `sort: true` as an option to visit nodes in alphabetical order.
+#### Parameters:
 
-* ```ts
-  Trie.prototype.toArray(
-    options?: { sort?: boolean; wordsOnly?: boolean }
-  ): { node: Node; prefix: string; }[]
-  ```
+Name | Type |
+------ | ------ |
+`node` | [Node](interfaces/node.md) |
+`word` | string |
 
-  Returns `Node` instance and `prefix` it represents of all nodes (except root) in the `Trie`.
-  Pass `sort: true` to get results in alphabetical order.
-  Pass `wordsOnly: true` to only get nodes representing complete words.
+**Returns:** [Node](interfaces/node.md)
 
-### Node
+___
 
-It's a type (TypeScript-only).
+### deserialize
 
-```ts
-import { Node } from '@kamilmielnik/trie';
-```
+▸ `Const`**deserialize**(`serialized`: string): [Node](interfaces/node.md)
 
-#### Properties
+*Defined in [lib/deserialize.ts:7](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/deserialize.ts#L7)*
 
-- ```ts
-  [key: string]: Node
-  ```
+Creates a new Node instance by deserializing given string.
 
-  `key` is a single character (string of length 1).
+#### Parameters:
 
-- ```ts
-  wordEnd?: true
-  ```
+Name | Type |
+------ | ------ |
+`serialized` | string |
 
-  Indicates that keys of all parent nodes make a valid word when joined together.
+**Returns:** [Node](interfaces/node.md)
+
+___
+
+### find
+
+▸ `Const`**find**(`node`: [Node](interfaces/node.md), `prefix`: string): [Node](interfaces/node.md) \| undefined
+
+*Defined in [lib/find.ts:7](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/find.ts#L7)*
+
+Returns Node representing a given prefix starting from a given Node.
+Returns undefined if there is no such node.
+
+#### Parameters:
+
+Name | Type |
+------ | ------ |
+`node` | [Node](interfaces/node.md) |
+`prefix` | string |
+
+**Returns:** [Node](interfaces/node.md) \| undefined
+
+___
+
+### fromArray
+
+▸ `Const`**fromArray**(`words`: string[]): [Node](interfaces/node.md)
+
+*Defined in [lib/fromArray.ts:8](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/fromArray.ts#L8)*
+
+Creates a new Node based on array of words.
+
+#### Parameters:
+
+Name | Type |
+------ | ------ |
+`words` | string[] |
+
+**Returns:** [Node](interfaces/node.md)
+
+___
+
+### has
+
+▸ `Const`**has**(`node`: [Node](interfaces/node.md), `word`: string): boolean
+
+*Defined in [lib/has.ts:8](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/has.ts#L8)*
+
+Returns true if given word is in the Node.
+
+#### Parameters:
+
+Name | Type |
+------ | ------ |
+`node` | [Node](interfaces/node.md) |
+`word` | string |
+
+**Returns:** boolean
+
+___
+
+### hasPrefix
+
+▸ `Const`**hasPrefix**(`node`: [Node](interfaces/node.md), `prefix`: string): boolean
+
+*Defined in [lib/hasPrefix.ts:9](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/hasPrefix.ts#L9)*
+
+Returns true if there are any words with given prefix in the Node.
+See: https://en.wikipedia.org/wiki/String_operations#Prefixes
+
+#### Parameters:
+
+Name | Type |
+------ | ------ |
+`node` | [Node](interfaces/node.md) |
+`prefix` | string |
+
+**Returns:** boolean
+
+___
+
+### nodeKeyComparator
+
+▸ `Const`**nodeKeyComparator**(`key1`: string, `key2`: string): number
+
+*Defined in [lib/nodeKeyComparator.ts:1](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/nodeKeyComparator.ts#L1)*
+
+#### Parameters:
+
+Name | Type |
+------ | ------ |
+`key1` | string |
+`key2` | string |
+
+**Returns:** number
+
+___
+
+### remove
+
+▸ `Const`**remove**(`node`: [Node](interfaces/node.md), `prefix`: string): boolean
+
+*Defined in [lib/remove.ts:7](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/remove.ts#L7)*
+
+Removes prefix from the Node if it exists.
+Returns true if prefix was removed.
+
+#### Parameters:
+
+Name | Type |
+------ | ------ |
+`node` | [Node](interfaces/node.md) |
+`prefix` | string |
+
+**Returns:** boolean
+
+___
+
+### serialize
+
+▸ `Const`**serialize**(`node`: [Node](interfaces/node.md), `character?`: string): string
+
+*Defined in [lib/serialize.ts:7](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/serialize.ts#L7)*
+
+Converts given Node into a string.
+
+#### Parameters:
+
+Name | Type | Default value |
+------ | ------ | ------ |
+`node` | [Node](interfaces/node.md) | - |
+`character` | string | "" |
+
+**Returns:** string
+
+___
+
+### toArray
+
+▸ `Const`**toArray**(`node`: [Node](interfaces/node.md), `prefix`: string, `__namedParameters?`: { sort: undefined \| false \| true ; wordsOnly: undefined \| false \| true  }): [CallbackData](README.md#callbackdata)[]
+
+*Defined in [lib/toArray.ts:10](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/toArray.ts#L10)*
+
+Returns Node instance and prefix it represents of all descendant Nodes.
+Pass "sort: true" to get results in alphabetical order.
+Pass "wordsOnly: true" to only get nodes representing complete words.
+
+#### Parameters:
+
+Name | Type | Default value |
+------ | ------ | ------ |
+`node` | [Node](interfaces/node.md) | - |
+`prefix` | string | - |
+`__namedParameters` | { sort: undefined \| false \| true ; wordsOnly: undefined \| false \| true  } | {} |
+
+**Returns:** [CallbackData](README.md#callbackdata)[]
+
+___
+
+### traverse
+
+▸ `Const`**traverse**(`node`: [Node](interfaces/node.md), `prefix`: string, `callback`: [Callback](README.md#callback), `options?`: [Options](interfaces/options.md)): void
+
+*Defined in [lib/traverse.ts:23](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/traverse.ts#L23)*
+
+Visits every descendant Node and calls a callback for each one.
+Return true from callback to stop traversing.
+
+#### Parameters:
+
+Name | Type | Default value |
+------ | ------ | ------ |
+`node` | [Node](interfaces/node.md) | - |
+`prefix` | string | - |
+`callback` | [Callback](README.md#callback) | - |
+`options` | [Options](interfaces/options.md) | {} |
+
+**Returns:** void

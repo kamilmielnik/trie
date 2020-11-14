@@ -1,6 +1,6 @@
 **[@kamilmielnik/trie](../README.md)**
 
-> [Globals](../globals.md) / State
+> [Globals](../README.md) / State
 
 # Interface: State
 
@@ -21,7 +21,7 @@
 
 •  **keyIndex**: number
 
-*Defined in [lib/traverse.ts:8](https://github.com/kamilmielnik/trie/blob/4c469aa/src/lib/traverse.ts#L8)*
+*Defined in [lib/traverse.ts:8](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/traverse.ts#L8)*
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 •  **node**: [Node](node.md)
 
-*Defined in [lib/traverse.ts:9](https://github.com/kamilmielnik/trie/blob/4c469aa/src/lib/traverse.ts#L9)*
+*Defined in [lib/traverse.ts:9](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/lib/traverse.ts#L9)*
