@@ -2,12 +2,15 @@ import { Node } from '../types';
 
 import add from './add';
 
+/**
+ * Creates a new Node based on array of words.
+ */
 const fromArray = (words: string[]): Node => {
-  const root: Node = {};
+  const node: Node = {};
 
-  words.forEach((word) => add(root, word));
+  words.forEach((word) => add(node, word));
 
-  return root;
+  return node;
 };
 
 export default fromArray;

@@ -1,4 +1,14 @@
-import { add, deserialize, find, fromArray, remove, serialize, toArray, traverse } from './lib';
+import {
+  add,
+  deserialize,
+  find,
+  fromArray,
+  has,
+  remove,
+  serialize,
+  toArray,
+  traverse
+} from './lib';
 import { CallbackData, Node } from './types';
 
 class Trie {
@@ -50,8 +60,7 @@ class Trie {
    * Returns true if given word is in the Trie.
    */
   public has(word: string): boolean {
-    const node = this.find(word);
-    return Boolean(node && node.wordEnd);
+    return has(this.root, word);
   }
 
   /**
