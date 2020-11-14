@@ -106,7 +106,7 @@ class Trie {
     callback: Parameters<typeof traverse>[2],
     options?: Parameters<typeof traverse>[3]
   ): ReturnType<typeof traverse> {
-    traverse(this.root, '', callback, options);
+    return traverse(this.root, '', callback, options);
   }
 }
 
