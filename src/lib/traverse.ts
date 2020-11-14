@@ -2,10 +2,10 @@ import { Node, TraverseCallback, TraverseOptions } from '../types';
 
 import nodeKeyComparator from './nodeKeyComparator';
 
-interface TraverseState {
+type TraverseState = {
   keyIndex: number;
   node: Node;
-}
+};
 
 /**
  * Visits every descendant Node and calls a callback for each one.
