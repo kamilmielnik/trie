@@ -12,6 +12,9 @@ import {
 } from './lib';
 import { Node } from './types';
 
+/**
+ * A class representing the Trie data structure (https://en.wikipedia.org/wiki/Trie).
+ */
 class Trie {
   /**
    * Creates a new Trie by deserializing given string.

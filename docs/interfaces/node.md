@@ -4,6 +4,9 @@
 
 # Interface: Node
 
+Keys are a single characters (strings of length 1) or "wordEnd".
+"wordEnd: true" indicates that keys of all parent nodes make a valid word when joined together.
+
 ## Hierarchy
 
 * {}
@@ -22,4 +25,4 @@
 
 • `Optional` **wordEnd**: undefined \| true
 
-*Defined in [types.ts:9](https://github.com/kamilmielnik/trie/blob/dae7b2d/src/types.ts#L9)*
+*Defined in [types.ts:6](https://github.com/kamilmielnik/trie/blob/573639d/src/types.ts#L6)*

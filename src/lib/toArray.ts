@@ -1,4 +1,4 @@
-import { CallbackData, Node } from '../types';
+import { Node, TraverseCallbackData, TraverseOptions } from '../types';
 
 import traverse from './traverse';
 
@@ -10,20 +10,14 @@ import traverse from './traverse';
 const toArray = (
   node: Node,
   prefix: string,
-  { sort, wordsOnly }: { sort?: boolean; wordsOnly?: boolean } = {}
-): CallbackData[] => {
+  options: TraverseOptions = {}
+): TraverseCallbackData[] => {
   const array: { node: Node; prefix: string }[] = [];
-  const callback: Parameters<typeof traverse>[2] = wordsOnly
-    ? (parameters) => {
-        if (parameters.node.wordEnd) {
-          array.push(parameters);
-        }
-      }
-    : (parameters) => {
-        array.push(parameters);
-      };
+  const callback: Parameters<typeof traverse>[2] = (parameters) => {
+    array.push(parameters);
+  };
 
-  traverse(node, prefix, callback, { sort });
+  traverse(node, prefix, callback, options);
 
   return array;
 };
