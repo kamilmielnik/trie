@@ -111,11 +111,11 @@ import Trie from '@kamilmielnik/trie';
   Converts `Trie` into a string.
   The inverse of `Trie.deserialize`.
 
-  It serializes 41 MB [Polish](https://en.wikipedia.org/wiki/Polish_language) [dictionary](https://sjp.pl/slownik/growy/) down to 12 MB (-71%).
+  It serializes 41 MB [Polish dictionary](https://sjp.pl/slownik/growy/) down to 12 MB (-71%).
 
-  It serializes 1.9 MB [English (US)](https://en.wikipedia.org/wiki/American_English) [dictionary](https://www.wordgamedictionary.com/twl06/download/twl06.txt) down to 993 KB (-48%).
+  It serializes 1.9 MB [English (US) dictionary](https://www.wordgamedictionary.com/twl06/download/twl06.txt) down to 993 KB (-48%).
 
-  It serializes 2.9 MB [English (GB)](https://en.wikipedia.org/wiki/British_English) [dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.5 MB (-49%).
+  It serializes 2.9 MB [English (GB) dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.5 MB (-49%).
 
 * ```ts
   Trie.prototype.traverse(
