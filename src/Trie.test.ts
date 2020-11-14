@@ -140,7 +140,7 @@ describe('Trie', () => {
     });
 
     expect(foundWords).toEqual(words);
-    expect(visitedPrefixes).toEqual(prefixes);
+    expect(visitedPrefixes).toEqual(['a', 'ab', 'abc', 'abcd', 'abce', 'ac', 'ace']);
   });
 
   it('Stops traversing when needed', () => {
@@ -159,9 +159,11 @@ describe('Trie', () => {
           return true;
         }
       }
+
+      return false;
     });
 
     expect(foundWords).toEqual(words.slice(0, wordIndexToBreak + 1));
-    expect(visitedPrefixes).toEqual(['', 'a', 'ab', 'abc', 'abcd', 'abce']);
+    expect(visitedPrefixes).toEqual(['a', 'ab', 'abc', 'abcd', 'abce']);
   });
 });
