@@ -129,10 +129,14 @@ import Trie from '@kamilmielnik/trie';
   Pass `sort: true` as an option to visit nodes in alphabetical order.
 
 * ```ts
-  Trie.prototype.toArray(): { node: Node; prefix: string; }[]
+  Trie.prototype.toArray(
+    options?: { sort?: boolean; wordsOnly?: boolean }
+  ): { node: Node; prefix: string; }[]
   ```
 
   Returns `Node` instance and `prefix` it represents of all nodes (except root) in the `Trie`.
+  Pass `sort: true` to get results in alphabetical order.
+  Pass `wordsOnly: true` to only get nodes representing complete words.
 
 ### Node
 

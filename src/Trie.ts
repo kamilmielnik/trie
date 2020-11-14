@@ -85,8 +85,13 @@ class Trie {
 
   /**
    * Returns Node instance and prefix it represents of all Nodes (except root) in the Trie.
+   * Pass "sort: true" to get results in alphabetical order.
+   * Pass "wordsOnly: true" to only get nodes representing complete words.
    */
-  public toArray({ sort, wordsOnly }: { sort?: boolean; wordsOnly?: boolean }): CallbackData[] {
+  public toArray({
+    sort,
+    wordsOnly
+  }: { sort?: boolean; wordsOnly?: boolean } = {}): CallbackData[] {
     const array: { node: Node; prefix: string }[] = [];
     const callback: Parameters<typeof traverse>[2] = wordsOnly
       ? (parameters) => {

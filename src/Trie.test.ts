@@ -173,7 +173,7 @@ describe('Trie', () => {
   it('Converts to a sorted array', () => {
     const trie = new Trie(trieJson);
     const expected = ['a', 'ab', 'abc', 'abcd', 'abce', 'ac', 'ace'];
-    expect(trie.toArray({ sort: true }).map(({ prefix }) => prefix)).toEqual(expected);
+    expect(trie.toArray().map(({ prefix }) => prefix)).toEqual(expected);
   });
 
   it('Converts to a sorted, words-only array', () => {
