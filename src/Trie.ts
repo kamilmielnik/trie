@@ -1,4 +1,4 @@
-import { add, deserialize, find, remove, serialize, traverse } from './lib';
+import { add, deserialize, find, remove, serialize, toArray, traverse } from './lib';
 import { CallbackData, Node } from './types';
 
 class Trie {
@@ -88,24 +88,8 @@ class Trie {
    * Pass "sort: true" to get results in alphabetical order.
    * Pass "wordsOnly: true" to only get nodes representing complete words.
    */
-  public toArray({
-    sort,
-    wordsOnly
-  }: { sort?: boolean; wordsOnly?: boolean } = {}): CallbackData[] {
-    const array: { node: Node; prefix: string }[] = [];
-    const callback: Parameters<typeof traverse>[2] = wordsOnly
-      ? (parameters) => {
-          if (parameters.node.wordEnd) {
-            array.push(parameters);
-          }
-        }
-      : (parameters) => {
-          array.push(parameters);
-        };
-
-    traverse(this.root, '', callback, { sort });
-
-    return array;
+  public toArray(parameters?: Parameters<typeof toArray>[2]): CallbackData[] {
+    return toArray(this.root, '', parameters);
   }
 
   /**
