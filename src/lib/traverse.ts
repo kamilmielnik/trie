@@ -10,9 +10,16 @@ interface State {
 }
 
 interface Options {
+  /**
+   * When set to true, Nodes will be visited in alphabetical order.
+   */
   sort?: boolean;
 }
 
+/**
+ * Visits every descendant Node and calls a callback for each one.
+ * Return true from callback to stop traversing.
+ */
 const traverse = (node: Node, prefix: string, callback: Callback, options: Options = {}): void => {
   const stack: State[] = [];
   let currentKeyIndex = 0;

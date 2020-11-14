@@ -88,6 +88,11 @@ import Trie from '@kamilmielnik/trie';
   Removes word from the `Trie` if it exists.
   Returns `true` if `word` was removed.
 
+- `Trie.prototype.traverse(callback: (parameters: { node: Node; prefix: string; }, options: { sort?: boolean } ): void`
+
+  Visits every descendant `Node` in the `Trie` and calls a `callback` for each one.
+  Return `true` from `callback` to stop traversing.
+
 - `Trie.prototype.serialize(): string`
 
   Converts `Trie` into a string.

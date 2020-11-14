@@ -84,7 +84,8 @@ class Trie {
   }
 
   /**
-   * TODO: update jsdoc
+   * Visits every descendant Node in the Trie and calls a callback for each one.
+   * Return true from callback to stop traversing.
    */
   public traverse(
     callback: Parameters<typeof traverse>[2],
