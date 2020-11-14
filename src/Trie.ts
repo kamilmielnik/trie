@@ -1,4 +1,4 @@
-import { add, deserialize, find, remove, serialize, toArray, traverse } from './lib';
+import { add, deserialize, find, fromArray, remove, serialize, toArray, traverse } from './lib';
 import { CallbackData, Node } from './types';
 
 class Trie {
@@ -14,9 +14,7 @@ class Trie {
    * Creates a new Trie based on array of words.
    */
   static fromArray(words: string[]): Trie {
-    const trie = new Trie();
-    words.forEach((word) => trie.add(word));
-    return trie;
+    return new Trie(fromArray(words));
   }
 
   /**
