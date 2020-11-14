@@ -83,17 +83,22 @@ class Trie {
     return serialize(this.root);
   }
 
-  public toArray({ sort }: { sort?: boolean }): CallbackData[] {
+  /**
+   * Returns Node instance and prefix it represents of all Nodes (except root) in the Trie.
+   */
+  public toArray({ sort, wordsOnly }: { sort?: boolean; wordsOnly?: boolean }): CallbackData[] {
     const array: { node: Node; prefix: string }[] = [];
+    const callback: Parameters<typeof traverse>[2] = wordsOnly
+      ? (parameters) => {
+          if (parameters.node.wordEnd) {
+            array.push(parameters);
+          }
+        }
+      : (parameters) => {
+          array.push(parameters);
+        };
 
-    traverse(
-      this.root,
-      '',
-      (parameters) => {
-        array.push(parameters);
-      },
-      { sort }
-    );
+    traverse(this.root, '', callback, { sort });
 
     return array;
   }

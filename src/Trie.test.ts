@@ -170,9 +170,15 @@ describe('Trie', () => {
     expect(visitedPrefixes).toEqual(['a', 'ab', 'abc', 'abcd', 'abce']);
   });
 
-  it('Converts to an array', () => {
+  it('Converts to a sorted array', () => {
     const trie = new Trie(trieJson);
     const expected = ['a', 'ab', 'abc', 'abcd', 'abce', 'ac', 'ace'];
     expect(trie.toArray({ sort: true }).map(({ prefix }) => prefix)).toEqual(expected);
+  });
+
+  it('Converts to a sorted, words-only array', () => {
+    const trie = new Trie(trieJson);
+    const output = trie.toArray({ sort: true, wordsOnly: true });
+    expect(output.map(({ prefix }) => prefix)).toEqual(words);
   });
 });
