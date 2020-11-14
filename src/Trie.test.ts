@@ -4,14 +4,13 @@ import { Node } from './types';
 
 describe('Trie', () => {
   const words = ['ab', 'abcd', 'abce', 'ace'];
-  const prefixes = ['a', 'ab', 'abc', 'ac', ...words];
+  const prefixes = ['', 'a', 'ab', 'abc', 'ac', ...words];
   const otherWords = ['b', 'bc', 'ce', 'bcd', 'bce'];
   const otherPrefixes = ['b', 'bc', 'ce', 'bcd', 'bce'];
   const serializedTrie = '(a(bb(c(de))c(e)))';
   const trieJson: Node = {
     a: {
       b: {
-        wordEnd: true,
         c: {
           d: {
             wordEnd: true
@@ -19,7 +18,8 @@ describe('Trie', () => {
           e: {
             wordEnd: true
           }
-        }
+        },
+        wordEnd: true
       },
       c: {
         e: {
@@ -129,27 +129,39 @@ describe('Trie', () => {
   it('Traverses words', () => {
     const trie = new Trie(trieJson);
     const foundWords: string[] = [];
+    const visitedPrefixes: string[] = [];
 
-    trie.traverse(({ prefix }) => {
-      foundWords.push(prefix);
+    trie.traverse(({ node, prefix }) => {
+      visitedPrefixes.push(prefix);
+
+      if (node.wordEnd) {
+        foundWords.push(prefix);
+      }
     });
 
     expect(foundWords).toEqual(words);
+    expect(visitedPrefixes).toEqual(prefixes);
   });
 
   it('Stops traversing when needed', () => {
     const trie = new Trie(trieJson);
     const wordIndexToBreak = 2;
     const foundWords: string[] = [];
+    const visitedPrefixes: string[] = [];
 
-    trie.traverse(({ prefix }) => {
-      foundWords.push(prefix);
+    trie.traverse(({ node, prefix }) => {
+      visitedPrefixes.push(prefix);
 
-      if (prefix === words[wordIndexToBreak]) {
-        return true;
+      if (node.wordEnd) {
+        foundWords.push(prefix);
+
+        if (prefix === words[wordIndexToBreak]) {
+          return true;
+        }
       }
     });
 
     expect(foundWords).toEqual(words.slice(0, wordIndexToBreak + 1));
+    expect(visitedPrefixes).toEqual(['', 'a', 'ab', 'abc', 'abcd', 'abce']);
   });
 });
