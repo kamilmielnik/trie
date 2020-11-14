@@ -128,6 +128,12 @@ import Trie from '@kamilmielnik/trie';
 
   It serializes 2.9 MB [English (GB)](https://en.wikipedia.org/wiki/British_English) [dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.5 MB (-49%).
 
+- ```ts
+  Trie.prototype.toArray(): { node: Node; prefix: string; }[]
+  ```
+
+  Returns `Node` instance and `prefix` it represents of all nodes (except root) in the `Trie`.
+
 ### Node
 
 It's a type (TypeScript-only).
