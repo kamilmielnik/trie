@@ -3,10 +3,10 @@ import { Node } from '../types';
 import find from './find';
 
 /**
- * Returns true if given suffix is in the Node.
+ * Returns true if given word is in the Node.
  */
-const has = (node: Node, suffix: string): boolean => {
-  const foundNode = find(node, suffix);
+const has = (node: Node, word: string): boolean => {
+  const foundNode = find(node, word);
   return Boolean(foundNode && foundNode.wordEnd);
 };
 

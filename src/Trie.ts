@@ -4,6 +4,7 @@ import {
   find,
   fromArray,
   has,
+  hasPrefix,
   remove,
   serialize,
   toArray,
@@ -68,8 +69,7 @@ class Trie {
    * See: https://en.wikipedia.org/wiki/String_operations#Prefixes
    */
   public hasPrefix(prefix: string): boolean {
-    const node = this.find(prefix);
-    return node ? Object.keys(node).length > 0 : false;
+    return hasPrefix(this.root, prefix);
   }
 
   /**
