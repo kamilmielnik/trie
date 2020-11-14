@@ -1,15 +1,14 @@
 import { Node } from '../types';
 
 /**
- * Inserts given suffix into given Node.
- * Returns Node representing last character in the suffix.
- * Does not mark the suffix as a wordEnd.
+ * Inserts given word into given Node.
+ * Returns Node representing last character in the word.
  */
-const add = (node: Node, suffix: string): Node => {
+const add = (node: Node, word: string): Node => {
   let currentNode = node;
 
-  for (let index = 0; index < suffix.length; ++index) {
-    const character = suffix[index];
+  for (let index = 0; index < word.length; ++index) {
+    const character = word[index];
 
     if (!currentNode[character]) {
       currentNode[character] = {};
@@ -17,6 +16,8 @@ const add = (node: Node, suffix: string): Node => {
 
     currentNode = currentNode[character] as Node;
   }
+
+  currentNode.wordEnd = true;
 
   return currentNode;
 };

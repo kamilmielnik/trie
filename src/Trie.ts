@@ -37,9 +37,7 @@ class Trie {
    * Returns Node representing last character in the word.
    */
   public add(word: string): Node {
-    const node = add(this.root, word);
-    node.wordEnd = true;
-    return node;
+    return add(this.root, word);
   }
 
   /**
