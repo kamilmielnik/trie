@@ -10,21 +10,21 @@ import {
   toArray,
   traverse
 } from './lib';
-import { CallbackData, Node } from './types';
+import { Node } from './types';
 
 class Trie {
   /**
    * Creates a new Trie by deserializing given string.
    * The inverse of Trie.prototype.serialize.
    */
-  static deserialize(serialized: string): Trie {
+  static deserialize(serialized: Parameters<typeof deserialize>[0]): Trie {
     return new Trie(deserialize(serialized));
   }
 
   /**
    * Creates a new Trie based on array of words.
    */
-  static fromArray(words: string[]): Trie {
+  static fromArray(words: Parameters<typeof fromArray>[0]): Trie {
     return new Trie(fromArray(words));
   }
 
@@ -45,7 +45,7 @@ class Trie {
    * Inserts given word into the Trie.
    * Returns Node representing last character in the word.
    */
-  public add(word: string): Node {
+  public add(word: Parameters<typeof add>[1]): ReturnType<typeof add> {
     return add(this.root, word);
   }
 
@@ -53,14 +53,14 @@ class Trie {
    * Returns Node representing a given prefix.
    * Returns undefined if there is no such Node.
    */
-  public find(prefix: string): Node | undefined {
+  public find(prefix: Parameters<typeof find>[1]): ReturnType<typeof find> {
     return find(this.root, prefix);
   }
 
   /**
    * Returns true if given word is in the Trie.
    */
-  public has(word: string): boolean {
+  public has(word: Parameters<typeof has>[1]): ReturnType<typeof has> {
     return has(this.root, word);
   }
 
@@ -68,7 +68,7 @@ class Trie {
    * Returns true if there are any words with given prefix in the Trie.
    * See: https://en.wikipedia.org/wiki/String_operations#Prefixes
    */
-  public hasPrefix(prefix: string): boolean {
+  public hasPrefix(prefix: Parameters<typeof hasPrefix>[1]): ReturnType<typeof hasPrefix> {
     return hasPrefix(this.root, prefix);
   }
 
@@ -76,7 +76,7 @@ class Trie {
    * Removes word from the Trie if it exists.
    * Returns true if word was removed.
    */
-  public remove(word: string): boolean {
+  public remove(word: Parameters<typeof remove>[1]): ReturnType<typeof remove> {
     return remove(this.root, word);
   }
 
@@ -84,7 +84,7 @@ class Trie {
    * Converts Trie into a string.
    * The inverse of Trie.deserialize.
    */
-  public serialize(): string {
+  public serialize(): ReturnType<typeof serialize> {
     return serialize(this.root);
   }
 
@@ -93,7 +93,7 @@ class Trie {
    * Pass "sort: true" to get results in alphabetical order.
    * Pass "wordsOnly: true" to only get nodes representing complete words.
    */
-  public toArray(parameters?: Parameters<typeof toArray>[2]): CallbackData[] {
+  public toArray(parameters?: Parameters<typeof toArray>[2]): ReturnType<typeof toArray> {
     return toArray(this.root, '', parameters);
   }
 
@@ -105,7 +105,7 @@ class Trie {
   public traverse(
     callback: Parameters<typeof traverse>[2],
     options?: Parameters<typeof traverse>[3]
-  ): void {
+  ): ReturnType<typeof traverse> {
     traverse(this.root, '', callback, options);
   }
 }
