@@ -1,5 +1,7 @@
 import { Node } from '../types';
 
+import nodeKeyComparator from './nodeKeyComparator';
+
 type Callback = (parameters: { node: Node; prefix: string }) => boolean | void;
 
 interface State {
@@ -10,18 +12,6 @@ interface State {
 interface Options {
   sort?: boolean;
 }
-
-const keyComparator = (key1: string, key2: string): number => {
-  if (key1 === 'wordEnd') {
-    return -1;
-  }
-
-  if (key2 === 'wordEnd') {
-    return 1;
-  }
-
-  return key1.localeCompare(key2);
-};
 
 const traverse = (node: Node, prefix: string, callback: Callback, options: Options = {}): void => {
   const stack: State[] = [];
@@ -36,7 +26,7 @@ const traverse = (node: Node, prefix: string, callback: Callback, options: Optio
       if (currentKeyIndex >= keys.length) {
         currentNode = undefined;
       } else {
-        const sortedKeys = options.sort ? keys.sort(keyComparator) : keys;
+        const sortedKeys = options.sort ? keys.sort(nodeKeyComparator) : keys;
         const key = sortedKeys[currentKeyIndex];
 
         if (key === 'wordEnd') {
