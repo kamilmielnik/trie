@@ -106,7 +106,7 @@ import Trie from '@kamilmielnik/trie';
 
 - ```ts
   Trie.prototype.traverse(
-    callback: (parameters: { node: Node; prefix: string; },
+    callback: (parameters: { node: Node; prefix: string; } => boolean | void,
     options: { sort?: boolean }
   ): void
   ```
