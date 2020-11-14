@@ -82,6 +82,20 @@ describe('Trie', () => {
     });
   });
 
+  it('Finds descendant nodes', () => {
+    const trie = Trie.fromArray(words);
+
+    expect(trie.find('abce')).toEqual({ wordEnd: true });
+  });
+
+  it('Adds words', () => {
+    const trie = Trie.fromArray(words);
+
+    trie.add('xyz');
+
+    expect(trie.has('xyz')).toBe(true);
+  });
+
   it('Removes words', () => {
     const trie = Trie.fromArray(words);
 
