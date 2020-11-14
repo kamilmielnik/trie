@@ -104,18 +104,7 @@ import Trie from '@kamilmielnik/trie';
   Removes word from the `Trie` if it exists.
   Returns `true` if `word` was removed.
 
-- ```ts
-  Trie.prototype.traverse(
-    callback: (parameters: { node: Node; prefix: string; } => boolean | void,
-    options: { sort?: boolean }
-  ): void
-  ```
-
-  Visits every descendant `Node` in the `Trie` and calls a `callback` for each one.
-  Return `true` from `callback` to stop traversing.
-  Pass `sort: true` as an option to visit nodes in alphabetical order.
-
-- ```ts
+* ```ts
   Trie.prototype.serialize(): string
   ```
 
@@ -128,7 +117,18 @@ import Trie from '@kamilmielnik/trie';
 
   It serializes 2.9 MB [English (GB)](https://en.wikipedia.org/wiki/British_English) [dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.5 MB (-49%).
 
-- ```ts
+* ```ts
+  Trie.prototype.traverse(
+    callback: (parameters: { node: Node; prefix: string; } => boolean | void,
+    options: { sort?: boolean }
+  ): void
+  ```
+
+  Visits every descendant `Node` in the `Trie` and calls a `callback` for each one.
+  Return `true` from `callback` to stop traversing.
+  Pass `sort: true` as an option to visit nodes in alphabetical order.
+
+* ```ts
   Trie.prototype.toArray(): { node: Node; prefix: string; }[]
   ```
 
