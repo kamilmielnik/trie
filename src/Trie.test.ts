@@ -169,4 +169,10 @@ describe('Trie', () => {
     expect(foundWords).toEqual(words.slice(0, wordIndexToBreak + 1));
     expect(visitedPrefixes).toEqual(['a', 'ab', 'abc', 'abcd', 'abce']);
   });
+
+  it('Converts to an array', () => {
+    const trie = new Trie(trieJson);
+    const expected = ['a', 'ab', 'abc', 'abcd', 'abce', 'ac', 'ace'];
+    expect(trie.toArray({ sort: true }).map(({ prefix }) => prefix)).toEqual(expected);
+  });
 });

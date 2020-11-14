@@ -1,8 +1,8 @@
-import { Node } from '../types';
+import { CallbackData, Node } from '../types';
 
 import nodeKeyComparator from './nodeKeyComparator';
 
-type Callback = (parameters: { node: Node; prefix: string }) => boolean | void;
+type Callback = (data: CallbackData) => boolean | void;
 
 interface State {
   keyIndex: number;

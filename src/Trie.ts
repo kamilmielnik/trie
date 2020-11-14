@@ -1,5 +1,5 @@
 import { add, deserialize, find, remove, serialize, traverse } from './lib';
-import { Node } from './types';
+import { CallbackData, Node } from './types';
 
 class Trie {
   /**
@@ -81,6 +81,21 @@ class Trie {
    */
   public serialize(): string {
     return serialize(this.root);
+  }
+
+  public toArray({ sort }: { sort?: boolean }): CallbackData[] {
+    const array: { node: Node; prefix: string }[] = [];
+
+    traverse(
+      this.root,
+      '',
+      (parameters) => {
+        array.push(parameters);
+      },
+      { sort }
+    );
+
+    return array;
   }
 
   /**
