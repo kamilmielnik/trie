@@ -2,7 +2,10 @@ import { CLOSE_PARENS, OPEN_PARENS } from '../constants';
 import { Node } from '../types';
 
 /**
- * Creates a new Node instance by deserializing given string.
+ * Creates a new {@link (docs/interfaces/node.md | `Node`} by deserializing given string.
+ *
+ * @param serialized - String with value returned by {@link (docs/README.md)#serialize | `serialize`}.
+ * @returns Instance of a root {@link (docs/interfaces/node.md | `Node`} of deserialized string.
  */
 const deserialize = (serialized: string): Node => {
   const stack: Node[] = [];

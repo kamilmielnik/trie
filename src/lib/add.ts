@@ -1,8 +1,11 @@
 import { Node } from '../types';
 
 /**
- * Inserts given word into given Node.
- * Returns Node representing last character in the word.
+ * Inserts given `word` into given `node`.
+ *
+ * @param node - {@link (docs/interfaces/node.md | `Node`} to insert the `word` to.
+ * @param word - Word to be inserted into `node`.
+ * @returns {@link (docs/interfaces/node.md | `Node`} representing the end of the added word.
  */
 const add = (node: Node, word: string): Node => {
   let currentNode = node;
