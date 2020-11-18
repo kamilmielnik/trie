@@ -123,12 +123,6 @@ class Trie {
   }
 
   /**
-   * Returns {@link Node} instance and prefix it represents of all Nodes (except root) in the {@link Trie}.
-   * Pass "sort: true" to get results in alphabetical order.
-   * Pass "wordsOnly: true" to only get nodes representing complete words.
-   */
-
-  /**
    * Finds all {@link Descendant | descendants} of the {@link Trie | Trie's} root and returns them as an array.
    *
    * @param options - See {@link TraverseOptions}.
@@ -139,9 +133,10 @@ class Trie {
   }
 
   /**
-   * Visits every descendant {@link Node} in the {@link Trie} and calls a callback for each one.
-   * Return true from callback to stop traversing.
-   * Pass "sort: true" as an option to visit nodes in alphabetical order.
+   * Visits every descendant {@link Node} of the {@link Trie} and calls a callback.
+   *
+   * @param callback - Callback that will be called for each visited {@link Node}. Return true from callback to stop traversing.
+   * @param options - See {@link TraverseOptions}.
    */
   public traverse(callback: TraverseCallback, options?: TraverseOptions): void {
     return traverse(this.root, '', callback, options);

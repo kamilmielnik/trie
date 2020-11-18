@@ -8,8 +8,12 @@ type TraverseState = {
 };
 
 /**
- * Visits every descendant Node and calls a callback for each one.
- * Return true from callback to stop traversing.
+ * Visits every descendant {@link Node} of given {@link Node} and calls a callback.
+ *
+ * @param node - {@link Node} to look for descendant {@link Node | Nodes} in.
+ * @param prefix - Initial prefix.
+ * @param callback - Callback that will be called for each visited {@link Node}. Return true from callback to stop traversing.
+ * @param options - See {@link TraverseOptions}.
  */
 const traverse = (
   node: Node,
