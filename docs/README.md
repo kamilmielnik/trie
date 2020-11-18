@@ -76,9 +76,9 @@ ___
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`prefix?` | undefined \| string | Set the prefix to be applied to all descendants. It should be the prefix represented by the node at which traversing starts. Defaults to empty string. |
-`sort?` | undefined \| false \| true | Set to true to visit nodes in alphabetical order. Defaults to false. |
-`wordsOnly?` | undefined \| false \| true | Set to true to only visit nodes representing complete words. Defaults to false. |
+`prefix?` | undefined \| string | Set the prefix to be applied to all descendants. It should be the prefix represented by the [Node](interfaces/node.md) at which traversing starts. Defaults to empty string. |
+`sort?` | undefined \| false \| true | Set to true to visit [Nodes](interfaces/node.md) in alphabetical order. Defaults to false. |
+`wordsOnly?` | undefined \| false \| true | Set to true to only visit [Nodes](interfaces/node.md) representing complete words. Defaults to false. |
 
 ___
 

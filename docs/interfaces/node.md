@@ -4,8 +4,8 @@
 
 # Interface: Node
 
-Keys are a single characters (strings of length 1) or "wordEnd".
-"wordEnd: true" indicates that keys of all parent nodes make a valid word when joined together.
+Keys are single characters (strings of length 1) or "wordEnd".
+"wordEnd: true" indicates that keys of all parent [Nodes](node.md) make a valid word when joined together.
 
 ## Hierarchy
 
