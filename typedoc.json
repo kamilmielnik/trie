@@ -1,4 +1,6 @@
 {
+  "excludeNotExported": true,
+  "gitRevision": "master",
   "inputFiles": ["./src"],
   "mode": "file",
   "out": "docs",
