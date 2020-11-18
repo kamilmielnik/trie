@@ -19,7 +19,7 @@ npm install @kamilmielnik/trie --save
 # Usage
 
 ```ts
-import Trie from '@kamilmielnik/trie';
+import { Trie } from '@kamilmielnik/trie';
 
 const trie = new Trie();
 trie.add('word');
@@ -44,7 +44,7 @@ Create [`Trie`](docs/classes/trie.md) instance and use its' methods.
 #### Usage
 
 ```ts
-import Trie from '@kamilmielnik/trie';
+import { Trie } from '@kamilmielnik/trie';
 
 const trie = new Trie();
 trie.add('master');
@@ -68,7 +68,7 @@ Manipulate existing instances of [`Node`](docs/interfaces/node.md) with [functio
 The following snippet works identical to the object-oriented example above.
 
 ```ts
-import Trie from '@kamilmielnik/trie';
+import { Node } from '@kamilmielnik/trie';
 
 const root: Node = {};
 
