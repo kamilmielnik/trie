@@ -3,6 +3,7 @@ import { Node } from '../types';
 
 /**
  * Creates a new {@link Node} by deserializing given string.
+ * The inverse of {@link serialize}.
  *
  * @param serialized - String with value returned by {@link serialize}.
  * @returns Instance of a root {@link Node} of deserialized string.

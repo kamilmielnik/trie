@@ -13,62 +13,74 @@ import {
 import { Node, TraverseCallback, TraverseCallbackData, TraverseOptions } from './types';
 
 /**
- * A class representing the Trie data structure (https://en.wikipedia.org/wiki/Trie).
+ * A class representing the {@link Trie} data structure (https://en.wikipedia.org/wiki/Trie).
  */
 class Trie {
   /**
-   * Creates a new Trie by deserializing given string.
-   * The inverse of Trie.prototype.serialize.
+   * Creates a new {@link Trie} by deserializing given string.
+   * The inverse of {@link serialize}.
+   *
+   * @param serialized - String with serialized data.
+   * @returns {@link Trie} representing deserialized data.
    */
   static deserialize(serialized: string): Trie {
     return new Trie(deserialize(serialized));
   }
 
   /**
-   * Creates a new Trie based on array of words.
+   * Creates a new {@link Trie} based on array of words.
+   *
+   * @params words - array of words to put in the {@link Trie}.
+   * @returns New {@link Trie} containing all given words.
    */
   static fromArray(words: string[]): Trie {
     return new Trie(fromArray(words));
   }
 
   /**
-   * Readonly property. Represents the root Node of the Trie.
+   * Represents the root {@link Node} of the {@link Trie}.
    * It's not a copy. Mutate at your own risk.
    */
   public readonly root: Node;
 
   /**
-   * Creates a new Trie with optionally given root Node.
+   * Creates a new {@link Trie} with optionally given root {@link Node}.
+   *
+   * @param root - Root {@link Node} of the {@link Trie} to be created.
    */
   constructor(root: Node = {}) {
     this.root = root;
   }
 
   /**
-   * Inserts given word into the Trie.
-   * Returns Node representing last character in the word.
+   * Inserts given word into the {@link Trie}.
+   *
+   * @param word - Word to be inserted into the {@link Trie}.
+   * @returns {@link Node} representing the end of the added word.
    */
   public add(word: string): Node {
     return add(this.root, word);
   }
 
   /**
-   * Returns Node representing a given prefix.
-   * Returns undefined if there is no such Node.
+   * Finds {@link Node} representing given prefix in the {@link Trie}.
+   *
+   * @param prefix - Prefix to be found.
+   * @returns {@link Node} representing a given prefix, undefined if there is no such node.
    */
   public find(prefix: string): Node | undefined {
     return find(this.root, prefix);
   }
 
   /**
-   * Returns true if given word is in the Trie.
+   * Returns true if given word is in the {@link Trie}.
    */
   public has(word: string): boolean {
     return has(this.root, word);
   }
 
   /**
-   * Returns true if there are any words with given prefix in the Trie.
+   * Returns true if there are any words with given prefix in the {@link Trie}.
    * See: https://en.wikipedia.org/wiki/String_operations#Prefixes
    */
   public hasPrefix(prefix: string): boolean {
@@ -76,7 +88,7 @@ class Trie {
   }
 
   /**
-   * Removes word from the Trie if it exists.
+   * Removes word from the {@link Trie} if it exists.
    * Returns true if word was removed.
    */
   public remove(word: string): boolean {
@@ -84,15 +96,15 @@ class Trie {
   }
 
   /**
-   * Converts Trie into a string.
-   * The inverse of Trie.deserialize.
+   * Converts {@link Trie} into a string.
+   * The inverse of {@link deserialize}.
    */
   public serialize(): string {
     return serialize(this.root);
   }
 
   /**
-   * Returns Node instance and prefix it represents of all Nodes (except root) in the Trie.
+   * Returns {@link Node} instance and prefix it represents of all Nodes (except root) in the {@link Trie}.
    * Pass "sort: true" to get results in alphabetical order.
    * Pass "wordsOnly: true" to only get nodes representing complete words.
    */
@@ -101,9 +113,9 @@ class Trie {
   }
 
   /**
-   * Visits every descendant Node in the Trie and calls a callback for each one.
+   * Visits every descendant {@link Node} in the {@link Trie} and calls a callback for each one.
    * Return true from callback to stop traversing.
-   * Pass "sort: true" as an option to visit Nodes in alphabetical order.
+   * Pass "sort: true" as an option to visit nodes in alphabetical order.
    */
   public traverse(callback: TraverseCallback, options?: TraverseOptions): void {
     return traverse(this.root, '', callback, options);
