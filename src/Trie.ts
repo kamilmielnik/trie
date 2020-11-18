@@ -73,7 +73,10 @@ class Trie {
   }
 
   /**
-   * Returns true if given word is in the {@link Trie}.
+   * Tells you whether given word is in the {@link Trie}.
+   *
+   * @param word - Word to be found.
+   * @returns true if given word is in the {@link Trie}, false otherwise.
    */
   public has(word: string): boolean {
     return has(this.root, word);
