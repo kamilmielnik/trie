@@ -1,25 +1,24 @@
-import { Node, TraverseCallbackData, TraverseOptions } from '../types';
+import { Descendant, Node, TraverseOptions } from '../types';
 
 import traverse from './traverse';
 
 /**
- * Returns Node instance and prefix it represents of all descendant Nodes.
- * Pass "sort: true" to get results in alphabetical order.
- * Pass "wordsOnly: true" to only get nodes representing complete words.
+ * Finds all {@link Descendant | descendants} of given {@link Node} and returns them as an array.
+ *
+ * @param node - {@link Node} to look for {@link Descendant | descendants} in.
+ * @param prefix - Initial prefix.
+ * @param options - See {@link TraverseOptions}.
+ * @returns An array of {@link Descendant | descendants}.
  */
-const toArray = (
-  node: Node,
-  prefix: string,
-  options: TraverseOptions = {}
-): TraverseCallbackData[] => {
-  const array: { node: Node; prefix: string }[] = [];
+const toArray = (node: Node, prefix = '', options: TraverseOptions = {}): Descendant[] => {
+  const descendants: Descendant[] = [];
   const callback: Parameters<typeof traverse>[2] = (parameters) => {
-    array.push(parameters);
+    descendants.push(parameters);
   };
 
   traverse(node, prefix, callback, options);
 
-  return array;
+  return descendants;
 };
 
 export default toArray;

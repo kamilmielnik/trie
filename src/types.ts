@@ -6,20 +6,20 @@ export interface Node extends Record<string, Node | true | undefined> {
   wordEnd?: true;
 }
 
-export type TraverseCallback = (data: TraverseCallbackData) => boolean | void;
+export type TraverseCallback = (descendant: Descendant) => boolean | void;
 
-export type TraverseCallbackData = {
+export type Descendant = {
   node: Node;
   prefix: string;
 };
 
 export type TraverseOptions = {
   /**
-   * When set to true, Nodes will be visited in alphabetical order.
+   * Set to true to visit nodes in alphabetical order. Defaults to false.
    */
   sort?: boolean;
   /**
-   * When set to true, only Nodes representing complete words will be visited.
+   * Set to true to only visit nodes representing complete words. Defaults to false.
    */
   wordsOnly?: boolean;
 };

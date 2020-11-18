@@ -10,7 +10,7 @@ import {
   toArray,
   traverse
 } from './lib';
-import { Node, TraverseCallback, TraverseCallbackData, TraverseOptions } from './types';
+import { Descendant, Node, TraverseCallback, TraverseOptions } from './types';
 
 /**
  * A class representing the {@link Trie} data structure (https://en.wikipedia.org/wiki/Trie).
@@ -127,7 +127,14 @@ class Trie {
    * Pass "sort: true" to get results in alphabetical order.
    * Pass "wordsOnly: true" to only get nodes representing complete words.
    */
-  public toArray(options?: TraverseOptions): TraverseCallbackData[] {
+
+  /**
+   * Finds all {@link Descendant | descendants} of the {@link Trie | Trie's} root and returns them as an array.
+   *
+   * @param options - See {@link TraverseOptions}.
+   * @returns An array of {@link Descendant | descendants}.
+   */
+  public toArray(options?: TraverseOptions): Descendant[] {
     return toArray(this.root, '', options);
   }
 
