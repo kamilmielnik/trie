@@ -47,7 +47,7 @@
 
 Ƭ  **TraverseCallback**: (data: [TraverseCallbackData](README.md#traversecallbackdata)) => boolean \| void
 
-*Defined in [types.ts:9](https://github.com/kamilmielnik/trie/blob/c819880/src/types.ts#L9)*
+*Defined in [types.ts:9](https://github.com/kamilmielnik/trie/blob/7a6351c/src/types.ts#L9)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 Ƭ  **TraverseCallbackData**: { node: [Node](interfaces/node.md) ; prefix: string  }
 
-*Defined in [types.ts:11](https://github.com/kamilmielnik/trie/blob/c819880/src/types.ts#L11)*
+*Defined in [types.ts:11](https://github.com/kamilmielnik/trie/blob/7a6351c/src/types.ts#L11)*
 
 #### Type declaration:
 
@@ -70,7 +70,7 @@ ___
 
 Ƭ  **TraverseOptions**: { sort?: undefined \| false \| true ; wordsOnly?: undefined \| false \| true  }
 
-*Defined in [types.ts:16](https://github.com/kamilmielnik/trie/blob/c819880/src/types.ts#L16)*
+*Defined in [types.ts:16](https://github.com/kamilmielnik/trie/blob/7a6351c/src/types.ts#L16)*
 
 #### Type declaration:
 
@@ -85,7 +85,7 @@ ___
 
 Ƭ  **TraverseState**: { keyIndex: number ; node: [Node](interfaces/node.md)  }
 
-*Defined in [lib/traverse.ts:5](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/traverse.ts#L5)*
+*Defined in [lib/traverse.ts:5](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/traverse.ts#L5)*
 
 #### Type declaration:
 
@@ -100,7 +100,7 @@ Name | Type |
 
 • `Const` **CLOSE\_PARENS**: \")\" = ")"
 
-*Defined in [constants.ts:4](https://github.com/kamilmielnik/trie/blob/c819880/src/constants.ts#L4)*
+*Defined in [constants.ts:4](https://github.com/kamilmielnik/trie/blob/7a6351c/src/constants.ts#L4)*
 
 Represents end of a node in serialized format.
 
@@ -110,7 +110,7 @@ ___
 
 • `Const` **OPEN\_PARENS**: \"(\" = "("
 
-*Defined in [constants.ts:9](https://github.com/kamilmielnik/trie/blob/c819880/src/constants.ts#L9)*
+*Defined in [constants.ts:9](https://github.com/kamilmielnik/trie/blob/7a6351c/src/constants.ts#L9)*
 
 Represents start of a node in serialized format.
 
@@ -120,7 +120,7 @@ Represents start of a node in serialized format.
 
 ▸ `Const`**add**(`node`: [Node](interfaces/node.md), `word`: string): [Node](interfaces/node.md)
 
-*Defined in [lib/add.ts:10](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/add.ts#L10)*
+*Defined in [lib/add.ts:10](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/add.ts#L10)*
 
 Inserts given `word` into given `node`.
 
@@ -141,7 +141,7 @@ ___
 
 ▸ `Const`**deserialize**(`serialized`: string): [Node](interfaces/node.md)
 
-*Defined in [lib/deserialize.ts:12](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/deserialize.ts#L12)*
+*Defined in [lib/deserialize.ts:12](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/deserialize.ts#L12)*
 
 Creates a new [Node](interfaces/node.md) by deserializing given string.
 
@@ -163,7 +163,7 @@ ___
 
 ▸ `Const`**find**(`node`: [Node](interfaces/node.md), `prefix`: string): [Node](interfaces/node.md) \| undefined
 
-*Defined in [lib/find.ts:10](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/find.ts#L10)*
+*Defined in [lib/find.ts:10](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/find.ts#L10)*
 
 Finds [Node](interfaces/node.md) representing given prefix in given [Node](interfaces/node.md).
 
@@ -184,7 +184,7 @@ ___
 
 ▸ `Const`**fromArray**(`words`: string[]): [Node](interfaces/node.md)
 
-*Defined in [lib/fromArray.ts:11](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/fromArray.ts#L11)*
+*Defined in [lib/fromArray.ts:11](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/fromArray.ts#L11)*
 
 Creates a new [Node](interfaces/node.md) based on array of words.
 
@@ -206,7 +206,7 @@ ___
 
 ▸ `Const`**has**(`node`: [Node](interfaces/node.md), `word`: string): boolean
 
-*Defined in [lib/has.ts:12](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/has.ts#L12)*
+*Defined in [lib/has.ts:12](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/has.ts#L12)*
 
 Tells you whether given word is in the [Node](interfaces/node.md).
 
@@ -227,7 +227,7 @@ ___
 
 ▸ `Const`**hasPrefix**(`node`: [Node](interfaces/node.md), `prefix`: string): boolean
 
-*Defined in [lib/hasPrefix.ts:14](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/hasPrefix.ts#L14)*
+*Defined in [lib/hasPrefix.ts:14](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/hasPrefix.ts#L14)*
 
 Tells you whether there are any words with given prefix in the [Node](interfaces/node.md).
 
@@ -250,7 +250,7 @@ ___
 
 ▸ `Const`**nodeKeyComparator**(`key1`: string, `key2`: string): number
 
-*Defined in [lib/nodeKeyComparator.ts:9](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/nodeKeyComparator.ts#L9)*
+*Defined in [lib/nodeKeyComparator.ts:9](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/nodeKeyComparator.ts#L9)*
 
 Comparator that allows sorting [Node](interfaces/node.md) keys alphabetically
 with the exception of "wordEnd" which should always come first.
@@ -272,7 +272,7 @@ ___
 
 ▸ `Const`**remove**(`node`: [Node](interfaces/node.md), `prefix`: string): boolean
 
-*Defined in [lib/remove.ts:10](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/remove.ts#L10)*
+*Defined in [lib/remove.ts:10](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/remove.ts#L10)*
 
 Removes given word from given [Node](interfaces/node.md) if it exists.
 
@@ -293,7 +293,7 @@ ___
 
 ▸ `Const`**serialize**(`node`: [Node](interfaces/node.md)): string
 
-*Defined in [lib/serialize.ts:37](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/serialize.ts#L37)*
+*Defined in [lib/serialize.ts:37](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/serialize.ts#L37)*
 
 Converts given [Node](interfaces/node.md) into a string.
 
@@ -321,7 +321,7 @@ ___
 
 ▸ `Const`**serializeNode**(`node`: [Node](interfaces/node.md), `character`: string): string
 
-*Defined in [lib/serialize.ts:4](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/serialize.ts#L4)*
+*Defined in [lib/serialize.ts:4](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/serialize.ts#L4)*
 
 #### Parameters:
 
@@ -338,7 +338,7 @@ ___
 
 ▸ `Const`**toArray**(`node`: [Node](interfaces/node.md), `prefix`: string, `options?`: [TraverseOptions](README.md#traverseoptions)): [TraverseCallbackData](README.md#traversecallbackdata)[]
 
-*Defined in [lib/toArray.ts:10](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/toArray.ts#L10)*
+*Defined in [lib/toArray.ts:10](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/toArray.ts#L10)*
 
 Returns Node instance and prefix it represents of all descendant Nodes.
 Pass "sort: true" to get results in alphabetical order.
@@ -360,7 +360,7 @@ ___
 
 ▸ `Const`**traverse**(`node`: [Node](interfaces/node.md), `prefix`: string, `callback`: [TraverseCallback](README.md#traversecallback), `options?`: [TraverseOptions](README.md#traverseoptions)): void
 
-*Defined in [lib/traverse.ts:14](https://github.com/kamilmielnik/trie/blob/c819880/src/lib/traverse.ts#L14)*
+*Defined in [lib/traverse.ts:14](https://github.com/kamilmielnik/trie/blob/7a6351c/src/lib/traverse.ts#L14)*
 
 Visits every descendant Node and calls a callback for each one.
 Return true from callback to stop traversing.
