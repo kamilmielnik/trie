@@ -7,6 +7,7 @@ import find from './find';
  *
  * See: https://en.wikipedia.org/wiki/String_operations#Prefixes
  *
+ * @param node - {@link Node} to look for prefix in.
  * @param prefix - Prefix to be found.
  * @returns true if there are any words with given prefix in the {@link Node}, false otherwise.
  */

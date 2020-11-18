@@ -1,8 +1,11 @@
 import { Node } from '../types';
 
 /**
- * Removes prefix from the Node if it exists.
- * Returns true if prefix was removed.
+ * Removes given word from given {@link Node} if it exists.
+ *
+ * @param node - {@link Node} to remove word from.
+ * @param word - Word to be removed.
+ * @returns true if the word was removed, false otherwise.
  */
 const remove = (node: Node, prefix: string): boolean => {
   if (prefix.length === 0) {

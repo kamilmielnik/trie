@@ -3,6 +3,7 @@ import { Node } from '../types';
 /**
  * Finds {@link Node} representing given prefix in given {@link Node}.
  *
+ * @param node - {@link Node} to look for prefix in.
  * @param prefix - Prefix to be found.
  * @returns {@link Node} representing a given prefix, undefined if there is no such node.
  */

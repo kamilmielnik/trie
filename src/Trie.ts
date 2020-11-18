@@ -95,8 +95,10 @@ class Trie {
   }
 
   /**
-   * Removes word from the {@link Trie} if it exists.
-   * Returns true if word was removed.
+   * Removes given word from the {@link Trie} if it exists.
+   *
+   * @param word - Word to be removed.
+   * @returns true if the word was removed, false otherwise.
    */
   public remove(word: string): boolean {
     return remove(this.root, word);
