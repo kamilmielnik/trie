@@ -83,8 +83,12 @@ class Trie {
   }
 
   /**
-   * Returns true if there are any words with given prefix in the {@link Trie}.
+   * Tells you whether there are any words with given prefix in the {@link Trie}.
+   *
    * See: https://en.wikipedia.org/wiki/String_operations#Prefixes
+   *
+   * @param prefix - Prefix to be found.
+   * @returns true if there are any words with given prefix in the {@link Trie}, false otherwise.
    */
   public hasPrefix(prefix: string): boolean {
     return hasPrefix(this.root, prefix);

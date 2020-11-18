@@ -3,8 +3,12 @@ import { Node } from '../types';
 import find from './find';
 
 /**
- * Returns true if there are any words with given prefix in the Node.
+ * Tells you whether there are any words with given prefix in the {@link Node}.
+ *
  * See: https://en.wikipedia.org/wiki/String_operations#Prefixes
+ *
+ * @param prefix - Prefix to be found.
+ * @returns true if there are any words with given prefix in the {@link Node}, false otherwise.
  */
 const hasPrefix = (node: Node, prefix: string): boolean => {
   const foundNode = find(node, prefix);
