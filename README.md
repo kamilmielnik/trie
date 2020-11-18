@@ -62,7 +62,6 @@ console.log(trie.serialize()); // "(m(a(s(k))))"
 ### [Functional API](docs/README.md#functions)
 
 Manipulate existing instances of [`Node`](docs/interfaces/node.md) with [functions](docs/README.md#functions).
-Every function takes a [`Node`](docs/interfaces/node.md) (usually a root note) instance as the first argument.
 
 #### Usage
 

@@ -25,4 +25,4 @@ Keys are a single characters (strings of length 1) or "wordEnd".
 
 • `Optional` **wordEnd**: undefined \| true
 
-*Defined in [types.ts:6](https://github.com/kamilmielnik/trie/blob/da233b0/src/types.ts#L6)*
+*Defined in [types.ts:6](https://github.com/kamilmielnik/trie/blob/f60501b/src/types.ts#L6)*
