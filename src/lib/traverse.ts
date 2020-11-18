@@ -11,20 +11,14 @@ type TraverseState = {
  * Visits every descendant {@link Node} of given {@link Node} and calls a callback.
  *
  * @param node - {@link Node} to look for descendant {@link Node | Nodes} in.
- * @param prefix - Initial prefix.
  * @param callback - Callback that will be called for each visited {@link Node}. Return true from callback to stop traversing.
  * @param options - See {@link TraverseOptions}.
  */
-const traverse = (
-  node: Node,
-  prefix: string,
-  callback: TraverseCallback,
-  options: TraverseOptions = {}
-): void => {
+const traverse = (node: Node, callback: TraverseCallback, options: TraverseOptions = {}): void => {
   const stack: TraverseState[] = [];
   let currentKeyIndex = 0;
   let currentNode: Node | undefined = node;
-  let currentPrefix = prefix;
+  let currentPrefix = options.prefix || '';
 
   while (stack.length > 0 || currentNode) {
     while (currentNode) {

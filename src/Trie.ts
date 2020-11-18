@@ -129,7 +129,7 @@ class Trie {
    * @returns An array of {@link Descendant | descendants}.
    */
   public toArray(options?: TraverseOptions): Descendant[] {
-    return toArray(this.root, '', options);
+    return toArray(this.root, options);
   }
 
   /**
@@ -139,7 +139,7 @@ class Trie {
    * @param options - See {@link TraverseOptions}.
    */
   public traverse(callback: TraverseCallback, options?: TraverseOptions): void {
-    return traverse(this.root, '', callback, options);
+    return traverse(this.root, callback, options);
   }
 }
 
