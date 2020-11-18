@@ -18,6 +18,7 @@ import { Node, TraverseCallback, TraverseCallbackData, TraverseOptions } from '.
 class Trie {
   /**
    * Creates a new {@link Trie} by deserializing given string.
+   *
    * The inverse of {@link serialize}.
    *
    * @param serialized - String with serialized data.
@@ -105,8 +106,17 @@ class Trie {
   }
 
   /**
-   * Converts {@link Trie} into a string.
+   * Converts the {@link Trie} into a string.
+   *
    * The inverse of {@link deserialize}.
+   *
+   * It serializes {@link https://sjp.pl/slownik/growy/ | 41 MB Polish dictionary} down to 12 MB (-71%).
+   *
+   * It serializes {@link https://www.wordgamedictionary.com/twl06/download/twl06.txt | 1.9 MB English (US) dictionary} down to 993 KB (-48%).
+   *
+   * It serializes {@link https://www.wordgamedictionary.com/sowpods/download/sowpods.txt | 2.9 MB English (GB) dictionary} down to 1.5 MB (-49%).
+   *
+   * @returns String with serialized data.
    */
   public serialize(): string {
     return serialize(this.root);

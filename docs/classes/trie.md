@@ -39,7 +39,7 @@ A class representing the [Trie](trie.md) data structure (https://en.wikipedia.or
 
 \+ **new Trie**(`root?`: [Node](../interfaces/node.md)): [Trie](trie.md)
 
-*Defined in [Trie.ts:44](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L44)*
+*Defined in [Trie.ts:45](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L45)*
 
 Creates a new [Trie](trie.md) with optionally given root [Node](../interfaces/node.md).
 
@@ -57,7 +57,7 @@ Name | Type | Default value | Description |
 
 • `Readonly` **root**: [Node](../interfaces/node.md)
 
-*Defined in [Trie.ts:44](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L44)*
+*Defined in [Trie.ts:45](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L45)*
 
 Represents the root [Node](../interfaces/node.md) of the [Trie](trie.md).
 It's not a copy. Mutate at your own risk.
@@ -68,7 +68,7 @@ It's not a copy. Mutate at your own risk.
 
 ▸ **add**(`word`: string): [Node](../interfaces/node.md)
 
-*Defined in [Trie.ts:61](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L61)*
+*Defined in [Trie.ts:62](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L62)*
 
 Inserts given word into the [Trie](trie.md).
 
@@ -88,7 +88,7 @@ ___
 
 ▸ **find**(`prefix`: string): [Node](../interfaces/node.md) \| undefined
 
-*Defined in [Trie.ts:71](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L71)*
+*Defined in [Trie.ts:72](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L72)*
 
 Finds [Node](../interfaces/node.md) representing given prefix in the [Trie](trie.md).
 
@@ -108,7 +108,7 @@ ___
 
 ▸ **has**(`word`: string): boolean
 
-*Defined in [Trie.ts:81](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L81)*
+*Defined in [Trie.ts:82](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L82)*
 
 Tells you whether given word is in the [Trie](trie.md).
 
@@ -128,7 +128,7 @@ ___
 
 ▸ **hasPrefix**(`prefix`: string): boolean
 
-*Defined in [Trie.ts:93](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L93)*
+*Defined in [Trie.ts:94](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L94)*
 
 Tells you whether there are any words with given prefix in the [Trie](trie.md).
 
@@ -150,18 +150,19 @@ ___
 
 ▸ **remove**(`word`: string): boolean
 
-*Defined in [Trie.ts:101](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L101)*
+*Defined in [Trie.ts:104](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L104)*
 
-Removes word from the [Trie](trie.md) if it exists.
-Returns true if word was removed.
+Removes given word from the [Trie](trie.md) if it exists.
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`word` | string |
+Name | Type | Description |
+------ | ------ | ------ |
+`word` | string | Word to be removed. |
 
 **Returns:** boolean
+
+true if the word was removed, false otherwise.
 
 ___
 
@@ -169,12 +170,21 @@ ___
 
 ▸ **serialize**(): string
 
-*Defined in [Trie.ts:109](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L109)*
+*Defined in [Trie.ts:121](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L121)*
 
-Converts [Trie](trie.md) into a string.
+Converts the [Trie](trie.md) into a string.
+
 The inverse of [deserialize](trie.md#deserialize).
 
+It serializes [41 MB Polish dictionary](https://sjp.pl/slownik/growy/) down to 12 MB (-71%).
+
+It serializes [1.9 MB English (US) dictionary](https://www.wordgamedictionary.com/twl06/download/twl06.txt) down to 993 KB (-48%).
+
+It serializes [2.9 MB English (GB) dictionary](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) down to 1.5 MB (-49%).
+
 **Returns:** string
+
+String with serialized data.
 
 ___
 
@@ -182,7 +192,7 @@ ___
 
 ▸ **toArray**(`options?`: [TraverseOptions](../README.md#traverseoptions)): [TraverseCallbackData](../README.md#traversecallbackdata)[]
 
-*Defined in [Trie.ts:118](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L118)*
+*Defined in [Trie.ts:130](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L130)*
 
 Returns [Node](../interfaces/node.md) instance and prefix it represents of all Nodes (except root) in the [Trie](trie.md).
 Pass "sort: true" to get results in alphabetical order.
@@ -202,7 +212,7 @@ ___
 
 ▸ **traverse**(`callback`: [TraverseCallback](../README.md#traversecallback), `options?`: [TraverseOptions](../README.md#traverseoptions)): void
 
-*Defined in [Trie.ts:127](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L127)*
+*Defined in [Trie.ts:139](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L139)*
 
 Visits every descendant [Node](../interfaces/node.md) in the [Trie](trie.md) and calls a callback for each one.
 Return true from callback to stop traversing.
@@ -223,9 +233,10 @@ ___
 
 ▸ `Static`**deserialize**(`serialized`: string): [Trie](trie.md)
 
-*Defined in [Trie.ts:26](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L26)*
+*Defined in [Trie.ts:27](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L27)*
 
 Creates a new [Trie](trie.md) by deserializing given string.
+
 The inverse of [serialize](trie.md#serialize).
 
 #### Parameters:
@@ -244,7 +255,7 @@ ___
 
 ▸ `Static`**fromArray**(`words`: string[]): [Trie](trie.md)
 
-*Defined in [Trie.ts:36](https://github.com/kamilmielnik/trie/blob/404c58f/src/Trie.ts#L36)*
+*Defined in [Trie.ts:37](https://github.com/kamilmielnik/trie/blob/c819880/src/Trie.ts#L37)*
 
 Creates a new [Trie](trie.md) based on array of words.
 
