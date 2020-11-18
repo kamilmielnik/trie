@@ -68,7 +68,7 @@ Manipulate existing instances of [`Node`](docs/interfaces/node.md) with [functio
 The following snippet works identical to the object-oriented example above.
 
 ```ts
-import { Node } from '@kamilmielnik/trie';
+import { add, has, hasPrefix, Node, remove, serialize } from '@kamilmielnik/trie';
 
 const root: Node = {};
 
