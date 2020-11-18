@@ -1,30 +1,24 @@
-import { CallbackData, Node } from '../types';
+import { Node, TraverseCallback, TraverseOptions } from '../types';
 
 import nodeKeyComparator from './nodeKeyComparator';
 
-type Callback = (data: CallbackData) => boolean | void;
-
-interface State {
+type TraverseState = {
   keyIndex: number;
   node: Node;
-}
-
-interface Options {
-  /**
-   * When set to true, Nodes will be visited in alphabetical order.
-   */
-  sort?: boolean;
-}
+};
 
 /**
- * Visits every descendant Node and calls a callback for each one.
- * Return true from callback to stop traversing.
+ * Visits every descendant {@link Node} of given {@link Node} and calls a callback.
+ *
+ * @param node - {@link Node} to look for descendant {@link Node | Nodes} in.
+ * @param callback - Callback that will be called for each visited {@link Node}. Return true from callback to stop traversing.
+ * @param options - See {@link TraverseOptions}.
  */
-const traverse = (node: Node, prefix: string, callback: Callback, options: Options = {}): void => {
-  const stack: State[] = [];
+const traverse = (node: Node, callback: TraverseCallback, options: TraverseOptions = {}): void => {
+  const stack: TraverseState[] = [];
   let currentKeyIndex = 0;
   let currentNode: Node | undefined = node;
-  let currentPrefix = prefix;
+  let currentPrefix = options.prefix || '';
 
   while (stack.length > 0 || currentNode) {
     while (currentNode) {
@@ -45,17 +39,19 @@ const traverse = (node: Node, prefix: string, callback: Callback, options: Optio
           currentNode = currentNode[key] as Node;
           currentPrefix += key;
 
-          const shouldStop = callback({ node: currentNode, prefix: currentPrefix });
+          if (!options.wordsOnly || currentNode.wordEnd) {
+            const shouldStop = callback({ node: currentNode, prefix: currentPrefix });
 
-          if (shouldStop) {
-            return;
+            if (shouldStop) {
+              return;
+            }
           }
         }
       }
     }
 
     if (stack.length > 0) {
-      const state = stack.pop() as State;
+      const state = stack.pop() as TraverseState;
 
       currentKeyIndex = state.keyIndex + 1;
       currentNode = state.node;

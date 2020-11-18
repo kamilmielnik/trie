@@ -10,103 +10,136 @@ import {
   toArray,
   traverse
 } from './lib';
-import { Node } from './types';
+import { Descendant, Node, TraverseCallback, TraverseOptions } from './types';
 
+/**
+ * A class representing the {@link https://en.wikipedia.org/wiki/Trie | Trie data structure}.
+ */
 class Trie {
   /**
-   * Creates a new Trie by deserializing given string.
-   * The inverse of Trie.prototype.serialize.
+   * Creates a new {@link Trie} by deserializing given string.
+   *
+   * The inverse of {@link Trie.serialize | asd}.
+   *
+   * @param serialized - String with serialized data.
+   * @returns {@link Trie} representing deserialized data.
    */
-  static deserialize(serialized: Parameters<typeof deserialize>[0]): Trie {
+  static deserialize(serialized: string): Trie {
     return new Trie(deserialize(serialized));
   }
 
   /**
-   * Creates a new Trie based on array of words.
+   * Creates a new {@link Trie} based on array of words.
+   *
+   * @params words - array of words to put in the {@link Trie}.
+   * @returns New {@link Trie} containing all given words.
    */
-  static fromArray(words: Parameters<typeof fromArray>[0]): Trie {
+  static fromArray(words: string[]): Trie {
     return new Trie(fromArray(words));
   }
 
   /**
-   * Readonly property. Represents the root Node of the Trie.
+   * Represents the root {@link Node} of the {@link Trie}.
    * It's not a copy. Mutate at your own risk.
    */
   public readonly root: Node;
 
   /**
-   * Creates a new Trie with optionally given root Node.
+   * Creates a new {@link Trie} with optionally given root {@link Node}.
+   *
+   * @param root - Root {@link Node} of the {@link Trie} to be created.
    */
   constructor(root: Node = {}) {
     this.root = root;
   }
 
   /**
-   * Inserts given word into the Trie.
-   * Returns Node representing last character in the word.
+   * Inserts given word into the {@link Trie}.
+   *
+   * @param word - Word to be inserted into the {@link Trie}.
+   * @returns {@link Node} representing the end of the added word.
    */
-  public add(word: Parameters<typeof add>[1]): ReturnType<typeof add> {
+  public add(word: string): Node {
     return add(this.root, word);
   }
 
   /**
-   * Returns Node representing a given prefix.
-   * Returns undefined if there is no such Node.
+   * Finds {@link Node} representing given prefix in the {@link Trie}.
+   *
+   * @param prefix - Prefix to be found.
+   * @returns {@link Node} representing a given prefix, undefined if there is no such node.
    */
-  public find(prefix: Parameters<typeof find>[1]): ReturnType<typeof find> {
+  public find(prefix: string): Node | undefined {
     return find(this.root, prefix);
   }
 
   /**
-   * Returns true if given word is in the Trie.
+   * Tells you whether given word is in the {@link Trie}.
+   *
+   * @param word - Word to be found.
+   * @returns true if given word is in the {@link Trie}, false otherwise.
    */
-  public has(word: Parameters<typeof has>[1]): ReturnType<typeof has> {
+  public has(word: string): boolean {
     return has(this.root, word);
   }
 
   /**
-   * Returns true if there are any words with given prefix in the Trie.
+   * Tells you whether there are any words with given prefix in the {@link Trie}.
+   *
    * See: https://en.wikipedia.org/wiki/String_operations#Prefixes
+   *
+   * @param prefix - Prefix to be found.
+   * @returns true if there are any words with given prefix in the {@link Trie}, false otherwise.
    */
-  public hasPrefix(prefix: Parameters<typeof hasPrefix>[1]): ReturnType<typeof hasPrefix> {
+  public hasPrefix(prefix: string): boolean {
     return hasPrefix(this.root, prefix);
   }
 
   /**
-   * Removes word from the Trie if it exists.
-   * Returns true if word was removed.
+   * Removes given word from the {@link Trie} if it exists.
+   *
+   * @param word - Word to be removed.
+   * @returns true if the word was removed, false otherwise.
    */
-  public remove(word: Parameters<typeof remove>[1]): ReturnType<typeof remove> {
+  public remove(word: string): boolean {
     return remove(this.root, word);
   }
 
   /**
-   * Converts Trie into a string.
-   * The inverse of Trie.deserialize.
+   * Converts the {@link Trie} into a string.
+   *
+   * The inverse of {@link Trie.deserialize | asd}.
+   *
+   * It serializes {@link https://sjp.pl/slownik/growy/ | 41 MB Polish dictionary} down to 12 MB (-71%).
+   *
+   * It serializes {@link https://www.wordgamedictionary.com/twl06/download/twl06.txt | 1.9 MB English (US) dictionary} down to 993 KB (-48%).
+   *
+   * It serializes {@link https://www.wordgamedictionary.com/sowpods/download/sowpods.txt | 2.9 MB English (GB) dictionary} down to 1.5 MB (-49%).
+   *
+   * @returns String with serialized data.
    */
-  public serialize(): ReturnType<typeof serialize> {
+  public serialize(): string {
     return serialize(this.root);
   }
 
   /**
-   * Returns Node instance and prefix it represents of all Nodes (except root) in the Trie.
-   * Pass "sort: true" to get results in alphabetical order.
-   * Pass "wordsOnly: true" to only get nodes representing complete words.
+   * Finds all {@link Descendant | descendants} of the {@link Trie | Trie's} root and returns them as an array.
+   *
+   * @param options - See {@link TraverseOptions}.
+   * @returns An array of {@link Descendant | descendants}.
    */
-  public toArray(parameters?: Parameters<typeof toArray>[2]): ReturnType<typeof toArray> {
-    return toArray(this.root, '', parameters);
+  public toArray(options?: TraverseOptions): Descendant[] {
+    return toArray(this.root, options);
   }
 
   /**
-   * Visits every descendant Node in the Trie and calls a callback for each one.
-   * Return true from callback to stop traversing.
-   * Pass "sort: true" as an option to visit Nodes in alphabetical order.
+   * Visits every descendant {@link Node} of the {@link Trie} and calls a callback.
+   *
+   * @param callback - Callback that will be called for each visited {@link Node}. Return true from callback to stop traversing.
+   * @param options - See {@link TraverseOptions}.
    */
-  public traverse(
-    callback: Parameters<typeof traverse>[2],
-    options?: Parameters<typeof traverse>[3]
-  ): ReturnType<typeof traverse> {
-    return traverse(this.root, '', callback, options);
+  public traverse(callback: TraverseCallback, options?: TraverseOptions): void {
+    return traverse(this.root, callback, options);
   }
 }
 

@@ -66,12 +66,13 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "clean": "rimraf dist coverage",
+    "clean": "rimraf coverage dist docs",
     "build": "tsc --project .",
+    "build:docs": "typedoc",
     "prettier": "prettier --list-different './src/**/*.{js,ts}'",
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "prebuild": "npm run clean",
-    "prerelease": "npm run test && npm run build",
+    "prerelease": "npm run test && npm run build && npm run build:docs",
     "release": "np --no-2fa",
     "test": "jest",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
@@ -84,6 +85,8 @@
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.4.4",
+    "typedoc": "^0.19.2",
+    "typedoc-plugin-markdown": "^3.0.11",
     "typescript": "^4.0.5"
   }
 }
