@@ -13,7 +13,7 @@ import {
 import { Descendant, Node, TraverseCallback, TraverseOptions } from './types';
 
 /**
- * A class representing the {@link Trie} data structure (https://en.wikipedia.org/wiki/Trie).
+ * A class representing the {@link https://en.wikipedia.org/wiki/Trie | Trie data structure}.
  */
 class Trie {
   /**
