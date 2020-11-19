@@ -102,7 +102,7 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
-#### Load serialized Node/Trie from file
+#### Load serialized Node from file
 
 ```ts
 import { deserialize, Node } from '@kamilmielnik/trie';
