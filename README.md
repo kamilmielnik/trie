@@ -102,7 +102,7 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
-#### Load serialized Node from file
+#### Load serialized [`Node`](docs/interfaces/node.md) from a file
 
 ```ts
 import { deserialize, Node } from '@kamilmielnik/trie';
@@ -115,7 +115,7 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
-#### Serialize Node to a file
+#### Serialize [`Node`](docs/interfaces/node.md) to a file
 
 ```ts
 import { serialize, Trie } from '@kamilmielnik/trie';
