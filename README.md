@@ -109,11 +109,7 @@ import { find, Node, toArray } from '@kamilmielnik/trie';
 
 const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
   const prefixNode = find(node, prefix) || {};
-  const descendants = toArray(prefixNode, {
-    prefix,
-    sort: true,
-    wordsOnly: true
-  })
+  const descendants = toArray(prefixNode, { prefix, sort: true, wordsOnly: true });
   const words = descendants.map(({ prefix: word }) => word);
   return words;
 };
