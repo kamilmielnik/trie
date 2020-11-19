@@ -102,6 +102,31 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
+#### Load serialized Node/Trie from file
+
+```ts
+import { deserialize, Node } from '@kamilmielnik/trie';
+import fs from 'fs';
+
+const fromFile = (filepath: string): Node => {
+  const file = fs.readFileSync(filepath, 'utf-8');
+  const node = deserialize(words);
+  return node;
+};
+```
+
+#### Serialize Node to a file
+
+```ts
+import { serialize, Trie } from '@kamilmielnik/trie';
+import fs from 'fs';
+
+const toFile = (trie: Trie): void => {
+  const serialized = trie.serialize();
+  fs.writeFileSync(filepath, serialized);
+};
+```
+
 #### Find all words with given prefix
 
 ```ts
