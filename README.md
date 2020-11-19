@@ -84,3 +84,35 @@ console.log(serialize(root)); // "(m(a(s(t(e(r))k))))"
 console.log(remove(root, 'master')); // true
 console.log(serialize(root)); // "(m(a(s(k))))"
 ```
+
+### Examples
+
+#### Load dictionary from file
+
+```ts
+import { fromArray, Node } from '@kamilmielnik/trie';
+import fs from 'fs';
+
+const fromFile = (filepath: string): Node => {
+  const file = fs.readFileSync(filepath, 'utf-8');
+  // Assuming file contains 1 word per line
+  const words = file.split('\n').filter(Boolean);
+  return fromArray(words);
+};
+```
+
+#### Find all words with given prefix
+
+```ts
+import { find, Node, toArray } from '@kamilmielnik/trie';
+
+const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
+  const prefixNode = find(node, prefix) || {};
+
+  return toArray(prefixNode, {
+    prefix,
+    sort: true,
+    wordsOnly: true
+  }).map(({ prefix: word }) => word);
+};
+```
