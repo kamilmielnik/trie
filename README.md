@@ -97,7 +97,8 @@ const fromFile = (filepath: string): Node => {
   const file = fs.readFileSync(filepath, 'utf-8');
   // Assuming file contains 1 word per line
   const words = file.split('\n').filter(Boolean);
-  return fromArray(words);
+  const node = fromArray(words);
+  return node;
 };
 ```
 
@@ -108,11 +109,12 @@ import { find, Node, toArray } from '@kamilmielnik/trie';
 
 const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
   const prefixNode = find(node, prefix) || {};
-
-  return toArray(prefixNode, {
+  const descendants = toArray(prefixNode, {
     prefix,
     sort: true,
     wordsOnly: true
-  }).map(({ prefix: word }) => word);
+  })
+  const words = descendants.map(({ prefix: word }) => word);
+  return words;
 };
 ```
