@@ -9,7 +9,13 @@ import { Node } from '../types';
  */
 const remove = (node: Node, prefix: string): boolean => {
   if (prefix.length === 0) {
-    return false;
+    if (!node.wordEnd) {
+      return false;
+    }
+
+    delete node.wordEnd;
+
+    return true;
   }
 
   const letter = prefix[0];
