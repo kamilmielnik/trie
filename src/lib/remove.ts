@@ -7,8 +7,8 @@ import { Node } from '../types';
  * @param word - Word to be removed.
  * @returns true if the word was removed, false otherwise.
  */
-const remove = (node: Node, prefix: string): boolean => {
-  if (prefix.length === 0) {
+const remove = (node: Node, word: string): boolean => {
+  if (word.length === 0) {
     if (node.wordEnd) {
       delete node.wordEnd;
       return true;
@@ -17,14 +17,14 @@ const remove = (node: Node, prefix: string): boolean => {
     return false;
   }
 
-  const letter = prefix[0];
+  const letter = word[0];
   const nextNode = node[letter] as Node | undefined;
 
   if (!nextNode) {
     return false;
   }
 
-  const removed = remove(nextNode, prefix.substring(1));
+  const removed = remove(nextNode, word.substring(1));
 
   if (!removed) {
     return false;

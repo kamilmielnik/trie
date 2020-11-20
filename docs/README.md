@@ -271,7 +271,7 @@ ___
 
 ### remove
 
-▸ `Const`**remove**(`node`: [Node](interfaces/node.md), `prefix`: string): boolean
+▸ `Const`**remove**(`node`: [Node](interfaces/node.md), `word`: string): boolean
 
 *Defined in [lib/remove.ts:10](https://github.com/kamilmielnik/trie/blob/master/src/lib/remove.ts#L10)*
 
@@ -282,7 +282,7 @@ Removes given word from given [Node](interfaces/node.md) if it exists.
 Name | Type | Description |
 ------ | ------ | ------ |
 `node` | [Node](interfaces/node.md) | [Node](interfaces/node.md) to remove word from. |
-`prefix` | string | - |
+`word` | string | Word to be removed. |
 
 **Returns:** boolean
 
