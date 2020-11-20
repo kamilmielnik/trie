@@ -9,13 +9,12 @@ import { Node } from '../types';
  */
 const remove = (node: Node, prefix: string): boolean => {
   if (prefix.length === 0) {
-    if (!node.wordEnd) {
-      return false;
+    if (node.wordEnd) {
+      delete node.wordEnd;
+      return true;
     }
 
-    delete node.wordEnd;
-
-    return true;
+    return false;
   }
 
   const letter = prefix[0];
@@ -23,20 +22,6 @@ const remove = (node: Node, prefix: string): boolean => {
 
   if (!nextNode) {
     return false;
-  }
-
-  if (prefix.length === 1) {
-    if (!nextNode.wordEnd) {
-      return false;
-    }
-
-    if (Object.keys(nextNode).length === 1) {
-      delete node[letter];
-    } else {
-      delete nextNode.wordEnd;
-    }
-
-    return true;
   }
 
   const removed = remove(nextNode, prefix.substring(1));
