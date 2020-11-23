@@ -20,6 +20,7 @@ Highly performant. No dependencies. Built for a [Scrabble Solver](https://github
   - [Functional API](#functional-api)
   - [Examples](#examples)
 - [Serialization](#serialization)
+- [Performance](#performance)
 
 # Installation
 
@@ -169,3 +170,14 @@ This package can be used to efficiently [serialize](docs/README.md#serialize) di
 | File size (serialized) [B]                                          | (-29.75%) 1,364,242                                                     | (-31.57%) 2,035,697                                                         | (-56.33%) 18,705,990                      |
 | File size ([7z](https://en.wikipedia.org/wiki/7z)) [B]              | (-80.46%) 379,483                                                       | (-81.04%) 563,913                                                           | (-87.58%) 5,320,397                       |
 | File size (serialized + [7z](https://en.wikipedia.org/wiki/7z)) [B] | (-89.94%) 195,299                                                       | (-90.40%) 285,430                                                           | (-98.17%) 781,875                         |
+
+# Performance
+
+`add`, `find`, `has`, `hasPrefix`, `remove` are very fast - logarithmic complexity (millions of operations per second).
+
+![image](https://user-images.githubusercontent.com/6830683/100008250-c336f000-2dff-11eb-86e9-6efb04e37429.png)
+
+`deserialize`, `fromArray`, `serialize`, `toArray` are slow - linear complexity (few operations per second).
+
+![image](https://user-images.githubusercontent.com/6830683/100008692-596b1600-2e00-11eb-8b90-61c219e8b151.png)
+
