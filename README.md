@@ -139,3 +139,18 @@ const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
   return words;
 };
 ```
+
+
+## Serialization
+
+This package can be used to efficiently [serialize](docs/README.md#serialize) dictionaries.
+
+| Language                                                            | 🇺🇸 en-US                                                                | 🇬🇧 en-GB                                                                    | 🇵🇱 pl-PL                                  |
+|---------------------------------------------------------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------|
+| Name                                                                | [TWL06](https://en.wikipedia.org/wiki/NASPA_Word_List)                  | [SOWPODS](https://en.wikipedia.org/wiki/Collins_Scrabble_Words)             | [SJP.PL](https://sjp.pl/slownik/dp.phtml) |
+| Source                                                              | [Download](https://www.wordgamedictionary.com/twl06/download/twl06.txt) | [Download](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) | [Download](https://sjp.pl/slownik/growy/) |
+| Words count                                                         | 178,691                                                                 | 267,753                                                                     | 3,045,878                                 |
+| File size [B]                                                       | 1,941,856                                                               | 2,974,773                                                                   | 42,838,508                                |
+| File size (serialized) [B]                                          | (-29.75%) 1,364,242                                                     | (-31.57%) 2,035,697                                                         | (-56.33%) 18,705,990                      |
+| File size ([7z](https://en.wikipedia.org/wiki/7z)) [B]              | (-80.46%) 379,483                                                       | (-81.04%) 563,913                                                           | (-87.58%) 5,320,397                       |
+| File size (serialized + [7z](https://en.wikipedia.org/wiki/7z)) [B] | (-89.94%) 195,299                                                       | (-90.40%) 285,430                                                           | (-98.17%) 781,875                         |
