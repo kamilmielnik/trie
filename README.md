@@ -162,6 +162,7 @@ const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
 # Serialization and compression
 
 This package can be used to efficiently [serialize](docs/README.md#serialize) and compress dictionaries.
+It reaches 1.01864 compression ratio (98.17%) for Polish dictionary when combined with [7-Zip](https://en.wikipedia.org/wiki/7z).
 
 | Language                                                            | 🇺🇸 en-US                                                                | 🇬🇧 en-GB                                                                    | 🇵🇱 pl-PL                                  |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------- |
