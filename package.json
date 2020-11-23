@@ -11,6 +11,10 @@
     "solver",
     "typescript"
   ],
+  "engines": {
+    "node": ">=10"
+  },
+  "main": "./dist/index.js",
   "license": "MIT",
   "author": {
     "name": "Kamil Mielnik",
@@ -25,7 +29,6 @@
     "url": "https://github.com/kamilmielnik/trie/issues"
   },
   "homepage": "https://github.com/kamilmielnik/trie#readme",
-  "main": "./dist/index.js",
   "files": [
     "dist/**"
   ],
