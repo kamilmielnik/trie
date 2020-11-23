@@ -19,7 +19,7 @@ Highly performant. No dependencies. Built for a [Scrabble Solver](https://github
   - [Object-oriented API](#object-oriented-api)
   - [Functional API](#functional-api)
   - [Examples](#examples)
-- [Serialization](#serialization)
+- [Serialization and compression](#serialization-and-compression)
 - [Performance](#performance)
 
 # Installation
@@ -157,9 +157,9 @@ const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
 };
 ```
 
-# Serialization
+# Serialization and compression
 
-This package can be used to efficiently [serialize](docs/README.md#serialize) dictionaries.
+This package can be used to efficiently [serialize](docs/README.md#serialize) and compress dictionaries.
 
 | Language                                                            | 🇺🇸 en-US                                                                | 🇬🇧 en-GB                                                                    | 🇵🇱 pl-PL                                  |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------- |
