@@ -98,6 +98,11 @@ console.log(serialize(root)); // "(m(a(s(k))))"
 
 ## Examples
 
+- [Load dictionary from file](#load-dictionary-from-file)
+- [Load serialized `Node` from a file](#load-serialized-node-from-a-file)
+- [Serialize `Node` to a file](#serialize-node-to-a-file)
+- [Find all words with given prefix](#find-all-words-with-given-prefix)
+
 ### Load dictionary from file
 
 ```ts
