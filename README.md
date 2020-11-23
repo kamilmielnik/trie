@@ -173,11 +173,10 @@ This package can be used to efficiently [serialize](docs/README.md#serialize) an
 
 # Performance
 
-`add`, `find`, `has`, `hasPrefix`, `remove` are very fast - logarithmic complexity (millions of operations per second).
+[`add`](docs/README.md#add), [`find`](docs/README.md#find), [`has`](docs/README.md#has), [`hasPrefix`](docs/README.md#hasPrefix), [`remove`](docs/README.md#remove) are very fast - logarithmic complexity (millions of operations per second).
 
 ![image](https://user-images.githubusercontent.com/6830683/100008250-c336f000-2dff-11eb-86e9-6efb04e37429.png)
 
-`deserialize`, `fromArray`, `serialize`, `toArray` are slow - linear complexity (few operations per second).
+[`deserialize`](docs/README.md#deserialize), [`fromArray`](docs/README.md#fromArray), [`serialize`](docs/README.md#serialize), [`toArray`](docs/README.md#toArray) are slow - linear complexity (few operations per second).
 
 ![image](https://user-images.githubusercontent.com/6830683/100008692-596b1600-2e00-11eb-8b90-61c219e8b151.png)
-
