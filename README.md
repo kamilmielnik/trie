@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/github/package-json/v/kamilmielnik/trie)
 ![License](https://img.shields.io/npm/l/@kamilmielnik/trie)
 ![Node version](https://img.shields.io/node/v/@kamilmielnik/trie)
-![Dependencies](https://img.shields.io/david/kamilmielnik/trie)
+![Dependencies](https://img.shields.io/librariesio/github/kamilmielnik/trie)
 ![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/kamilmielnik/trie)
 ![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
