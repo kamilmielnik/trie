@@ -56,7 +56,7 @@ There are 2 ways to use the API.
 
 Create [`Trie`](docs/classes/trie.md) instance and use its' methods.
 
-### Usage
+### Example
 
 ```ts
 import { Trie } from '@kamilmielnik/trie';
@@ -78,7 +78,7 @@ console.log(trie.serialize()); // "(m(a(s(k))))"
 
 Manipulate existing instances of [`Node`](docs/interfaces/node.md) with [functions](docs/README.md#functions).
 
-### Usage
+### Example
 
 The following snippet works identical to the object-oriented example above.
 
