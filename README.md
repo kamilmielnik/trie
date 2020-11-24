@@ -20,7 +20,11 @@ Highly performant. No dependencies. Built for a [Scrabble Solver](https://github
 - [API](#api)
   - [Object-oriented API](#object-oriented-api)
   - [Functional API](#functional-api)
-  - [Examples](#examples)
+- [Examples](#examples)
+  - [Load dictionary from file](#load-dictionary-from-file)
+  - [Load serialized `Node` from a file](#load-serialized-node-from-a-file)
+  - [Serialize `Node` to a file](#serialize-node-to-a-file)
+  - [Find all words with given prefix](#find-all-words-with-given-prefix)
 - [Serialization and compression](#serialization-and-compression)
 - [Performance](#performance)
 
@@ -99,14 +103,14 @@ console.log(remove(root, 'master')); // true
 console.log(serialize(root)); // "(m(a(s(k))))"
 ```
 
-## Examples
+# Examples
 
 - [Load dictionary from file](#load-dictionary-from-file)
 - [Load serialized `Node` from a file](#load-serialized-node-from-a-file)
 - [Serialize `Node` to a file](#serialize-node-to-a-file)
 - [Find all words with given prefix](#find-all-words-with-given-prefix)
 
-### Load dictionary from file
+## Load dictionary from file
 
 ```ts
 import { fromArray, Node } from '@kamilmielnik/trie';
@@ -121,7 +125,7 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
-### Load serialized [`Node`](docs/interfaces/node.md) from a file
+## Load serialized [`Node`](docs/interfaces/node.md) from a file
 
 ```ts
 import { deserialize, Node } from '@kamilmielnik/trie';
@@ -134,7 +138,7 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
-### Serialize [`Node`](docs/interfaces/node.md) to a file
+## Serialize [`Node`](docs/interfaces/node.md) to a file
 
 ```ts
 import { serialize, Trie } from '@kamilmielnik/trie';
@@ -146,7 +150,7 @@ const toFile = (trie: Trie): void => {
 };
 ```
 
-### Find all words with given prefix
+## Find all words with given prefix
 
 ```ts
 import { find, Node, toArray } from '@kamilmielnik/trie';
