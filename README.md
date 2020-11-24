@@ -14,7 +14,6 @@ Highly performant. No dependencies. Built for a [Scrabble Solver](https://github
 
 # Table of contents
 
-- [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
