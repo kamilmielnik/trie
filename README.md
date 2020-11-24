@@ -178,10 +178,10 @@ It reaches 1.01864 compression ratio (98.17%) for Polish dictionary when combine
 
 [`add`](docs/README.md#add), [`find`](docs/README.md#find), [`has`](docs/README.md#has), [`hasPrefix`](docs/README.md#hasPrefix), [`remove`](docs/README.md#remove) are very fast - logarithmic complexity (millions of operations per second).
 
-![image](https://user-images.githubusercontent.com/6830683/100008250-c336f000-2dff-11eb-86e9-6efb04e37429.png)
+![image](https://user-images.githubusercontent.com/6830683/100113381-d5b63580-2ea2-11eb-8ed6-0e03515b5d9a.png)
 
 ----
 
 [`deserialize`](docs/README.md#deserialize), [`fromArray`](docs/README.md#fromArray), [`serialize`](docs/README.md#serialize), [`toArray`](docs/README.md#toArray) are slow - linear complexity (few operations per second).
 
-![image](https://user-images.githubusercontent.com/6830683/100008692-596b1600-2e00-11eb-8b90-61c219e8b151.png)
+![image](https://user-images.githubusercontent.com/6830683/100113526-fe3e2f80-2ea2-11eb-9b1e-22ae954e297a.png)
