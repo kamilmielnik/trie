@@ -1,7 +1,7 @@
 {
   "name": "@kamilmielnik/trie",
   "version": "1.0.0",
-  "description": "Trie data structure implementation (in TypeScript). Highly performant. No dependencies. Built for a Scrabble Solver.",
+  "description": "Trie data structure implementation in TypeScript. Highly performant. No dependencies. Built for a Scrabble Solver.",
   "keywords": [
     "trie",
     "data",
@@ -9,7 +9,9 @@
     "algorithm",
     "scrabble",
     "solver",
-    "typescript"
+    "typescript",
+    "prefix",
+    "tree"
   ],
   "engines": {
     "node": ">=10"

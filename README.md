@@ -9,7 +9,7 @@
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
 ![Prettier](https://github.com/kamilmielnik/fuck-npm/workflows/Prettier/badge.svg)
 
-[Trie](https://en.wikipedia.org/wiki/Trie) data structure implementation (in TypeScript).
+[Trie](https://en.wikipedia.org/wiki/Trie) data structure implementation in TypeScript.
 Highly performant. No dependencies. Built for a [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver).
 
 # Table of contents
