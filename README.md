@@ -183,6 +183,8 @@ It reaches 1.01864 compression ratio (98.17%) for Polish dictionary when combine
 
 ![image](https://user-images.githubusercontent.com/6830683/100008250-c336f000-2dff-11eb-86e9-6efb04e37429.png)
 
+----
+
 [`deserialize`](docs/README.md#deserialize), [`fromArray`](docs/README.md#fromArray), [`serialize`](docs/README.md#serialize), [`toArray`](docs/README.md#toArray) are slow - linear complexity (few operations per second).
 
 ![image](https://user-images.githubusercontent.com/6830683/100008692-596b1600-2e00-11eb-8b90-61c219e8b151.png)
