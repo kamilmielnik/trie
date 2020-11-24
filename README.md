@@ -29,8 +29,16 @@ Highly performant. No dependencies. Built for a [Scrabble Solver](https://github
 
 # Installation
 
+## npm
+
 ```Shell
 npm install @kamilmielnik/trie --save
+```
+
+## yarn
+
+```Shell
+yarn add @kamilmielnik/trie
 ```
 
 # Usage
