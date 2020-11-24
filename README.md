@@ -15,7 +15,6 @@ Highly performant. No dependencies. Built for a [Scrabble Solver](https://github
 # Table of contents
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [API](#api)
   - [Object-oriented API](#object-oriented-api)
   - [Functional API](#functional-api)
@@ -39,16 +38,6 @@ npm install @kamilmielnik/trie --save
 
 ```Shell
 yarn add @kamilmielnik/trie
-```
-
-# Usage
-
-```ts
-import { Trie } from '@kamilmielnik/trie';
-
-const trie = new Trie();
-trie.add('word');
-console.log(trie.has('word')); // true
 ```
 
 # [API](docs/README.md)
