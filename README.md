@@ -124,7 +124,7 @@ const fromFile = (filepath: string): Node => {
 ## Serialize [`Node`](docs/interfaces/node.md) to a file
 
 ```ts
-import { serialize, Trie } from '@kamilmielnik/trie';
+import { Trie } from '@kamilmielnik/trie';
 import fs from 'fs';
 
 const toFile = (trie: Trie): void => {
