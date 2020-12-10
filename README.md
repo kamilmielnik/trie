@@ -20,8 +20,8 @@ Highly performant. No dependencies. Built for a [Scrabble Solver](https://github
   - [Functional API](#functional-api)
 - [Examples](#examples)
   - [Load dictionary from file](#load-dictionary-from-file)
-  - [Load serialized `Node` from a file](#load-serialized-node-from-a-file)
   - [Serialize `Node` to a file](#serialize-node-to-a-file)
+  - [Load serialized `Node` from a file](#load-serialized-node-from-a-file)
   - [Find all words with given prefix](#find-all-words-with-given-prefix)
 - [Serialization and compression](#serialization-and-compression)
 - [Performance](#performance)
@@ -102,8 +102,8 @@ console.log(serialize(root)); // "(m(a(s(k))))"
 # Examples
 
 - [Load dictionary from file](#load-dictionary-from-file)
-- [Load serialized `Node` from a file](#load-serialized-node-from-a-file)
 - [Serialize `Node` to a file](#serialize-node-to-a-file)
+- [Load serialized `Node` from a file](#load-serialized-node-from-a-file)
 - [Find all words with given prefix](#find-all-words-with-given-prefix)
 
 ## Load dictionary from file
@@ -121,6 +121,18 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
+## Serialize [`Node`](docs/interfaces/node.md) to a file
+
+```ts
+import { Trie } from '@kamilmielnik/trie';
+import fs from 'fs';
+
+const toFile = (trie: Trie): void => {
+  const serialized = trie.serialize();
+  fs.writeFileSync(filepath, serialized);
+};
+```
+
 ## Load serialized [`Node`](docs/interfaces/node.md) from a file
 
 ```ts
@@ -128,21 +140,9 @@ import { deserialize, Node } from '@kamilmielnik/trie';
 import fs from 'fs';
 
 const fromFile = (filepath: string): Node => {
-  const file = fs.readFileSync(filepath, 'utf-8');
-  const node = deserialize(words);
+  const serialized = fs.readFileSync(filepath, 'utf-8');
+  const node = deserialize(serialized);
   return node;
-};
-```
-
-## Serialize [`Node`](docs/interfaces/node.md) to a file
-
-```ts
-import { serialize, Trie } from '@kamilmielnik/trie';
-import fs from 'fs';
-
-const toFile = (trie: Trie): void => {
-  const serialized = trie.serialize();
-  fs.writeFileSync(filepath, serialized);
 };
 ```
 
