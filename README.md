@@ -80,7 +80,7 @@ Manipulate existing instances of [`Node`](docs/interfaces/node.md) with [functio
 
 ### Example
 
-The following example works identical to the object-oriented example above.
+The following example works identically to the object-oriented example above.
 
 ```ts
 import { add, has, hasPrefix, Node, remove, serialize } from '@kamilmielnik/trie';
