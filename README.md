@@ -127,7 +127,7 @@ const fromFile = (filepath: string): Node => {
 import { Trie } from '@kamilmielnik/trie';
 import fs from 'fs';
 
-const toFile = (trie: Trie): void => {
+const toFile = (filepath: string, trie: Trie): void => {
   const serialized = trie.serialize();
   fs.writeFileSync(filepath, serialized);
 };
