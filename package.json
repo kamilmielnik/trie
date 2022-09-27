@@ -45,6 +45,7 @@
     "clean": "rimraf coverage dist docs",
     "build": "tsc --project .",
     "build:docs": "typedoc",
+    "postbuild": "npm run build:docs",
     "prettier": "prettier --list-different './src/**/*.{js,ts}'",
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "prebuild": "npm run clean",
