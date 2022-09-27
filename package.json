@@ -41,35 +41,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.{js,ts}"
-    ],
-    "coveragePathIgnorePatterns": [
-      "node_modules/",
-      "index.ts",
-      "lib/index.ts"
-    ],
-    "coverageReporters": [
-      "html"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.json"
-      }
-    },
-    "preset": "ts-jest",
-    "testEnvironment": "node"
-  },
   "scripts": {
     "clean": "rimraf coverage dist docs",
     "build": "tsc --project .",
