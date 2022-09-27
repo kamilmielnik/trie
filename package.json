@@ -14,7 +14,7 @@
     "tree"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "main": "./dist/index.js",
   "license": "MIT",
