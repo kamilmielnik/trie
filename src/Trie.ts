@@ -10,7 +10,7 @@ import {
   toArray,
   traverse
 } from './lib';
-import { Descendant, Node, TraverseCallback, TraverseOptions } from './types';
+import type { Descendant, Node, TraverseCallback, TraverseOptions } from './types';
 
 /**
  * A class representing the {@link https://en.wikipedia.org/wiki/Trie | Trie data structure}.

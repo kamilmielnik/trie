@@ -1,4 +1,4 @@
-import { Node } from '../types';
+import type { Node } from '../types';
 
 /**
  * Inserts given `word` into given `node`.

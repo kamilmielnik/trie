@@ -1,4 +1,4 @@
-import { Node, TraverseCallback, TraverseOptions } from '../types';
+import type { Node, TraverseCallback, TraverseOptions } from '../types';
 
 import nodeKeyComparator from './nodeKeyComparator';
 

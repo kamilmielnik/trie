@@ -1,4 +1,4 @@
-import { Node } from '../types';
+import type { Node } from '../types';
 
 /**
  * Finds {@link Node} representing given prefix in given {@link Node}.

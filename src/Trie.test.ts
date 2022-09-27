@@ -1,6 +1,6 @@
 import Trie from './Trie';
 
-import { Node } from './types';
+import type { Node } from './types';
 
 describe('Trie', () => {
   const words = ['ab', 'abcd', 'abce', 'ace'];

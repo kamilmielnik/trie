@@ -1,5 +1,5 @@
 import { CLOSE_PARENS, OPEN_PARENS } from '../constants';
-import { Node } from '../types';
+import type { Node } from '../types';
 
 /**
  * Creates a new {@link Node} by deserializing given string.

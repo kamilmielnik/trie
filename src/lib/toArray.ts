@@ -1,4 +1,4 @@
-import { Descendant, Node, TraverseOptions } from '../types';
+import type { Descendant, Node, TraverseOptions } from '../types';
 
 import traverse from './traverse';
 
