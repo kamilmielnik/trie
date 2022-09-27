@@ -78,7 +78,7 @@
     "prettier:fix": "npm run prettier:js -- --write --no-list-different",
     "prebuild": "npm run clean",
     "prerelease": "npm run test && npm run build && npm run build:docs",
-    "release": "np --no-2fa",
+    "release": "np",
     "test": "jest",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "test:watch": "jest --watch"
