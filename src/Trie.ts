@@ -19,7 +19,7 @@ class Trie {
   /**
    * Creates a new {@link Trie} by deserializing given string.
    *
-   * The inverse of {@link Trie.serialize | asd}.
+   * The inverse of {@link Trie.serialize | serialize}.
    *
    * @param serialized - String with serialized data.
    * @returns {@link Trie} representing deserialized data.
@@ -108,7 +108,7 @@ class Trie {
   /**
    * Converts the {@link Trie} into a string.
    *
-   * The inverse of {@link Trie.deserialize | asd}.
+   * The inverse of {@link Trie.deserialize | deserialize}.
    *
    * It serializes {@link https://sjp.pl/slownik/growy/ | 42.8 MB Polish dictionary} down to 18.7 MB (-56%).
    *

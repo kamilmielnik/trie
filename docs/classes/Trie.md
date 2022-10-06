@@ -188,7 +188,7 @@ ___
 
 Converts the [Trie](Trie.md) into a string.
 
-The inverse of [asd](Trie.md#deserialize).
+The inverse of [deserialize](Trie.md#deserialize).
 
 It serializes [42.8 MB Polish dictionary](https://sjp.pl/slownik/growy/) down to 18.7 MB (-56%).
 
@@ -261,7 +261,7 @@ ___
 
 Creates a new [Trie](Trie.md) by deserializing given string.
 
-The inverse of [asd](Trie.md#serialize).
+The inverse of [serialize](Trie.md#serialize).
 
 #### Parameters
 
