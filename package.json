@@ -1,6 +1,6 @@
 {
   "name": "@kamilmielnik/trie",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Trie data structure implementation in TypeScript. Highly performant. No dependencies. Built for a Scrabble Solver.",
   "keywords": [
     "trie",
