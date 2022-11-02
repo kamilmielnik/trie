@@ -47,7 +47,7 @@
     "build:docs": "typedoc",
     "postbuild": "npm run build:docs",
     "prettier": "prettier --list-different './src/**/*.{js,ts}'",
-    "prettier:fix": "npm run prettier:js -- --write --no-list-different",
+    "prettier:fix": "npm run prettier -- --write --no-list-different",
     "prebuild": "npm run clean",
     "prerelease": "npm run test && npm run build && npm run build:docs",
     "release": "np",
