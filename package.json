@@ -16,7 +16,7 @@
   "engines": {
     "node": ">=20"
   },
-  "main": "./dist/index.js",
+  "main": "./build/index.js",
   "license": "MIT",
   "author": {
     "name": "Kamil Mielnik",
@@ -32,9 +32,9 @@
   },
   "homepage": "https://github.com/kamilmielnik/trie#readme",
   "files": [
-    "dist/**"
+    "build/**"
   ],
-  "types": "./dist/index.d.ts",
+  "types": "./build/index.d.ts",
   "np": {
     "yarn": false
   },
@@ -42,7 +42,7 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf coverage dist docs",
+    "clean": "rimraf build coverage docs",
     "build": "tsc --project .",
     "build:docs": "typedoc",
     "postbuild": "npm run build:docs",

@@ -10,7 +10,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "rootDir": "./src",
     "strict": true,
     "target": "esnext"

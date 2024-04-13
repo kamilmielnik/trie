@@ -3,7 +3,7 @@ const tsConfig = require('./tsconfig.json');
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{js,ts}'],
-  coveragePathIgnorePatterns: ['node_modules/', '/dist/', 'index.ts', 'lib/index.ts'],
+  coveragePathIgnorePatterns: ['node_modules/', '/build/', 'index.ts', 'lib/index.ts'],
   coverageReporters: ['html'],
   coverageThreshold: {
     global: {
