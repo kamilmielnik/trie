@@ -34,6 +34,4 @@ const serializeNode = (node: Node, character: string): string => {
  * @param node - {@link Node} to serialize.
  * @returns String with serialized data.
  */
-const serialize = (node: Node): string => serializeNode(node, '');
-
-export default serialize;
+export const serialize = (node: Node): string => serializeNode(node, '');

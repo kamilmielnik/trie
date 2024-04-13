@@ -7,7 +7,7 @@ import type { Node } from '../types';
  * @param word - Word to be removed.
  * @returns true if the word was removed, false otherwise.
  */
-const remove = (node: Node, word: string): boolean => {
+export const remove = (node: Node, word: string): boolean => {
   if (word.length === 0) {
     if (node.wordEnd) {
       delete node.wordEnd;
@@ -36,5 +36,3 @@ const remove = (node: Node, word: string): boolean => {
 
   return true;
 };
-
-export default remove;

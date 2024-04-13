@@ -1,6 +1,6 @@
 import type { Node, TraverseCallback, TraverseOptions } from '../types';
 
-import nodeKeyComparator from './nodeKeyComparator';
+import { nodeKeyComparator } from './nodeKeyComparator';
 
 type TraverseState = {
   keyIndex: number;
@@ -14,7 +14,11 @@ type TraverseState = {
  * @param callback - Callback that will be called for each visited {@link Node}. Return true from callback to stop traversing.
  * @param options - See {@link TraverseOptions}.
  */
-const traverse = (node: Node, callback: TraverseCallback, options: TraverseOptions = {}): void => {
+export const traverse = (
+  node: Node,
+  callback: TraverseCallback,
+  options: TraverseOptions = {}
+): void => {
   const stack: TraverseState[] = [];
   let currentKeyIndex = 0;
   let currentNode: Node | undefined = node;
@@ -59,5 +63,3 @@ const traverse = (node: Node, callback: TraverseCallback, options: TraverseOptio
     }
   }
 };
-
-export default traverse;

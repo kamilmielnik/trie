@@ -9,7 +9,7 @@ import type { Node } from '../types';
  * @param serialized - String with value returned by {@link serialize}.
  * @returns Instance of a root {@link Node} of deserialized string.
  */
-const deserialize = (serialized: string): Node => {
+export const deserialize = (serialized: string): Node => {
   const stack: Node[] = [];
   let node: Node = {};
   let i = 1;
@@ -52,5 +52,3 @@ const deserialize = (serialized: string): Node => {
 
   return node;
 };
-
-export default deserialize;

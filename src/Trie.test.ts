@@ -1,4 +1,4 @@
-import Trie from './Trie';
+import { Trie } from './Trie';
 
 import type { Node } from './types';
 

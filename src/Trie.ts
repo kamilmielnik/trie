@@ -15,7 +15,7 @@ import type { Descendant, Node, TraverseCallback, TraverseOptions } from './type
 /**
  * A class representing the {@link https://en.wikipedia.org/wiki/Trie | Trie data structure}.
  */
-class Trie {
+export class Trie {
   /**
    * Creates a new {@link Trie} by deserializing given string.
    *
@@ -142,5 +142,3 @@ class Trie {
     return traverse(this.root, callback, options);
   }
 }
-
-export default Trie;

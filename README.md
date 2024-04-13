@@ -9,6 +9,7 @@
 ![Prettier](https://github.com/kamilmielnik/trie/workflows/Prettier/badge.svg)
 
 [Trie](https://en.wikipedia.org/wiki/Trie) data structure implemented in TypeScript:
+
 - [Highly performant](#performance)
 - No dependencies
 - Lightweight

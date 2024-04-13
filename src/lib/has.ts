@@ -1,6 +1,6 @@
 import type { Node } from '../types';
 
-import find from './find';
+import { find } from './find';
 
 /**
  * Tells you whether given word is in the {@link Node}.
@@ -9,9 +9,7 @@ import find from './find';
  * @param word - Word to be found.
  * @returns true if given word is in the {@link Node}, false otherwise.
  */
-const has = (node: Node, word: string): boolean => {
+export const has = (node: Node, word: string): boolean => {
   const foundNode = find(node, word);
   return Boolean(foundNode && foundNode.wordEnd);
 };
-
-export default has;

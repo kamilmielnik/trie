@@ -7,7 +7,7 @@ import type { Node } from '../types';
  * @param prefix - Prefix to be found.
  * @returns {@link Node} representing a given prefix, undefined if there is no such node.
  */
-const find = (node: Node, prefix: string): Node | undefined => {
+export const find = (node: Node, prefix: string): Node | undefined => {
   let currentNode = node;
 
   for (let index = 0; index < prefix.length; ++index) {
@@ -22,5 +22,3 @@ const find = (node: Node, prefix: string): Node | undefined => {
 
   return currentNode;
 };
-
-export default find;

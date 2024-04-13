@@ -1,6 +1,6 @@
 import type { Descendant, Node, TraverseOptions } from '../types';
 
-import traverse from './traverse';
+import { traverse } from './traverse';
 
 /**
  * Finds all {@link Descendant | descendants} of given {@link Node} and returns them as an array.
@@ -9,7 +9,7 @@ import traverse from './traverse';
  * @param options - See {@link TraverseOptions}.
  * @returns An array of {@link Descendant | descendants}.
  */
-const toArray = (node: Node, options?: TraverseOptions): Descendant[] => {
+export const toArray = (node: Node, options?: TraverseOptions): Descendant[] => {
   const descendants: Descendant[] = [];
   const callback: Parameters<typeof traverse>[1] = (parameters) => {
     descendants.push(parameters);
@@ -19,5 +19,3 @@ const toArray = (node: Node, options?: TraverseOptions): Descendant[] => {
 
   return descendants;
 };
-
-export default toArray;

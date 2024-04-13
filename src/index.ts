@@ -1,6 +1,4 @@
-import { default as Trie } from './Trie';
-
-export { Trie };
+export * from './Trie';
 export * from './constants';
 export * from './lib';
-export type { Descendant, Node, TraverseCallback, TraverseOptions } from './types';
+export type * from './types';

@@ -7,7 +7,7 @@ import type { Node } from '../types';
  * @param word - Word to be inserted into `node`.
  * @returns {@link Node} representing the end of the added word.
  */
-const add = (node: Node, word: string): Node => {
+export const add = (node: Node, word: string): Node => {
   let currentNode = node;
 
   for (let index = 0; index < word.length; ++index) {
@@ -24,5 +24,3 @@ const add = (node: Node, word: string): Node => {
 
   return currentNode;
 };
-
-export default add;
