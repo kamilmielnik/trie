@@ -1,4 +1,4 @@
-import nodeKeyComparator from './nodeKeyComparator';
+import { nodeKeyComparator } from './nodeKeyComparator';
 
 describe('nodeKeyComparator', () => {
   it('Gives same result for all permutations when used for sorting', () => {
