@@ -31,7 +31,7 @@ A class representing the [Trie data structure](https://en.wikipedia.org/wiki/Tri
 
 ### constructor
 
-• **new Trie**(`root?`)
+• **new Trie**(`root?`): [`Trie`](Trie.md)
 
 Creates a new [Trie](Trie.md) with optionally given root [Node](../interfaces/Node.md).
 
@@ -40,6 +40,10 @@ Creates a new [Trie](Trie.md) with optionally given root [Node](../interfaces/No
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `root` | [`Node`](../interfaces/Node.md) | Root [Node](../interfaces/Node.md) of the [Trie](Trie.md) to be created. |
+
+#### Returns
+
+[`Trie`](Trie.md)
 
 #### Defined in
 
@@ -257,7 +261,7 @@ ___
 
 ### deserialize
 
-▸ `Static` **deserialize**(`serialized`): [`Trie`](Trie.md)
+▸ **deserialize**(`serialized`): [`Trie`](Trie.md)
 
 Creates a new [Trie](Trie.md) by deserializing given string.
 
@@ -283,13 +287,9 @@ ___
 
 ### fromArray
 
-▸ `Static` **fromArray**(`words`): [`Trie`](Trie.md)
+▸ **fromArray**(`words`): [`Trie`](Trie.md)
 
 Creates a new [Trie](Trie.md) based on array of words.
-
-**`Params`**
-
-words - array of words to put in the [Trie](Trie.md).
 
 #### Parameters
 
@@ -302,6 +302,10 @@ words - array of words to put in the [Trie](Trie.md).
 [`Trie`](Trie.md)
 
 New [Trie](Trie.md) containing all given words.
+
+**`Params`**
+
+words - array of words to put in the [Trie](Trie.md).
 
 #### Defined in
 

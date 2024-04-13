@@ -204,10 +204,6 @@ ___
 
 Creates a new [Node](interfaces/Node.md) based on array of words.
 
-**`Params`**
-
-words - array of words to put in the [Node](interfaces/Node.md).
-
 #### Parameters
 
 | Name | Type |
@@ -219,6 +215,10 @@ words - array of words to put in the [Node](interfaces/Node.md).
 [`Node`](interfaces/Node.md)
 
 New [Node](interfaces/Node.md) containing all given words.
+
+**`Params`**
+
+words - array of words to put in the [Node](interfaces/Node.md).
 
 #### Defined in
 

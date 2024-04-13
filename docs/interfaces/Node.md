@@ -7,7 +7,7 @@ Keys are single characters (strings of length 1) or "wordEnd".
 
 ## Hierarchy
 
-- `Record`<`string`, [`Node`](Node.md) \| ``true`` \| `undefined`\>
+- `Record`\<`string`, [`Node`](Node.md) \| ``true`` \| `undefined`\>
 
   ↳ **`Node`**
 
