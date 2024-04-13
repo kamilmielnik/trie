@@ -3,14 +3,17 @@
 ![Version](https://img.shields.io/github/package-json/v/kamilmielnik/trie)
 ![License](https://img.shields.io/npm/l/@kamilmielnik/trie)
 ![Node version](https://img.shields.io/node/v/@kamilmielnik/trie)
-![Dependencies](https://img.shields.io/librariesio/github/kamilmielnik/trie)
-![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/kamilmielnik/trie)
+
 ![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
 ![Prettier](https://github.com/kamilmielnik/trie/workflows/Prettier/badge.svg)
 
-[Trie](https://en.wikipedia.org/wiki/Trie) data structure implementation in TypeScript.
-Highly performant. No dependencies. Built for a [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver).
+[Trie](https://en.wikipedia.org/wiki/Trie) data structure implemented in TypeScript:
+- [Highly performant](#performance)
+- No dependencies
+- Lightweight
+- [Well-documented](docs/README.md)
+- Built for [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver)
 
 # Table of contents
 
@@ -64,14 +67,14 @@ import { Trie } from '@kamilmielnik/trie';
 const trie = new Trie();
 trie.add('master');
 trie.add('mask');
-console.log(trie.hasPrefix('man')); // false
-console.log(trie.hasPrefix('mas')); // true
-console.log(trie.has('mas')); // false
-console.log(trie.remove('mas')); // false
-console.log(trie.has('master')); // true
-console.log(trie.serialize()); // "(m(a(s(t(e(r))k))))"
-console.log(trie.remove('master')); // true
-console.log(trie.serialize()); // "(m(a(s(k))))"
+trie.hasPrefix('man'); // false
+trie.hasPrefix('mas'); // true
+trie.has('mas');       // false
+trie.remove('mas');    // false
+trie.has('master');    // true
+trie.serialize();      // "(m(a(s(t(e(r))k))))"
+trie.remove('master'); // true
+trie.serialize();      // "(m(a(s(k))))"
 ```
 
 ## [Functional API](docs/README.md#functions)
@@ -89,14 +92,14 @@ const root: Node = {};
 
 add(root, 'master');
 add(root, 'mask');
-console.log(hasPrefix(root, 'man')); // false
-console.log(hasPrefix(root, 'mas')); // true
-console.log(has(root, 'mas')); // false
-console.log(remove(root, 'mas')); // false
-console.log(has(root, 'master')); // true
-console.log(serialize(root)); // "(m(a(s(t(e(r))k))))"
-console.log(remove(root, 'master')); // true
-console.log(serialize(root)); // "(m(a(s(k))))"
+hasPrefix(root, 'man'); // false
+hasPrefix(root, 'mas'); // true
+has(root, 'mas');       // false
+remove(root, 'mas');    // false
+has(root, 'master');    // true
+serialize(root);        // "(m(a(s(t(e(r))k))))"
+remove(root, 'master'); // true
+serialize(root);        // "(m(a(s(k))))"
 ```
 
 # Examples
@@ -176,12 +179,12 @@ It reaches 54.79 [compression ratio](https://en.wikipedia.org/wiki/Data_compress
 
 # Performance
 
-[`add`](docs/README.md#add), [`find`](docs/README.md#find), [`has`](docs/README.md#has), [`hasPrefix`](docs/README.md#hasPrefix), [`remove`](docs/README.md#remove) are very fast - logarithmic complexity (millions of operations per second).
+[`add`](docs/README.md#add), [`find`](docs/README.md#find), [`has`](docs/README.md#has), [`hasPrefix`](docs/README.md#hasPrefix), [`remove`](docs/README.md#remove) are very fast - $O(\log_2 n)$ (millions of operations per second).
 
 ![image](https://user-images.githubusercontent.com/6830683/100113381-d5b63580-2ea2-11eb-8ed6-0e03515b5d9a.png)
 
-----
+---
 
-[`deserialize`](docs/README.md#deserialize), [`fromArray`](docs/README.md#fromArray), [`serialize`](docs/README.md#serialize), [`toArray`](docs/README.md#toArray) are slow - linear complexity (few operations per second).
+[`deserialize`](docs/README.md#deserialize), [`fromArray`](docs/README.md#fromArray), [`serialize`](docs/README.md#serialize), [`toArray`](docs/README.md#toArray) are slow - $O(n)$ (few operations per second).
 
 ![image](https://user-images.githubusercontent.com/6830683/100113526-fe3e2f80-2ea2-11eb-9b1e-22ae954e297a.png)
