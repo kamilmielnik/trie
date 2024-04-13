@@ -54,7 +54,7 @@ There are 2 ways to use the API.
 
 ## [Object-oriented API](docs/README.md#classes)
 
-Create [`Trie`](docs/classes/trie.md) instance and use its' methods.
+Create [`Trie`](docs/classes/trie.md) instance and use its methods.
 
 ### Example
 

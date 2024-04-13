@@ -14,13 +14,13 @@
     "tree"
   ],
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "main": "./dist/index.js",
   "license": "MIT",
   "author": {
     "name": "Kamil Mielnik",
-    "email": "kamil.adam.mielnik@gmail.com",
+    "email": "kamil@kamilmielnik.com",
     "url": "https://kamilmielnik.com/"
   },
   "repository": {
