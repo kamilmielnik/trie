@@ -11,5 +11,5 @@ import { find } from './find';
  */
 export const has = (node: Node, word: string): boolean => {
   const foundNode = find(node, word);
-  return Boolean(foundNode && foundNode.wordEnd);
+  return Boolean(foundNode?.wordEnd);
 };
