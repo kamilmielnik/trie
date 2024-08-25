@@ -1,4 +1,4 @@
-import type { Descendant, Node, TraverseOptions } from '../types';
+import type { Descendant, Node, TraverseCallback, TraverseOptions } from '../types';
 
 import { traverse } from './traverse';
 
@@ -11,7 +11,7 @@ import { traverse } from './traverse';
  */
 export const toArray = (node: Node, options?: TraverseOptions): Descendant[] => {
   const descendants: Descendant[] = [];
-  const callback: Parameters<typeof traverse>[1] = (parameters) => {
+  const callback: TraverseCallback = (parameters) => {
     descendants.push(parameters);
   };
 
