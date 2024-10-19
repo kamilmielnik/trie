@@ -31,7 +31,7 @@ export class Trie {
   /**
    * Creates a new {@link Trie} based on array of words.
    *
-   * @params words - array of words to put in the {@link Trie}.
+   * @param words - array of words to put in the {@link Trie}.
    * @returns New {@link Trie} containing all given words.
    */
   static fromArray(words: string[]): Trie {
