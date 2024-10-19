@@ -1,45 +1,26 @@
+[**@kamilmielnik/trie**](../README.md) • **Docs**
+
+***
+
 [@kamilmielnik/trie](../README.md) / Trie
 
 # Class: Trie
 
 A class representing the [Trie data structure](https://en.wikipedia.org/wiki/Trie).
 
-## Table of contents
-
-### Constructors
-
-- [constructor](Trie.md#constructor)
-
-### Properties
-
-- [root](Trie.md#root)
-
-### Methods
-
-- [add](Trie.md#add)
-- [find](Trie.md#find)
-- [has](Trie.md#has)
-- [hasPrefix](Trie.md#hasprefix)
-- [remove](Trie.md#remove)
-- [serialize](Trie.md#serialize)
-- [toArray](Trie.md#toarray)
-- [traverse](Trie.md#traverse)
-- [deserialize](Trie.md#deserialize)
-- [fromArray](Trie.md#fromarray)
-
 ## Constructors
 
-### constructor
+### new Trie()
 
-• **new Trie**(`root?`): [`Trie`](Trie.md)
+> **new Trie**(`root`): [`Trie`](Trie.md)
 
 Creates a new [Trie](Trie.md) with optionally given root [Node](../interfaces/Node.md).
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `root` | [`Node`](../interfaces/Node.md) | Root [Node](../interfaces/Node.md) of the [Trie](Trie.md) to be created. |
+• **root**: [`Node`](../interfaces/Node.md) = `{}`
+
+Root [Node](../interfaces/Node.md) of the [Trie](Trie.md) to be created.
 
 #### Returns
 
@@ -53,7 +34,7 @@ Creates a new [Trie](Trie.md) with optionally given root [Node](../interfaces/No
 
 ### root
 
-• `Readonly` **root**: [`Node`](../interfaces/Node.md)
+> `readonly` **root**: [`Node`](../interfaces/Node.md)
 
 Represents the root [Node](../interfaces/Node.md) of the [Trie](Trie.md).
 It's not a copy. Mutate at your own risk.
@@ -64,17 +45,17 @@ It's not a copy. Mutate at your own risk.
 
 ## Methods
 
-### add
+### add()
 
-▸ **add**(`word`): [`Node`](../interfaces/Node.md)
+> **add**(`word`): [`Node`](../interfaces/Node.md)
 
 Inserts given word into the [Trie](Trie.md).
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `word` | `string` | Word to be inserted into the [Trie](Trie.md). |
+• **word**: `string`
+
+Word to be inserted into the [Trie](Trie.md).
 
 #### Returns
 
@@ -86,19 +67,19 @@ Inserts given word into the [Trie](Trie.md).
 
 [Trie.ts:62](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L62)
 
-___
+***
 
-### find
+### find()
 
-▸ **find**(`prefix`): `undefined` \| [`Node`](../interfaces/Node.md)
+> **find**(`prefix`): `undefined` \| [`Node`](../interfaces/Node.md)
 
 Finds [Node](../interfaces/Node.md) representing given prefix in the [Trie](Trie.md).
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `prefix` | `string` | Prefix to be found. |
+• **prefix**: `string`
+
+Prefix to be found.
 
 #### Returns
 
@@ -110,19 +91,19 @@ Finds [Node](../interfaces/Node.md) representing given prefix in the [Trie](Trie
 
 [Trie.ts:72](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L72)
 
-___
+***
 
-### has
+### has()
 
-▸ **has**(`word`): `boolean`
+> **has**(`word`): `boolean`
 
 Tells you whether given word is in the [Trie](Trie.md).
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `word` | `string` | Word to be found. |
+• **word**: `string`
+
+Word to be found.
 
 #### Returns
 
@@ -134,11 +115,11 @@ true if given word is in the [Trie](Trie.md), false otherwise.
 
 [Trie.ts:82](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L82)
 
-___
+***
 
-### hasPrefix
+### hasPrefix()
 
-▸ **hasPrefix**(`prefix`): `boolean`
+> **hasPrefix**(`prefix`): `boolean`
 
 Tells you whether there are any words with given prefix in the [Trie](Trie.md).
 
@@ -146,9 +127,9 @@ See: https://en.wikipedia.org/wiki/String_operations#Prefixes
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `prefix` | `string` | Prefix to be found. |
+• **prefix**: `string`
+
+Prefix to be found.
 
 #### Returns
 
@@ -160,19 +141,19 @@ true if there are any words with given prefix in the [Trie](Trie.md), false othe
 
 [Trie.ts:94](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L94)
 
-___
+***
 
-### remove
+### remove()
 
-▸ **remove**(`word`): `boolean`
+> **remove**(`word`): `boolean`
 
 Removes given word from the [Trie](Trie.md) if it exists.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `word` | `string` | Word to be removed. |
+• **word**: `string`
+
+Word to be removed.
 
 #### Returns
 
@@ -184,11 +165,11 @@ true if the word was removed, false otherwise.
 
 [Trie.ts:104](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L104)
 
-___
+***
 
-### serialize
+### serialize()
 
-▸ **serialize**(): `string`
+> **serialize**(): `string`
 
 Converts the [Trie](Trie.md) into a string.
 
@@ -210,44 +191,47 @@ String with serialized data.
 
 [Trie.ts:121](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L121)
 
-___
+***
 
-### toArray
+### toArray()
 
-▸ **toArray**(`options?`): [`Descendant`](../README.md#descendant)[]
+> **toArray**(`options`?): [`Descendant`](../type-aliases/Descendant.md)[]
 
-Finds all [descendants](../README.md#descendant) of the [Trie's](Trie.md) root and returns them as an array.
+Finds all [descendants](../type-aliases/Descendant.md) of the [Trie's](Trie.md) root and returns them as an array.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options?` | [`TraverseOptions`](../README.md#traverseoptions) | See [TraverseOptions](../README.md#traverseoptions). |
+• **options?**: [`TraverseOptions`](../type-aliases/TraverseOptions.md)
+
+See [TraverseOptions](../type-aliases/TraverseOptions.md).
 
 #### Returns
 
-[`Descendant`](../README.md#descendant)[]
+[`Descendant`](../type-aliases/Descendant.md)[]
 
-An array of [descendants](../README.md#descendant).
+An array of [descendants](../type-aliases/Descendant.md).
 
 #### Defined in
 
 [Trie.ts:131](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L131)
 
-___
+***
 
-### traverse
+### traverse()
 
-▸ **traverse**(`callback`, `options?`): `void`
+> **traverse**(`callback`, `options`?): `void`
 
 Visits every descendant [Node](../interfaces/Node.md) of the [Trie](Trie.md) and calls a callback.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | [`TraverseCallback`](../README.md#traversecallback) | Callback that will be called for each visited [Node](../interfaces/Node.md). Return true from callback to stop traversing. |
-| `options?` | [`TraverseOptions`](../README.md#traverseoptions) | See [TraverseOptions](../README.md#traverseoptions). |
+• **callback**: [`TraverseCallback`](../type-aliases/TraverseCallback.md)
+
+Callback that will be called for each visited [Node](../interfaces/Node.md). Return true from callback to stop traversing.
+
+• **options?**: [`TraverseOptions`](../type-aliases/TraverseOptions.md)
+
+See [TraverseOptions](../type-aliases/TraverseOptions.md).
 
 #### Returns
 
@@ -257,11 +241,11 @@ Visits every descendant [Node](../interfaces/Node.md) of the [Trie](Trie.md) and
 
 [Trie.ts:141](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L141)
 
-___
+***
 
-### deserialize
+### deserialize()
 
-▸ **deserialize**(`serialized`): [`Trie`](Trie.md)
+> `static` **deserialize**(`serialized`): [`Trie`](Trie.md)
 
 Creates a new [Trie](Trie.md) by deserializing given string.
 
@@ -269,9 +253,9 @@ The inverse of [serialize](Trie.md#serialize).
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `serialized` | `string` | String with serialized data. |
+• **serialized**: `string`
+
+String with serialized data.
 
 #### Returns
 
@@ -283,29 +267,25 @@ The inverse of [serialize](Trie.md#serialize).
 
 [Trie.ts:27](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L27)
 
-___
+***
 
-### fromArray
+### fromArray()
 
-▸ **fromArray**(`words`): [`Trie`](Trie.md)
+> `static` **fromArray**(`words`): [`Trie`](Trie.md)
 
 Creates a new [Trie](Trie.md) based on array of words.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `words` | `string`[] |
+• **words**: `string`[]
+
+array of words to put in the [Trie](Trie.md).
 
 #### Returns
 
 [`Trie`](Trie.md)
 
 New [Trie](Trie.md) containing all given words.
-
-**`Params`**
-
-words - array of words to put in the [Trie](Trie.md).
 
 #### Defined in
 

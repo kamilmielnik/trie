@@ -1,3 +1,7 @@
+[**@kamilmielnik/trie**](../README.md) • **Docs**
+
+***
+
 [@kamilmielnik/trie](../README.md) / Node
 
 # Interface: Node
@@ -5,23 +9,15 @@
 Keys are single characters (strings of length 1) or "wordEnd".
 "wordEnd: true" indicates that keys of all parent [Nodes](Node.md) make a valid word when joined together.
 
-## Hierarchy
+## Extends
 
-- `Record`\<`string`, [`Node`](Node.md) \| ``true`` \| `undefined`\>
-
-  ↳ **`Node`**
-
-## Table of contents
-
-### Properties
-
-- [wordEnd](Node.md#wordend)
+- `Record`\<`string`, [`Node`](Node.md) \| `true` \| `undefined`\>
 
 ## Properties
 
-### wordEnd
+### wordEnd?
 
-• `Optional` **wordEnd**: ``true``
+> `optional` **wordEnd**: `true`
 
 #### Defined in
 
