@@ -58,7 +58,7 @@ There are 2 ways to use the API.
 
 ## [Object-oriented API](docs/README.md#classes)
 
-Create [`Trie`](docs/classes/trie.md) instance and use its methods.
+Create [`Trie`](docs/classes/Trie.md) instance and use its methods.
 
 ### Example
 
@@ -80,7 +80,7 @@ trie.serialize();      // "(m(a(s(k))))"
 
 ## [Functional API](docs/README.md#functions)
 
-Manipulate existing instances of [`Node`](docs/interfaces/node.md) with [functions](docs/README.md#functions).
+Manipulate existing instances of [`Node`](docs/interfaces/Node.md) with [functions](docs/README.md#functions).
 
 ### Example
 
@@ -125,7 +125,7 @@ const fromFile = (filepath: string): Node => {
 };
 ```
 
-## Serialize [`Node`](docs/interfaces/node.md) to a file
+## Serialize [`Node`](docs/interfaces/Node.md) to a file
 
 ```ts
 import { Trie } from '@kamilmielnik/trie';
@@ -137,7 +137,7 @@ const toFile = (filepath: string, trie: Trie): void => {
 };
 ```
 
-## Load serialized [`Node`](docs/interfaces/node.md) from a file
+## Load serialized [`Node`](docs/interfaces/Node.md) from a file
 
 ```ts
 import { deserialize, Node } from '@kamilmielnik/trie';
@@ -165,7 +165,7 @@ const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
 
 # Serialization and compression
 
-This package can be used to efficiently [serialize](docs/README.md#serialize) and compress dictionaries.
+This package can be used to efficiently [serialize](docs/functions/serialize.md) and compress dictionaries.
 It reaches 54.79 [compression ratio](https://en.wikipedia.org/wiki/Data_compression_ratio) (98.17% space saving) for Polish dictionary when combined with [7-Zip](https://en.wikipedia.org/wiki/7z) at ultra compression level.
 
 | Language                                                            | 🇺🇸 en-US                                                                | 🇬🇧 en-GB                                                                    | 🇵🇱 pl-PL                                  |
@@ -180,12 +180,12 @@ It reaches 54.79 [compression ratio](https://en.wikipedia.org/wiki/Data_compress
 
 # Performance
 
-[`add`](docs/README.md#add), [`find`](docs/README.md#find), [`has`](docs/README.md#has), [`hasPrefix`](docs/README.md#hasPrefix), [`remove`](docs/README.md#remove) are very fast - $O(\log_2 n)$ (millions of operations per second).
+[`add`](docs/functions/add.md), [`find`](docs/functions/find.md), [`has`](docs/functions/has.md), [`hasPrefix`](docs/functions/hasPrefix.md), [`remove`](docs/functions/remove.md) are very fast - $O(\log_2 n)$ (millions of operations per second).
 
 ![image](https://user-images.githubusercontent.com/6830683/100113381-d5b63580-2ea2-11eb-8ed6-0e03515b5d9a.png)
 
 ---
 
-[`deserialize`](docs/README.md#deserialize), [`fromArray`](docs/README.md#fromArray), [`serialize`](docs/README.md#serialize), [`toArray`](docs/README.md#toArray) are slow - $O(n)$ (few operations per second).
+[`deserialize`](docs/functions/deserialize.md), [`fromArray`](docs/functions/fromArray.md), [`serialize`](docs/functions/serialize.md), [`toArray`](docs/functions/toArray.md) are slow - $O(n)$ (few operations per second).
 
 ![image](https://user-images.githubusercontent.com/6830683/100113526-fe3e2f80-2ea2-11eb-9b1e-22ae954e297a.png)
