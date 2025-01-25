@@ -1,4 +1,4 @@
-[**@kamilmielnik/trie**](../README.md) • **Docs**
+[**@kamilmielnik/trie**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Type Alias: Descendant
 
 > **Descendant**: `object`
+
+Defined in: [types.ts:11](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L11)
 
 ## Type declaration
 
@@ -17,7 +19,3 @@
 ### prefix
 
 > **prefix**: `string`
-
-## Defined in
-
-[types.ts:11](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L11)

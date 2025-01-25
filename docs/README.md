@@ -1,4 +1,4 @@
-**@kamilmielnik/trie** • **Docs**
+**@kamilmielnik/trie**
 
 ***
 

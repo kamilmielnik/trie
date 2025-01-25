@@ -42,14 +42,14 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf build coverage docs",
     "build": "tsc --project .",
     "build:docs": "typedoc",
+    "clean": "rimraf build coverage docs",
     "postbuild": "npm run build:docs",
-    "prettier": "prettier --list-different './src/**/*.{js,ts}'",
-    "prettier:fix": "npm run prettier -- --write",
     "prebuild": "npm run clean",
     "prerelease": "npm run test && npm run build && npm run build:docs",
+    "prettier": "prettier --list-different './src/**/*.{js,ts}'",
+    "prettier:fix": "npm run prettier -- --write",
     "release": "np",
     "test": "jest",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",

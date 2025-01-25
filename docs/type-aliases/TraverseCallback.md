@@ -1,4 +1,4 @@
-[**@kamilmielnik/trie**](../README.md) • **Docs**
+[**@kamilmielnik/trie**](../README.md)
 
 ***
 
@@ -8,14 +8,14 @@
 
 > **TraverseCallback**: (`descendant`) => `boolean` \| `void`
 
+Defined in: [types.ts:9](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L9)
+
 ## Parameters
 
-• **descendant**: [`Descendant`](Descendant.md)
+### descendant
+
+[`Descendant`](Descendant.md)
 
 ## Returns
 
 `boolean` \| `void`
-
-## Defined in
-
-[types.ts:9](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L9)

@@ -1,4 +1,4 @@
-[**@kamilmielnik/trie**](../README.md) • **Docs**
+[**@kamilmielnik/trie**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Type Alias: TraverseOptions
 
 > **TraverseOptions**: `object`
+
+Defined in: [types.ts:16](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L16)
 
 ## Type declaration
 
@@ -31,7 +33,3 @@ Defaults to false.
 
 Set to true to only visit [Nodes](../interfaces/Node.md) representing complete words.
 Defaults to false.
-
-## Defined in
-
-[types.ts:16](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L16)

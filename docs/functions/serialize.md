@@ -1,4 +1,4 @@
-[**@kamilmielnik/trie**](../README.md) • **Docs**
+[**@kamilmielnik/trie**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: serialize()
 
 > **serialize**(`node`): `string`
+
+Defined in: [lib/serialize.ts:37](https://github.com/kamilmielnik/trie/blob/master/src/lib/serialize.ts#L37)
 
 Converts given [Node](../interfaces/Node.md) into a string.
 
@@ -20,7 +22,9 @@ It serializes [3 MB English (GB) dictionary](https://www.wordgamedictionary.com/
 
 ## Parameters
 
-• **node**: [`Node`](../interfaces/Node.md)
+### node
+
+[`Node`](../interfaces/Node.md)
 
 [Node](../interfaces/Node.md) to serialize.
 
@@ -29,7 +33,3 @@ It serializes [3 MB English (GB) dictionary](https://www.wordgamedictionary.com/
 `string`
 
 String with serialized data.
-
-## Defined in
-
-[lib/serialize.ts:37](https://github.com/kamilmielnik/trie/blob/master/src/lib/serialize.ts#L37)
