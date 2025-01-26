@@ -1,4 +1,4 @@
-const tsConfig = require('./tsconfig.json');
+import tsConfig from './tsconfig.json';
 
 module.exports = {
   collectCoverage: true,

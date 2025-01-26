@@ -11,6 +11,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./build",
+    "resolveJsonModule": true,
     "rootDir": "./src",
     "strict": true,
     "target": "esnext"
