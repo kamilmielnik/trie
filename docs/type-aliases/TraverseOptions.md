@@ -6,30 +6,40 @@
 
 # Type Alias: TraverseOptions
 
-> **TraverseOptions**: `object`
+> **TraverseOptions** = `object`
 
 Defined in: [types.ts:16](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L16)
 
-## Type declaration
+## Properties
 
 ### prefix?
 
-> `optional` **prefix**: `string`
+> `optional` **prefix?**: `string`
+
+Defined in: [types.ts:22](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L22)
 
 Set the prefix to be applied to all descendants.
 It should be the prefix represented by the [Node](../interfaces/Node.md) at which traversing starts.
 Defaults to empty string.
 
+***
+
 ### sort?
 
-> `optional` **sort**: `boolean`
+> `optional` **sort?**: `boolean`
+
+Defined in: [types.ts:28](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L28)
 
 Set to true to visit [Nodes](../interfaces/Node.md) in alphabetical order.
 Defaults to false.
 
+***
+
 ### wordsOnly?
 
-> `optional` **wordsOnly**: `boolean`
+> `optional` **wordsOnly?**: `boolean`
+
+Defined in: [types.ts:34](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L34)
 
 Set to true to only visit [Nodes](../interfaces/Node.md) representing complete words.
 Defaults to false.

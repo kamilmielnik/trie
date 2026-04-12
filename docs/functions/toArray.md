@@ -6,7 +6,7 @@
 
 # Function: toArray()
 
-> **toArray**(`node`, `options`?): [`Descendant`](../type-aliases/Descendant.md)[]
+> **toArray**(`node`, `options?`): [`Descendant`](../type-aliases/Descendant.md)[]
 
 Defined in: [lib/toArray.ts:12](https://github.com/kamilmielnik/trie/blob/master/src/lib/toArray.ts#L12)
 

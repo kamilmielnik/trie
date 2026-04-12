@@ -6,7 +6,7 @@
 
 # Function: find()
 
-> **find**(`node`, `prefix`): `undefined` \| [`Node`](../interfaces/Node.md)
+> **find**(`node`, `prefix`): [`Node`](../interfaces/Node.md) \| `undefined`
 
 Defined in: [lib/find.ts:10](https://github.com/kamilmielnik/trie/blob/master/src/lib/find.ts#L10)
 
@@ -28,6 +28,6 @@ Prefix to be found.
 
 ## Returns
 
-`undefined` \| [`Node`](../interfaces/Node.md)
+[`Node`](../interfaces/Node.md) \| `undefined`
 
 [Node](../interfaces/Node.md) representing a given prefix, undefined if there is no such node.

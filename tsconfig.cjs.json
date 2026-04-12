@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "downlevelIteration": true,
-    "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "lib": ["esnext"],
     "module": "commonjs",
-    "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

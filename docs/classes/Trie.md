@@ -12,25 +12,25 @@ A class representing the [Trie data structure](https://en.wikipedia.org/wiki/Tri
 
 ## Constructors
 
-### new Trie()
+### Constructor
 
-> **new Trie**(`root`): [`Trie`](Trie.md)
+> **new Trie**(`root?`): `Trie`
 
 Defined in: [Trie.ts:52](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L52)
 
-Creates a new [Trie](Trie.md) with optionally given root [Node](../interfaces/Node.md).
+Creates a new Trie with optionally given root [Node](../interfaces/Node.md).
 
 #### Parameters
 
-##### root
+##### root?
 
 [`Node`](../interfaces/Node.md) = `{}`
 
-Root [Node](../interfaces/Node.md) of the [Trie](Trie.md) to be created.
+Root [Node](../interfaces/Node.md) of the Trie to be created.
 
 #### Returns
 
-[`Trie`](Trie.md)
+`Trie`
 
 ## Properties
 
@@ -40,7 +40,7 @@ Root [Node](../interfaces/Node.md) of the [Trie](Trie.md) to be created.
 
 Defined in: [Trie.ts:45](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L45)
 
-Represents the root [Node](../interfaces/Node.md) of the [Trie](Trie.md).
+Represents the root [Node](../interfaces/Node.md) of the Trie.
 It's not a copy. Mutate at your own risk.
 
 ## Methods
@@ -51,7 +51,7 @@ It's not a copy. Mutate at your own risk.
 
 Defined in: [Trie.ts:62](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L62)
 
-Inserts given word into the [Trie](Trie.md).
+Inserts given word into the Trie.
 
 #### Parameters
 
@@ -59,7 +59,7 @@ Inserts given word into the [Trie](Trie.md).
 
 `string`
 
-Word to be inserted into the [Trie](Trie.md).
+Word to be inserted into the Trie.
 
 #### Returns
 
@@ -71,11 +71,11 @@ Word to be inserted into the [Trie](Trie.md).
 
 ### find()
 
-> **find**(`prefix`): `undefined` \| [`Node`](../interfaces/Node.md)
+> **find**(`prefix`): [`Node`](../interfaces/Node.md) \| `undefined`
 
 Defined in: [Trie.ts:72](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L72)
 
-Finds [Node](../interfaces/Node.md) representing given prefix in the [Trie](Trie.md).
+Finds [Node](../interfaces/Node.md) representing given prefix in the Trie.
 
 #### Parameters
 
@@ -87,7 +87,7 @@ Prefix to be found.
 
 #### Returns
 
-`undefined` \| [`Node`](../interfaces/Node.md)
+[`Node`](../interfaces/Node.md) \| `undefined`
 
 [Node](../interfaces/Node.md) representing a given prefix, undefined if there is no such node.
 
@@ -99,7 +99,7 @@ Prefix to be found.
 
 Defined in: [Trie.ts:82](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L82)
 
-Tells you whether given word is in the [Trie](Trie.md).
+Tells you whether given word is in the Trie.
 
 #### Parameters
 
@@ -113,7 +113,7 @@ Word to be found.
 
 `boolean`
 
-true if given word is in the [Trie](Trie.md), false otherwise.
+true if given word is in the Trie, false otherwise.
 
 ***
 
@@ -123,7 +123,7 @@ true if given word is in the [Trie](Trie.md), false otherwise.
 
 Defined in: [Trie.ts:94](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L94)
 
-Tells you whether there are any words with given prefix in the [Trie](Trie.md).
+Tells you whether there are any words with given prefix in the Trie.
 
 See: https://en.wikipedia.org/wiki/String_operations#Prefixes
 
@@ -139,7 +139,7 @@ Prefix to be found.
 
 `boolean`
 
-true if there are any words with given prefix in the [Trie](Trie.md), false otherwise.
+true if there are any words with given prefix in the Trie, false otherwise.
 
 ***
 
@@ -149,7 +149,7 @@ true if there are any words with given prefix in the [Trie](Trie.md), false othe
 
 Defined in: [Trie.ts:104](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L104)
 
-Removes given word from the [Trie](Trie.md) if it exists.
+Removes given word from the Trie if it exists.
 
 #### Parameters
 
@@ -173,9 +173,9 @@ true if the word was removed, false otherwise.
 
 Defined in: [Trie.ts:121](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L121)
 
-Converts the [Trie](Trie.md) into a string.
+Converts the Trie into a string.
 
-The inverse of [deserialize](Trie.md#deserialize).
+The inverse of [deserialize](#deserialize).
 
 It serializes [42.8 MB Polish dictionary](https://sjp.pl/slownik/growy/) down to 18.7 MB (-56%).
 
@@ -193,11 +193,11 @@ String with serialized data.
 
 ### toArray()
 
-> **toArray**(`options`?): [`Descendant`](../type-aliases/Descendant.md)[]
+> **toArray**(`options?`): [`Descendant`](../type-aliases/Descendant.md)[]
 
 Defined in: [Trie.ts:131](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L131)
 
-Finds all [descendants](../type-aliases/Descendant.md) of the [Trie's](Trie.md) root and returns them as an array.
+Finds all [descendants](../type-aliases/Descendant.md) of the Trie's root and returns them as an array.
 
 #### Parameters
 
@@ -217,11 +217,11 @@ An array of [descendants](../type-aliases/Descendant.md).
 
 ### traverse()
 
-> **traverse**(`callback`, `options`?): `void`
+> **traverse**(`callback`, `options?`): `void`
 
 Defined in: [Trie.ts:141](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L141)
 
-Visits every descendant [Node](../interfaces/Node.md) of the [Trie](Trie.md) and calls a callback.
+Visits every descendant [Node](../interfaces/Node.md) of the Trie and calls a callback.
 
 #### Parameters
 
@@ -245,13 +245,13 @@ See [TraverseOptions](../type-aliases/TraverseOptions.md).
 
 ### deserialize()
 
-> `static` **deserialize**(`serialized`): [`Trie`](Trie.md)
+> `static` **deserialize**(`serialized`): `Trie`
 
 Defined in: [Trie.ts:27](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L27)
 
-Creates a new [Trie](Trie.md) by deserializing given string.
+Creates a new Trie by deserializing given string.
 
-The inverse of [serialize](Trie.md#serialize).
+The inverse of [serialize](#serialize).
 
 #### Parameters
 
@@ -263,19 +263,19 @@ String with serialized data.
 
 #### Returns
 
-[`Trie`](Trie.md)
+`Trie`
 
-[Trie](Trie.md) representing deserialized data.
+Trie representing deserialized data.
 
 ***
 
 ### fromArray()
 
-> `static` **fromArray**(`words`): [`Trie`](Trie.md)
+> `static` **fromArray**(`words`): `Trie`
 
 Defined in: [Trie.ts:37](https://github.com/kamilmielnik/trie/blob/master/src/Trie.ts#L37)
 
-Creates a new [Trie](Trie.md) based on array of words.
+Creates a new Trie based on array of words.
 
 #### Parameters
 
@@ -283,10 +283,10 @@ Creates a new [Trie](Trie.md) based on array of words.
 
 `string`[]
 
-array of words to put in the [Trie](Trie.md).
+array of words to put in the Trie.
 
 #### Returns
 
-[`Trie`](Trie.md)
+`Trie`
 
-New [Trie](Trie.md) containing all given words.
+New Trie containing all given words.

@@ -6,16 +6,22 @@
 
 # Type Alias: Descendant
 
-> **Descendant**: `object`
+> **Descendant** = `object`
 
 Defined in: [types.ts:11](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L11)
 
-## Type declaration
+## Properties
 
 ### node
 
 > **node**: [`Node`](../interfaces/Node.md)
 
+Defined in: [types.ts:12](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L12)
+
+***
+
 ### prefix
 
 > **prefix**: `string`
+
+Defined in: [types.ts:13](https://github.com/kamilmielnik/trie/blob/master/src/types.ts#L13)

@@ -6,7 +6,7 @@
 
 # Function: traverse()
 
-> **traverse**(`node`, `callback`, `options`): `void`
+> **traverse**(`node`, `callback`, `options?`): `void`
 
 Defined in: [lib/traverse.ts:17](https://github.com/kamilmielnik/trie/blob/master/src/lib/traverse.ts#L17)
 
@@ -26,7 +26,7 @@ Visits every descendant [Node](../interfaces/Node.md) of given [Node](../interfa
 
 Callback that will be called for each visited [Node](../interfaces/Node.md). Return true from callback to stop traversing.
 
-### options
+### options?
 
 [`TraverseOptions`](../type-aliases/TraverseOptions.md) = `{}`
 
