@@ -7,7 +7,7 @@
 
 ![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
-![Prettier](https://github.com/kamilmielnik/trie/workflows/Prettier/badge.svg)
+<img src="https://github.com/kamilmielnik/trie/actions/workflows/oxfmt.yml/badge.svg" alt="Format" />
 
 [Trie](https://en.wikipedia.org/wiki/Trie) data structure implemented in TypeScript:
 
