@@ -51,7 +51,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc --project . && tsc --project tsconfig.cjs.json",
+    "build": "tsgo --project . && tsgo --project tsconfig.cjs.json",
     "build:docs": "typedoc",
     "clean": "rimraf build coverage docs",
     "postbuild": "npm run build:docs",
@@ -66,6 +66,7 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260429.1",
     "jest": "^30.3.0",
     "np": "^11.2.0",
     "prettier": "^3.8.3",
