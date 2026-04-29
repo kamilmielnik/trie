@@ -16,6 +16,7 @@
 - Lightweight
 - [Well-documented](docs/README.md)
 - Built for [Scrabble Solver](https://github.com/kamilmielnik/scrabble-solver)
+- CJS & ESM compatible
 
 # Table of contents
 
