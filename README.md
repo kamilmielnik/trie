@@ -2,6 +2,7 @@
 
 ![Version](https://img.shields.io/github/package-json/v/kamilmielnik/trie)
 ![License](https://img.shields.io/npm/l/@kamilmielnik/trie)
+<img src="https://img.shields.io/badge/bun-%3E=1.3-brightgreen.svg" />
 ![Node version](https://img.shields.io/node/v/@kamilmielnik/trie)
 
 ![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)

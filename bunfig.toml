@@ -1,0 +1,5 @@
+[test]
+coverage = true
+coverageReporter = ["text", "lcov"]
+coverageThreshold = 1.0
+coveragePathIgnorePatterns = ["node_modules/", "build/", "src/index.ts", "src/lib/index.ts"]
