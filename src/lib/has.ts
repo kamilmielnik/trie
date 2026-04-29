@@ -1,6 +1,6 @@
-import type { Node } from '../types';
+import type { Node } from '../types.ts';
 
-import { find } from './find';
+import { find } from './find.ts';
 
 /**
  * Tells you whether given word is in the {@link Node}.

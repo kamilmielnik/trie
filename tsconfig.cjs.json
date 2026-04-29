@@ -9,6 +9,7 @@
     "noUnusedParameters": true,
     "outDir": "./build/cjs",
     "resolveJsonModule": true,
+    "rewriteRelativeImportExtensions": true,
     "rootDir": "./src",
     "strict": true,
     "target": "esnext"

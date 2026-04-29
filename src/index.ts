@@ -1,4 +1,4 @@
-export * from './Trie';
-export * from './constants';
-export * from './lib';
-export type * from './types';
+export * from './Trie.ts';
+export * from './constants.ts';
+export * from './lib/index.ts';
+export type * from './types.ts';

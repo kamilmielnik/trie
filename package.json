@@ -23,9 +23,9 @@
   "types": "./build/esm/index.d.ts",
   "exports": {
     ".": {
-      "require": "./build/cjs/index.js",
+      "types": "./build/esm/index.d.ts",
       "import": "./build/esm/index.js",
-      "types": "./build/esm/index.d.ts"
+      "require": "./build/cjs/index.js"
     }
   },
   "license": "MIT",
@@ -52,8 +52,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsgo --project . && tsgo --project tsconfig.cjs.json",
+    "build": "tsgo --project . && tsgo --project tsconfig.cjs.json && bun run build:markers",
     "build:docs": "typedoc",
+    "build:markers": "echo '{\"type\":\"module\"}' > build/esm/package.json && echo '{\"type\":\"commonjs\"}' > build/cjs/package.json",
     "clean": "rimraf build coverage docs",
     "postbuild": "bun run build:docs",
     "prebuild": "bun run clean",

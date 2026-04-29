@@ -1,4 +1,4 @@
-import type { Node } from '../types';
+import type { Node } from '../types.ts';
 
 /**
  * Finds {@link Node} representing given prefix in given {@link Node}.

@@ -1,6 +1,6 @@
-import type { Node, TraverseCallback, TraverseOptions } from '../types';
+import type { Node, TraverseCallback, TraverseOptions } from '../types.ts';
 
-import { nodeKeyComparator } from './nodeKeyComparator';
+import { nodeKeyComparator } from './nodeKeyComparator.ts';
 
 type TraverseState = {
   keyIndex: number;

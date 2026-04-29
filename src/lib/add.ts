@@ -1,4 +1,4 @@
-import type { Node } from '../types';
+import type { Node } from '../types.ts';
 
 /**
  * Inserts given `word` into given `node`.

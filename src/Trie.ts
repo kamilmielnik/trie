@@ -9,8 +9,8 @@ import {
   serialize,
   toArray,
   traverse
-} from './lib';
-import type { Descendant, Node, TraverseCallback, TraverseOptions } from './types';
+} from './lib/index.ts';
+import type { Descendant, Node, TraverseCallback, TraverseOptions } from './types.ts';
 
 /**
  * A class representing the {@link https://en.wikipedia.org/wiki/Trie | Trie data structure}.

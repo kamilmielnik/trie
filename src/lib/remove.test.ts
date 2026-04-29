@@ -1,6 +1,6 @@
-import type { Node } from '../types';
+import type { Node } from '../types.ts';
 
-import { remove } from './remove';
+import { remove } from './remove.ts';
 
 describe('remove', () => {
   it('Removes empty string', () => {

@@ -1,4 +1,4 @@
-import type { Node } from '../types';
+import type { Node } from '../types.ts';
 
 /**
  * Removes given word from given {@link Node} if it exists.

@@ -1,5 +1,5 @@
-import { CLOSE_PARENS, OPEN_PARENS } from '../constants';
-import type { Node } from '../types';
+import { CLOSE_PARENS, OPEN_PARENS } from '../constants.ts';
+import type { Node } from '../types.ts';
 
 /**
  * Creates a new {@link Node} by deserializing given string.

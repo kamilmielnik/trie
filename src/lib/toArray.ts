@@ -1,6 +1,6 @@
-import type { Descendant, Node, TraverseCallback, TraverseOptions } from '../types';
+import type { Descendant, Node, TraverseCallback, TraverseOptions } from '../types.ts';
 
-import { traverse } from './traverse';
+import { traverse } from './traverse.ts';
 
 /**
  * Finds all {@link Descendant | descendants} of given {@link Node} and returns them as an array.

@@ -1,6 +1,6 @@
-import type { Node } from '../types';
+import type { Node } from '../types.ts';
 
-import { add } from './add';
+import { add } from './add.ts';
 
 /**
  * Creates a new {@link Node} based on array of words.
