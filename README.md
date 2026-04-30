@@ -34,15 +34,14 @@
 
 # Installation
 
-## npm
-
 ```Shell
-npm install @kamilmielnik/trie --save
-```
+# Bun
+bun add @kamilmielnik/trie
 
-## yarn
+# npm
+npm install @kamilmielnik/trie
 
-```Shell
+# Yarn
 yarn add @kamilmielnik/trie
 ```
 
