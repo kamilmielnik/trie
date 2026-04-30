@@ -1,13 +1,17 @@
-# @kamilmielnik/trie
+<div align="center">
+<h1>@kamilmielnik/trie</h1>
 
-![Version](https://img.shields.io/github/package-json/v/kamilmielnik/trie)
-![License](https://img.shields.io/npm/l/@kamilmielnik/trie)
-<img src="https://img.shields.io/badge/bun-%3E=1.3-brightgreen.svg" />
-![Node version](https://img.shields.io/node/v/@kamilmielnik/trie)
+<img src="https://img.shields.io/github/package-json/v/kamilmielnik/trie" alt="Version" />
+<img src="https://img.shields.io/npm/l/@kamilmielnik/trie" alt="License" />
+<img src="https://img.shields.io/badge/bun-%3E=1.3-brightgreen.svg" alt="Bun" />
+<img src="https://img.shields.io/node/v/@kamilmielnik/trie" alt="Node version" />
 
-![Test](https://github.com/kamilmielnik/trie/workflows/Test/badge.svg)
-![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
+<img src="https://github.com/kamilmielnik/trie/workflows/Test/badge.svg" alt="Test" />
+<img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Coverage" />
 <img src="https://github.com/kamilmielnik/trie/actions/workflows/oxfmt.yml/badge.svg" alt="Format" />
+</div>
+
+----
 
 [Trie](https://en.wikipedia.org/wiki/Trie) data structure implemented in TypeScript:
 
