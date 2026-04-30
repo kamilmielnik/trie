@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="13">
+<rect width="920" height="400" fill="white"/>
+<line x1="84" y1="350" x2="720" y2="350" stroke="#666" stroke-width="1"/>
+<text x="76" y="354" text-anchor="end" fill="#555">0</text>
+<line x1="84" y1="284.8" x2="720" y2="284.8" stroke="#eee" stroke-width="1"/>
+<text x="76" y="288.8" text-anchor="end" fill="#555">20</text>
+<line x1="84" y1="219.6" x2="720" y2="219.6" stroke="#eee" stroke-width="1"/>
+<text x="76" y="223.6" text-anchor="end" fill="#555">40</text>
+<line x1="84" y1="154.4" x2="720" y2="154.4" stroke="#eee" stroke-width="1"/>
+<text x="76" y="158.4" text-anchor="end" fill="#555">60</text>
+<line x1="84" y1="89.19999999999999" x2="720" y2="89.19999999999999" stroke="#eee" stroke-width="1"/>
+<text x="76" y="93.19999999999999" text-anchor="end" fill="#555">80</text>
+<line x1="84" y1="24" x2="720" y2="24" stroke="#eee" stroke-width="1"/>
+<text x="76" y="28" text-anchor="end" fill="#555">100</text>
+<text x="22" y="187" text-anchor="middle" fill="#555" transform="rotate(-90 22 187)">ops / sec</text>
+<rect x="96.0" y="196.5" width="43.0" height="153.5" fill="#3b82f6"><title>🇺🇸 en-US · fromArray: 47.10 ops/sec</title></rect>
+<rect x="141.0" y="252.2" width="43.0" height="97.8" fill="#10b981"><title>🇬🇧 en-GB · fromArray: 30.01 ops/sec</title></rect>
+<rect x="186.0" y="343.7" width="43.0" height="6.3" fill="#f59e0b"><title>🇵🇱 pl-PL · fromArray: 1.93 ops/sec</title></rect>
+<text x="163.5" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">fromArray</text>
+<rect x="255.0" y="178.7" width="43.0" height="171.3" fill="#3b82f6"><title>🇺🇸 en-US · toArray: 52.53 ops/sec</title></rect>
+<rect x="300.0" y="239.6" width="43.0" height="110.4" fill="#10b981"><title>🇬🇧 en-GB · toArray: 33.87 ops/sec</title></rect>
+<rect x="345.0" y="338.4" width="43.0" height="11.6" fill="#f59e0b"><title>🇵🇱 pl-PL · toArray: 3.57 ops/sec</title></rect>
+<text x="322.5" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">toArray</text>
+<rect x="414.0" y="261.0" width="43.0" height="89.0" fill="#3b82f6"><title>🇺🇸 en-US · serialize: 27.30 ops/sec</title></rect>
+<rect x="459.0" y="293.0" width="43.0" height="57.0" fill="#10b981"><title>🇬🇧 en-GB · serialize: 17.49 ops/sec</title></rect>
+<rect x="504.0" y="343.5" width="43.0" height="6.5" fill="#f59e0b"><title>🇵🇱 pl-PL · serialize: 2.00 ops/sec</title></rect>
+<text x="481.5" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">serialize</text>
+<rect x="573.0" y="48.1" width="43.0" height="301.9" fill="#3b82f6"><title>🇺🇸 en-US · deserialize: 92.62 ops/sec</title></rect>
+<rect x="618.0" y="155.3" width="43.0" height="194.7" fill="#10b981"><title>🇬🇧 en-GB · deserialize: 59.73 ops/sec</title></rect>
+<rect x="663.0" y="335.0" width="43.0" height="15.0" fill="#f59e0b"><title>🇵🇱 pl-PL · deserialize: 4.60 ops/sec</title></rect>
+<text x="640.5" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">deserialize</text>
+<rect x="744" y="24" width="14" height="14" rx="2" fill="#3b82f6"/>
+<text x="766" y="35" fill="#222" font-weight="600">🇺🇸 en-US</text>
+<text x="766" y="51" fill="#666" font-size="11">TWL06 · 178,690 words</text>
+<rect x="744" y="68" width="14" height="14" rx="2" fill="#10b981"/>
+<text x="766" y="79" fill="#222" font-weight="600">🇬🇧 en-GB</text>
+<text x="766" y="95" fill="#666" font-size="11">SOWPODS · 267,751 words</text>
+<rect x="744" y="112" width="14" height="14" rx="2" fill="#f59e0b"/>
+<text x="766" y="123" fill="#222" font-weight="600">🇵🇱 pl-PL</text>
+<text x="766" y="139" fill="#666" font-size="11">SJP.PL · 3,229,855 words</text>
+</svg>

@@ -168,26 +168,36 @@ const findWordsWithPrefix = (node: Node, prefix: string): string[] => {
 # Serialization and compression
 
 This package can be used to efficiently [serialize](docs/functions/serialize.md) and compress dictionaries.
-It reaches 54.79 [compression ratio](https://en.wikipedia.org/wiki/Data_compression_ratio) (98.17% space saving) for Polish dictionary when combined with [7-Zip](https://en.wikipedia.org/wiki/7z) at ultra compression level.
+<!-- COMPRESSION:summary:start -->
+It reaches 66.40 [compression ratio](https://en.wikipedia.org/wiki/Data_compression_ratio) (98.49% space saving) for SJP.PL (pl-PL) when combined with [7-Zip](https://en.wikipedia.org/wiki/7z) at ultra compression level.
+<!-- COMPRESSION:summary:end -->
 
-| Language                                                            | 🇺🇸 en-US                                                                | 🇬🇧 en-GB                                                                    | 🇵🇱 pl-PL                                  |
-| ------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------- |
-| Name                                                                | [TWL06](https://en.wikipedia.org/wiki/NASPA_Word_List)                  | [SOWPODS](https://en.wikipedia.org/wiki/Collins_Scrabble_Words)             | [SJP.PL](https://sjp.pl/slownik/dp.phtml) |
-| Source                                                              | [Download](https://www.wordgamedictionary.com/twl06/download/twl06.txt) | [Download](https://www.wordgamedictionary.com/sowpods/download/sowpods.txt) | [Download](https://sjp.pl/slownik/growy/) |
-| Words count                                                         | 178,691                                                                 | 267,753                                                                     | 3,045,878                                 |
-| File size [B]                                                       | 1,941,856                                                               | 2,974,773                                                                   | 42,838,508                                |
-| File size (serialized) [B]                                          | (-29.75%) 1,364,242                                                     | (-31.57%) 2,035,697                                                         | (-56.33%) 18,705,990                      |
-| File size ([7z](https://en.wikipedia.org/wiki/7z)) [B]              | (-80.46%) 379,483                                                       | (-81.04%) 563,913                                                           | (-87.58%) 5,320,397                       |
-| File size (serialized + [7z](https://en.wikipedia.org/wiki/7z)) [B] | (-89.94%) 195,299                                                       | (-90.40%) 285,430                                                           | (-98.17%) 781,875                         |
+<!-- COMPRESSION:start -->
+| Language | 🇺🇸 en-US | 🇬🇧 en-GB | 🇵🇱 pl-PL |
+| --- | --- | --- | --- |
+| Name | [TWL06](https://en.wikipedia.org/wiki/NASPA_Word_List) | [SOWPODS](https://en.wikipedia.org/wiki/Collins_Scrabble_Words) | [SJP.PL](https://sjp.pl/slownik/dp.phtml) |
+| Source | [Download](https://raw.githubusercontent.com/kamilmielnik/scrabble-dictionaries/master/english/twl06.txt) | [Download](https://raw.githubusercontent.com/kamilmielnik/scrabble-dictionaries/master/english/sowpods.txt) | [Download](https://raw.githubusercontent.com/kamilmielnik/scrabble-dictionaries/master/polish/sjp.txt) |
+| Words count | 178,690 | 267,751 | 3,229,855 |
+| File size [B] | 1,763,166 | 2,707,020 | 42,172,320 |
+| File size (serialized) [B] | (-42.38%) 1,016,004 | (-43.94%) 1,517,454 | (-69.40%) 12,903,507 |
+| File size ([7z](https://en.wikipedia.org/wiki/7z)) [B] | (-78.54%) 378,418 | (-79.23%) 562,247 | (-86.84%) 5,550,546 |
+| File size (serialized + [7z](https://en.wikipedia.org/wiki/7z)) [B] | (-89.25%) 189,484 | (-89.78%) 276,737 | (-98.49%) 635,085 |
+<!-- COMPRESSION:end -->
 
 # Performance
 
+Benchmarks are produced by [`bench/index.ts`](bench/index.ts) using [tinybench](https://github.com/tinylibs/tinybench). Run `bun run bench` to regenerate the charts below.
+
 [`add`](docs/functions/add.md), [`find`](docs/functions/find.md), [`has`](docs/functions/has.md), [`hasPrefix`](docs/functions/hasPrefix.md), [`remove`](docs/functions/remove.md) are very fast - $O(\log_2 n)$ (millions of operations per second).
 
-![image](https://user-images.githubusercontent.com/6830683/100113381-d5b63580-2ea2-11eb-8ed6-0e03515b5d9a.png)
+<!-- BENCH:fast:start -->
+![Fast operations chart](bench/charts/fast.svg)
+<!-- BENCH:fast:end -->
 
 ---
 
 [`deserialize`](docs/functions/deserialize.md), [`fromArray`](docs/functions/fromArray.md), [`serialize`](docs/functions/serialize.md), [`toArray`](docs/functions/toArray.md) are slow - $O(n)$ (few operations per second).
 
-![image](https://user-images.githubusercontent.com/6830683/100113526-fe3e2f80-2ea2-11eb-9b1e-22ae954e297a.png)
+<!-- BENCH:slow:start -->
+![Slow operations chart](bench/charts/slow.svg)
+<!-- BENCH:slow:end -->

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="13">
+<rect width="920" height="400" fill="white"/>
+<line x1="84" y1="350" x2="720" y2="350" stroke="#666" stroke-width="1"/>
+<text x="76" y="354" text-anchor="end" fill="#555">0</text>
+<line x1="84" y1="284.8" x2="720" y2="284.8" stroke="#eee" stroke-width="1"/>
+<text x="76" y="288.8" text-anchor="end" fill="#555">20M</text>
+<line x1="84" y1="219.6" x2="720" y2="219.6" stroke="#eee" stroke-width="1"/>
+<text x="76" y="223.6" text-anchor="end" fill="#555">40M</text>
+<line x1="84" y1="154.4" x2="720" y2="154.4" stroke="#eee" stroke-width="1"/>
+<text x="76" y="158.4" text-anchor="end" fill="#555">60M</text>
+<line x1="84" y1="89.19999999999999" x2="720" y2="89.19999999999999" stroke="#eee" stroke-width="1"/>
+<text x="76" y="93.19999999999999" text-anchor="end" fill="#555">80M</text>
+<line x1="84" y1="24" x2="720" y2="24" stroke="#eee" stroke-width="1"/>
+<text x="76" y="28" text-anchor="end" fill="#555">100M</text>
+<text x="22" y="187" text-anchor="middle" fill="#555" transform="rotate(-90 22 187)">ops / sec</text>
+<rect x="96.0" y="292.2" width="25.3" height="57.8" fill="#3b82f6"><title>🇺🇸 en-US · add: 17.74M ops/sec</title></rect>
+<rect x="123.3" y="323.3" width="25.3" height="26.7" fill="#10b981"><title>🇬🇧 en-GB · add: 8.20M ops/sec</title></rect>
+<rect x="150.7" y="333.4" width="25.3" height="16.6" fill="#f59e0b"><title>🇵🇱 pl-PL · add: 5.08M ops/sec</title></rect>
+<text x="137" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">add</text>
+<rect x="202.0" y="230.9" width="25.3" height="119.1" fill="#3b82f6"><title>🇺🇸 en-US · find: 36.53M ops/sec</title></rect>
+<rect x="229.3" y="312.3" width="25.3" height="37.7" fill="#10b981"><title>🇬🇧 en-GB · find: 11.56M ops/sec</title></rect>
+<rect x="256.7" y="328.1" width="25.3" height="21.9" fill="#f59e0b"><title>🇵🇱 pl-PL · find: 6.73M ops/sec</title></rect>
+<text x="243" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">find</text>
+<rect x="308.0" y="236.7" width="25.3" height="113.3" fill="#3b82f6"><title>🇺🇸 en-US · has (hit): 34.76M ops/sec</title></rect>
+<rect x="335.3" y="311.2" width="25.3" height="38.8" fill="#10b981"><title>🇬🇧 en-GB · has (hit): 11.91M ops/sec</title></rect>
+<rect x="362.7" y="327.8" width="25.3" height="22.2" fill="#f59e0b"><title>🇵🇱 pl-PL · has (hit): 6.80M ops/sec</title></rect>
+<text x="349" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">has (hit)</text>
+<rect x="414.0" y="183.8" width="25.3" height="166.2" fill="#3b82f6"><title>🇺🇸 en-US · has (miss): 50.97M ops/sec</title></rect>
+<rect x="441.3" y="199.6" width="25.3" height="150.4" fill="#10b981"><title>🇬🇧 en-GB · has (miss): 46.14M ops/sec</title></rect>
+<rect x="468.7" y="254.9" width="25.3" height="95.1" fill="#f59e0b"><title>🇵🇱 pl-PL · has (miss): 29.16M ops/sec</title></rect>
+<text x="455" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">has (miss)</text>
+<rect x="520.0" y="244.4" width="25.3" height="105.6" fill="#3b82f6"><title>🇺🇸 en-US · hasPrefix: 32.40M ops/sec</title></rect>
+<rect x="547.3" y="262.4" width="25.3" height="87.6" fill="#10b981"><title>🇬🇧 en-GB · hasPrefix: 26.86M ops/sec</title></rect>
+<rect x="574.7" y="291.4" width="25.3" height="58.6" fill="#f59e0b"><title>🇵🇱 pl-PL · hasPrefix: 17.98M ops/sec</title></rect>
+<text x="561" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">hasPrefix</text>
+<rect x="626.0" y="311.9" width="25.3" height="38.1" fill="#3b82f6"><title>🇺🇸 en-US · remove: 11.68M ops/sec</title></rect>
+<rect x="653.3" y="341.5" width="25.3" height="8.5" fill="#10b981"><title>🇬🇧 en-GB · remove: 2.60M ops/sec</title></rect>
+<rect x="680.7" y="344.9" width="25.3" height="5.1" fill="#f59e0b"><title>🇵🇱 pl-PL · remove: 1.56M ops/sec</title></rect>
+<text x="667" y="376" text-anchor="middle" fill="#111" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">remove</text>
+<rect x="744" y="24" width="14" height="14" rx="2" fill="#3b82f6"/>
+<text x="766" y="35" fill="#222" font-weight="600">🇺🇸 en-US</text>
+<text x="766" y="51" fill="#666" font-size="11">TWL06 · 178,690 words</text>
+<rect x="744" y="68" width="14" height="14" rx="2" fill="#10b981"/>
+<text x="766" y="79" fill="#222" font-weight="600">🇬🇧 en-GB</text>
+<text x="766" y="95" fill="#666" font-size="11">SOWPODS · 267,751 words</text>
+<rect x="744" y="112" width="14" height="14" rx="2" fill="#f59e0b"/>
+<text x="766" y="123" fill="#222" font-weight="600">🇵🇱 pl-PL</text>
+<text x="766" y="139" fill="#666" font-size="11">SJP.PL · 3,229,855 words</text>
+</svg>
