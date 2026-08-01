@@ -8,7 +8,7 @@
 
 > **hasPrefix**(`node`, `prefix`): `boolean`
 
-Defined in: [lib/hasPrefix.ts:14](https://github.com/kamilmielnik/trie/blob/master/src/lib/hasPrefix.ts#L14)
+Defined in: [lib/hasPrefix.ts:15](https://github.com/kamilmielnik/trie/blob/master/src/lib/hasPrefix.ts#L15)
 
 Tells you whether there are any words with given prefix in the [Node](../interfaces/Node.md).
 

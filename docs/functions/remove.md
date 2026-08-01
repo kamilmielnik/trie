@@ -8,7 +8,7 @@
 
 > **remove**(`node`, `word`): `boolean`
 
-Defined in: [lib/remove.ts:18](https://github.com/kamilmielnik/trie/blob/master/src/lib/remove.ts#L18)
+Defined in: [lib/remove.ts:11](https://github.com/kamilmielnik/trie/blob/master/src/lib/remove.ts#L11)
 
 Removes given word from given [Node](../interfaces/Node.md) if it exists.
 
