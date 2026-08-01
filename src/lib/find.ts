@@ -11,13 +11,13 @@ export const find = (node: Node, prefix: string): Node | undefined => {
   let currentNode = node;
 
   for (let index = 0; index < prefix.length; ++index) {
-    const character = prefix[index];
+    const nextNode = currentNode[prefix[index]] as Node | undefined;
 
-    if (!currentNode[character]) {
+    if (!nextNode) {
       return undefined;
     }
 
-    currentNode = currentNode[character] as Node;
+    currentNode = nextNode;
   }
 
   return currentNode;

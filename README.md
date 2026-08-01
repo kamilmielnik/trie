@@ -191,7 +191,7 @@ It reaches 66.40 [compression ratio](https://en.wikipedia.org/wiki/Data_compress
 
 Benchmarks are produced by [`bench/index.ts`](bench/index.ts) using [tinybench](https://github.com/tinylibs/tinybench). Run `bun run bench` to regenerate the charts below.
 
-[`add`](docs/functions/add.md), [`find`](docs/functions/find.md), [`has`](docs/functions/has.md), [`hasPrefix`](docs/functions/hasPrefix.md), [`remove`](docs/functions/remove.md) are very fast - $O(\log_2 n)$ (millions of operations per second).
+[`add`](docs/functions/add.md), [`find`](docs/functions/find.md), [`has`](docs/functions/has.md), [`hasPrefix`](docs/functions/hasPrefix.md), [`remove`](docs/functions/remove.md) are very fast - $O(L)$, where $L$ is the word length (millions of operations per second).
 
 <!-- BENCH:fast:start -->
 ![Fast operations chart](bench/charts/fast.svg)

@@ -61,6 +61,10 @@ describe('Trie', () => {
     });
   });
 
+  it('Has no prefixes when empty', () => {
+    expect(new Trie().hasPrefix('')).toBe(false);
+  });
+
   it('Does nothing when trying to remove an empty string', () => {
     const trie = Trie.fromArray(words);
 

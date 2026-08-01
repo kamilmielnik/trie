@@ -8,7 +8,7 @@
 
 > **serialize**(`node`): `string`
 
-Defined in: [lib/serialize.ts:37](https://github.com/kamilmielnik/trie/blob/master/src/lib/serialize.ts#L37)
+Defined in: [lib/serialize.ts:50](https://github.com/kamilmielnik/trie/blob/master/src/lib/serialize.ts#L50)
 
 Converts given [Node](../interfaces/Node.md) into a string.
 

@@ -4,7 +4,9 @@ import { nodeKeyComparator } from './nodeKeyComparator.ts';
 
 type TraverseState = {
   keyIndex: number;
+  keys: string[];
   node: Node;
+  prefix: string;
 };
 
 /**
@@ -20,46 +22,59 @@ export const traverse = (
   options: TraverseOptions = {}
 ): void => {
   const stack: TraverseState[] = [];
+  let currentKeys = getKeys(node, options.sort);
   let currentKeyIndex = 0;
-  let currentNode: Node | undefined = node;
+  let currentNode = node;
   let currentPrefix = options.prefix || '';
 
-  while (stack.length > 0 || currentNode) {
-    while (currentNode) {
-      const keys = Object.keys(currentNode);
+  while (true) {
+    if (currentKeyIndex >= currentKeys.length) {
+      const state = stack.pop();
 
-      if (currentKeyIndex >= keys.length) {
-        currentNode = undefined;
-      } else {
-        const sortedKeys = options.sort ? keys.sort(nodeKeyComparator) : keys;
-        const key = sortedKeys[currentKeyIndex];
+      if (!state) {
+        return;
+      }
 
-        if (key === 'wordEnd') {
-          ++currentKeyIndex;
-        } else {
-          stack.push({ keyIndex: currentKeyIndex, node: currentNode });
+      currentKeyIndex = state.keyIndex + 1;
+      currentKeys = state.keys;
+      currentNode = state.node;
+      currentPrefix = state.prefix;
+      continue;
+    }
 
-          currentKeyIndex = 0;
-          currentNode = currentNode[key] as Node;
-          currentPrefix += key;
+    const key = currentKeys[currentKeyIndex];
 
-          if (!options.wordsOnly || currentNode.wordEnd) {
-            const shouldStop = callback({ node: currentNode, prefix: currentPrefix });
+    if (key === 'wordEnd') {
+      ++currentKeyIndex;
+      continue;
+    }
 
-            if (shouldStop) {
-              return;
-            }
-          }
-        }
+    const nextNode = currentNode[key] as Node;
+    const nextPrefix = currentPrefix + key;
+
+    if (!options.wordsOnly || nextNode.wordEnd) {
+      const shouldStop = callback({ node: nextNode, prefix: nextPrefix });
+
+      if (shouldStop) {
+        return;
       }
     }
 
-    if (stack.length > 0) {
-      const state = stack.pop() as TraverseState;
+    stack.push({
+      keyIndex: currentKeyIndex,
+      keys: currentKeys,
+      node: currentNode,
+      prefix: currentPrefix
+    });
 
-      currentKeyIndex = state.keyIndex + 1;
-      currentNode = state.node;
-      currentPrefix = currentPrefix.slice(0, -1);
-    }
+    currentKeys = getKeys(nextNode, options.sort);
+    currentKeyIndex = 0;
+    currentNode = nextNode;
+    currentPrefix = nextPrefix;
   }
+};
+
+const getKeys = (node: Node, sort: boolean | undefined): string[] => {
+  const keys = Object.keys(node);
+  return sort ? keys.sort(nodeKeyComparator) : keys;
 };

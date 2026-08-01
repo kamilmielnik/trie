@@ -8,7 +8,7 @@
 
 > **traverse**(`node`, `callback`, `options?`): `void`
 
-Defined in: [lib/traverse.ts:17](https://github.com/kamilmielnik/trie/blob/master/src/lib/traverse.ts#L17)
+Defined in: [lib/traverse.ts:24](https://github.com/kamilmielnik/trie/blob/master/src/lib/traverse.ts#L24)
 
 Visits every descendant [Node](../interfaces/Node.md) of given [Node](../interfaces/Node.md) and calls a callback.
 

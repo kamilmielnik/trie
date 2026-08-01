@@ -12,12 +12,7 @@ export const add = (node: Node, word: string): Node => {
 
   for (let index = 0; index < word.length; ++index) {
     const character = word[index];
-
-    if (!currentNode[character]) {
-      currentNode[character] = {};
-    }
-
-    currentNode = currentNode[character] as Node;
+    currentNode = (currentNode[character] ??= {}) as Node;
   }
 
   currentNode.wordEnd = true;

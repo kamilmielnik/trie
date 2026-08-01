@@ -1,6 +1,7 @@
 import type { Node } from '../types.ts';
 
 import { find } from './find.ts';
+import { isEmpty } from './isEmpty.ts';
 
 /**
  * Tells you whether there are any words with given prefix in the {@link Node}.
@@ -13,5 +14,10 @@ import { find } from './find.ts';
  */
 export const hasPrefix = (node: Node, prefix: string): boolean => {
   const foundNode = find(node, prefix);
-  return foundNode ? Object.keys(foundNode).length > 0 : false;
+
+  if (!foundNode) {
+    return false;
+  }
+
+  return !isEmpty(foundNode);
 };

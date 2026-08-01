@@ -1,25 +1,6 @@
 import { CLOSE_PARENS, OPEN_PARENS } from '../constants.ts';
 import type { Node } from '../types.ts';
 
-const serializeNode = (node: Node, character: string): string => {
-  const letters = Object.keys(node).filter((key) => key.length === 1);
-  const hasPrefix = letters.length > 0;
-  let serialized = '';
-
-  if (node.wordEnd) {
-    serialized += character;
-  }
-
-  if (hasPrefix) {
-    serialized += character;
-    serialized += OPEN_PARENS;
-    serialized += letters.map((letter) => serializeNode(node[letter] as Node, letter)).join('');
-    serialized += CLOSE_PARENS;
-  }
-
-  return serialized;
-};
-
 /**
  * Converts given {@link Node} into a string.
  *
@@ -34,4 +15,40 @@ const serializeNode = (node: Node, character: string): string => {
  * @param node - {@link Node} to serialize.
  * @returns String with serialized data.
  */
-export const serialize = (node: Node): string => serializeNode(node, '');
+export const serialize = (node: Node): string => {
+  const parts: string[] = [];
+  serializeNode(node, '', parts);
+  return parts.join('');
+};
+
+const serializeNode = (node: Node, character: string, parts: string[]): void => {
+  const keys = Object.keys(node);
+
+  if (node.wordEnd) {
+    parts.push(character);
+  }
+
+  if (hasAnyLetter(keys)) {
+    parts.push(character, OPEN_PARENS);
+
+    for (let index = 0; index < keys.length; ++index) {
+      const key = keys[index];
+
+      if (key.length === 1) {
+        serializeNode(node[key] as Node, key, parts);
+      }
+    }
+
+    parts.push(CLOSE_PARENS);
+  }
+};
+
+const hasAnyLetter = (keys: string[]): boolean => {
+  for (let index = 0; index < keys.length; ++index) {
+    if (keys[index].length === 1) {
+      return true;
+    }
+  }
+
+  return false;
+};

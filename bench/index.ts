@@ -242,10 +242,17 @@ const runFast = async (dict: Dictionary, time: number): Promise<Map<string, numb
     .add('hasPrefix', () => {
       hasPrefix(dict.trie, prefix);
     })
-    .add('remove', () => {
-      const root = buildTrie([presentWord]);
-      remove(root, presentWord);
-    });
+    .add(
+      'remove',
+      () => {
+        remove(dict.trie, presentWord);
+      },
+      {
+        afterEach: () => {
+          add(dict.trie, presentWord);
+        }
+      }
+    );
   await bench.run();
 
   const results = new Map<string, number>();

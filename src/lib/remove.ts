@@ -1,4 +1,5 @@
 import type { Node } from '../types.ts';
+import { isEmpty } from './isEmpty.ts';
 
 /**
  * Removes given word from given {@link Node} if it exists.
@@ -8,30 +9,28 @@ import type { Node } from '../types.ts';
  * @returns true if the word was removed, false otherwise.
  */
 export const remove = (node: Node, word: string): boolean => {
-  if (word.length === 0) {
-    if (node.wordEnd) {
-      delete node.wordEnd;
-      return true;
+  const path: Node[] = [node];
+  let currentNode = node;
+
+  for (let index = 0; index < word.length; ++index) {
+    const nextNode = currentNode[word[index]] as Node | undefined;
+
+    if (!nextNode) {
+      return false;
     }
 
+    currentNode = nextNode;
+    path.push(currentNode);
+  }
+
+  if (!currentNode.wordEnd) {
     return false;
   }
 
-  const letter = word[0];
-  const nextNode = node[letter] as Node | undefined;
+  delete currentNode.wordEnd;
 
-  if (!nextNode) {
-    return false;
-  }
-
-  const removed = remove(nextNode, word.substring(1));
-
-  if (!removed) {
-    return false;
-  }
-
-  if (Object.keys(nextNode).length === 0) {
-    delete node[letter];
+  for (let index = word.length; index > 0 && isEmpty(path[index]); --index) {
+    delete path[index - 1][word[index - 1]];
   }
 
   return true;
