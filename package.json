@@ -46,7 +46,7 @@
     "build/**"
   ],
   "np": {
-    "packageManager": "npm"
+    "packageManager": "bun"
   },
   "publishConfig": {
     "access": "public"
