@@ -204,3 +204,7 @@ Benchmarks are produced by [`bench/index.ts`](bench/index.ts) using [tinybench](
 <!-- BENCH:slow:start -->
 ![Slow operations chart](bench/charts/slow.svg)
 <!-- BENCH:slow:end -->
+
+---
+
+If lookup speed is preferred over serialized size, use [@kamilmielnik/gaddag](https://github.com/kamilmielnik/gaddag) instead. It is backed by flat typed arrays, making it near-instant to deserialize, and it can extend words in both directions from any letter - the core operation of Scrabble move generation, which a prefix-only trie cannot do efficiently.
