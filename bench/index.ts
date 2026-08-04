@@ -219,37 +219,75 @@ const formatHzAxis = (hz: number): string => {
   return `${Math.round(hz)}`;
 };
 
+// Each benchmarked operation cycles through this many words spread evenly across
+// the dictionary — querying a single word over and over would only measure a
+// fully cached, branch-predicted best case. Power of two, so cycling is a mask.
+const SAMPLE_SIZE = 1024;
+const SAMPLE_MASK = SAMPLE_SIZE - 1;
+
+const sampleWords = (words: string[], count: number): string[] =>
+  Array.from({ length: count }, (_, index) => words[Math.floor((index * words.length) / count)]!);
+
+// A doubled word walks deep into the trie before failing — a miss that rejects
+// on the first character would only measure the trivial best case.
+const findMissingWord = (trie: Node, base: string): string => {
+  let candidate = base + base;
+  while (has(trie, candidate)) {
+    candidate += base;
+  }
+  return candidate;
+};
+
 const runFast = async (dict: Dictionary, time: number): Promise<Map<string, number>> => {
-  const presentWord = dict.words[Math.floor(dict.words.length / 2)]!;
-  const missingWord = '__definitely_not_in_trie__';
-  const prefix = presentWord.slice(0, Math.min(3, presentWord.length));
+  const { trie } = dict;
+  const present = sampleWords(dict.words, SAMPLE_SIZE);
+  const missing = present.map((word) => findMissingWord(trie, word));
+  const prefixes = present.map((word) => word.slice(0, Math.min(3, word.length)));
 
   const bench = new Bench({ time });
+  let addIndex = 0;
+  let findIndex = 0;
+  let hasHitIndex = 0;
+  let hasMissIndex = 0;
+  let prefixHitIndex = 0;
+  let prefixMissIndex = 0;
+  let removeIndex = 0;
+
   bench
     .add('add', () => {
       const root: Node = {};
-      add(root, presentWord);
+      add(root, present[addIndex]!);
+      addIndex = (addIndex + 1) & SAMPLE_MASK;
     })
     .add('find', () => {
-      find(dict.trie, presentWord);
+      find(trie, present[findIndex]!);
+      findIndex = (findIndex + 1) & SAMPLE_MASK;
     })
     .add('has (hit)', () => {
-      has(dict.trie, presentWord);
+      has(trie, present[hasHitIndex]!);
+      hasHitIndex = (hasHitIndex + 1) & SAMPLE_MASK;
     })
     .add('has (miss)', () => {
-      has(dict.trie, missingWord);
+      has(trie, missing[hasMissIndex]!);
+      hasMissIndex = (hasMissIndex + 1) & SAMPLE_MASK;
     })
-    .add('hasPrefix', () => {
-      hasPrefix(dict.trie, prefix);
+    .add('hasPrefix (hit)', () => {
+      hasPrefix(trie, prefixes[prefixHitIndex]!);
+      prefixHitIndex = (prefixHitIndex + 1) & SAMPLE_MASK;
+    })
+    .add('hasPrefix (miss)', () => {
+      hasPrefix(trie, missing[prefixMissIndex]!);
+      prefixMissIndex = (prefixMissIndex + 1) & SAMPLE_MASK;
     })
     .add(
       'remove',
       () => {
-        remove(dict.trie, presentWord);
+        remove(trie, present[removeIndex]!);
       },
       {
         afterEach: () => {
-          add(dict.trie, presentWord);
+          add(trie, present[removeIndex]!);
+          removeIndex = (removeIndex + 1) & SAMPLE_MASK;
         }
       }
     );
@@ -313,11 +351,11 @@ const renderChart = (
   dictionaries: Dictionary[],
   results: Map<string, Map<string, number>>
 ): string => {
-  const W = 920;
   const H = 400;
   const padding = { top: 24, right: 200, bottom: 50, left: 84 };
-  const plotW = W - padding.left - padding.right;
+  const plotW = 130 * operations.length;
   const plotH = H - padding.top - padding.bottom;
+  const W = padding.left + plotW + padding.right;
 
   let max = 0;
   for (const dict of dictionaries) {
@@ -419,7 +457,15 @@ const main = async () => {
     slowResults.set(dict.lang, await runSlow(dict, 3000));
   }
 
-  const fastOps = ['add', 'find', 'has (hit)', 'has (miss)', 'hasPrefix', 'remove'];
+  const fastOps = [
+    'add',
+    'find',
+    'has (hit)',
+    'has (miss)',
+    'hasPrefix (hit)',
+    'hasPrefix (miss)',
+    'remove'
+  ];
   const slowOps = ['fromArray', 'toArray', 'serialize', 'deserialize'];
 
   console.log('Rendering charts...');
