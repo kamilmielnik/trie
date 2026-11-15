@@ -133,7 +133,20 @@ describe('Trie', () => {
   it('Catches deserialization errors', () => {
     expect(() => Trie.deserialize('())')).toThrow();
     expect(() => Trie.deserialize('(()')).toThrow();
+    expect(() => Trie.deserialize('(a))')).toThrow();
+    expect(() => Trie.deserialize('((a))')).toThrow();
+    expect(() => Trie.deserialize('a)')).toThrow();
+    expect(() => Trie.deserialize('(a')).toThrow();
+    expect(() => Trie.deserialize('(a(b)c')).toThrow();
   });
+
+  it.each([[['a']], [['a', 'b']], [['cat', 'z']], [['ab', 'b']], [['ab', 'a', 'b', 'bc']]])(
+    'Serializes and deserializes %j',
+    (testWords) => {
+      const trie = Trie.fromArray(testWords);
+      expect(Trie.deserialize(trie.serialize())).toEqual(trie);
+    }
+  );
 
   it('Serializes and deserializes empty tree', () => {
     const trie = new Trie();

@@ -9,46 +9,50 @@ import type { Node } from '../types.ts';
  * @param serialized - String with value returned by {@link serialize}.
  * @returns Instance of a root {@link Node} of deserialized string.
  */
-export const deserialize = (serialized: string): Node => {
+export function deserialize(serialized: string): Node {
+  const root: Node = {};
+
+  if (serialized.length === 0) {
+    return root;
+  }
+
+  if (serialized[0] !== OPEN_PARENS) {
+    throw new Error(`Syntax error: missing "${OPEN_PARENS}" at the start`);
+  }
+
   const stack: Node[] = [];
-  let node: Node = {};
-  let i = 1;
+  let node = root;
 
-  while (i < serialized.length - 1) {
+  for (let i = 1; i < serialized.length; ++i) {
     const character = serialized[i];
-    const nextCharacter = serialized[i + 1];
-
-    ++i;
 
     if (character === CLOSE_PARENS) {
-      const nextNode = stack.pop();
+      const parent = stack.pop();
 
-      if (!nextNode) {
+      if (parent) {
+        node = parent;
+      } else if (i === serialized.length - 1) {
+        return root;
+      } else {
         throw new Error(`Syntax error: misplaced "${CLOSE_PARENS}"`);
       }
-
-      node = nextNode;
-    } else if (nextCharacter === CLOSE_PARENS) {
-      node[character] = { wordEnd: true };
-
-      const nextNode = stack.pop();
-
-      if (!nextNode) {
-        throw new Error(`Syntax error: misplaced "${CLOSE_PARENS}"`);
-      }
-
-      node = nextNode;
-      ++i;
-    } else if (nextCharacter === OPEN_PARENS) {
+    } else if (character === OPEN_PARENS) {
+      throw new Error(`Syntax error: misplaced "${OPEN_PARENS}"`);
+    } else if (serialized[i + 1] === OPEN_PARENS) {
       stack.push(node);
-      const newNode = node[character] || {};
-      node[character] = newNode;
-      node = newNode as Node;
+      node = getOrCreateChild(node, character);
       ++i;
     } else {
       node[character] = { wordEnd: true };
     }
   }
 
-  return node;
-};
+  throw new Error(`Syntax error: missing "${CLOSE_PARENS}" at the end`);
+}
+
+function getOrCreateChild(node: Node, character: string): Node {
+  // `character` is one letter, so it is never "wordEnd" (the only key that can be `true`).
+  const child = (node[character] as Node | undefined) ?? {};
+  node[character] = child;
+  return child;
+}
